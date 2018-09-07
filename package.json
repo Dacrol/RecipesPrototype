@@ -1,0 +1,10 @@
+{
+  "name": "RecipesPrototype",
+  "version": "0.0.0",
+  "description": "Recipe search site",
+  "main": "app.js",
+  "repository": "git@github.com:Dacrol/RecipesPrototype.git",
+  "author": "Dacrol <jonas.ahrens@gmail.com>",
+  "license": "UNLICENSED",
+  "private": true
+}
