@@ -20,7 +20,10 @@
 </head>
 
 <body>
+
+
   <div class="container-fluid">
+
     <div class="row d-flex d-md-block flex-nowrap wrapper">
       <div class="col-md-3 float-left col-1 pl-0 pr-0 collapse width show" id="sidebar">
         <div class="list-group border-0 card text-center text-md-left">
@@ -96,42 +99,80 @@
             <span class="d-none d-md-inline">Link</span></a>
         </div>
       </div>
-      <main class="col-md-9 float-left col px-5 pl-md-2 pt-2 main">
-        <a href="#" data-target="#sidebar" data-toggle="collapse"><i class="fa fa-navicon fa-2x py-2 p-1"></i></a>
-        <div class="page-header">
-          <h2>Bootstrap 4 Sidebar Menu</h2>
-        </div>
-        <p class="lead">A responsive, multi-level vertical accordion.</p>
-        <hr>
-        <div class="row">
-          <div class="col-lg-6">
-            <button role="button" class="btn btn-danger" data-toggle="collapse" data-target="#demo" aria-expanded="true">
-              horizontal collapsible
-            </button>
-            <div id="demo" class="width collapse show" aria-expanded="true">
-              <div class="list-group" style="width:400px">
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget
-                  metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget
-                  metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+
+
+
+      <div class="col-md-9 float-left col px-5 pl-md-2 pt-2">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="float-left col-12">
+              <nav class="navbar navbar-expand navbar-light">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button> -->
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                  <ul class="navbar-nav">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Pricing</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        Dropdown link
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+          </div>
+          <div class="d-flex row">
+            <a href="#" data-target="#sidebar" data-toggle="collapse"><i class="fa fa-navicon fa-2x py-2 p-1"></i></a>
+            <div class="text-center flex-fill">
+              <div class="d-flex justify-content-center">
+                <form class="form-inline mt-2 mt-md-0">
+                  <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
               </div>
             </div>
           </div>
-          <div class="col-lg-6">
-            <button role="button" class="btn btn-danger" data-toggle="collapse" data-target="#demo2" aria-expanded="true">
-              vertical collapsible
-            </button>
-            <div id="demo2" class="height collapse show" aria-expanded="true">
-              <div>
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget
-                  metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget
-                  metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+          <div class="album py-5">
+            <div class="container">
+              <div id="recipe-list" class="row">
+
+                <!-- <div class="col-4">
+                  <div class="card mb-4 shadow-sm">
+                    <img class="card-img-top" alt="" style="height: 225px; width: 100%; display: block;" src="imgs/">
+                    <div class="card-body">
+                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <i class="far fa-clock fa-1point5"></i>
+                        <small class="text-muted">9 mins</small>
+                      </div>
+                    </div>
+                  </div>
+                </div> -->
+
+
+
               </div>
             </div>
           </div>
         </div>
-      </main>
+      </div>
     </div>
   </div>
 
