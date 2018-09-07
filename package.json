@@ -6,5 +6,11 @@
   "repository": "git@github.com:Dacrol/RecipesPrototype.git",
   "author": "Dacrol <jonas.ahrens@gmail.com>",
   "license": "UNLICENSED",
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "live-server": "^1.2.0"
+  },
+  "scripts": {
+    "start": "live-server public"
+  }
 }
