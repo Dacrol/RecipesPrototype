@@ -1,0 +1,67 @@
+[
+    [
+        {
+            "dish" : "Grönsakslasagne"
+        },
+        {
+            "tags" : [
+                "vegetarisk" , "lasagne"
+            ]
+        },
+        {
+            "temperature" : "200"
+        },
+        {
+            "portions" : 4
+        },
+        {
+            "cooking-time" : "30 min"
+        },
+        {
+            "summary" : "Vegetarisk lasagne med grönsaker och svamp"
+        },
+        {
+            "rating" : 4.5
+        },
+        {
+            "additional information" : "Går bra med champinjoner också."
+        },
+        {
+            "description" : [
+                "Hacka svampen och hacka eller riv auberginen grovt. Värm olja i en stor stekpanna eller kastrull och fräs svamp, aubergine, lök och vitlök tills vätskan ångat bort.",
+                "Tillsätt tomatpurén och stek under omrörning ca 3 min. Häll i resten av ingredienserna och låt småputtra ca 15 min.",
+                "Smält smöret i en tjockbottnad kastrull. Vispa i mjölet. Häll på lite mjölk och vispa till en jämn konsistens. Tillsätt resten av mjölken lite i taget.",
+                "Låt sjuda ca 3 min. Vispa hela tiden och var försiktig med värmen. Smaka av med salt och peppar.",
+                "Varva bechamelsås med grönsakssås, smulad fetaost och lasagneplattor i en passande gratängform. Toppa med riven ost och gratinera mitt i ugnen ca 20 min. Toppa med färsk basilika vid servering."
+
+            ]
+        },
+        {
+            "ingredients" : [
+                "500 g färska lasagneplattor",
+                "300 g fetaost",
+                "2 dl riven ost",
+                "0.5 kruka färsk basilika",
+                "200 g portabellosvamp",
+                "300 g aubergine",
+                "1 msk olivolja",
+                "1 st stor gul lök, hackad",
+                "1 vitlöksklyfta, finhackad",
+                "1 msk tomatpuré",
+                "400 g krossade tomater",
+                "3 dl vatten",
+                "1 msk grönsaksfond",
+                "1 msk balsamvinäger",
+                "0.5 msk honung",
+                "1 tsk timjan",
+                "1 tsk salt",
+                "0.5 tsk svartpeppar",
+                "20 g smör",
+                "2.5 msk vetemjöl",
+                "5 dl mjölk",
+                "salt",
+                "peppar"
+            ] 
+        }
+    ]
+]
