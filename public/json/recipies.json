@@ -12,6 +12,9 @@
             "image" : "/imgs/veg-lasagne.jpg"
         },
         {
+            "difficulty" : "Svår"
+        },
+        {
             "temperature" : "200"
         },
         {
@@ -64,6 +67,170 @@
                 "5 dl mjölk",
                 "salt",
                 "peppar"
+            ] 
+        }
+    ],
+    [
+        {
+            "dish" : "Pad Thai"
+        },
+        {
+            "tags" : [
+                "kyckling" , "wok"
+            ]
+        },
+        {
+            "image" : "/imgs/pad_thai.jpg"
+        },
+        {
+            "difficulty" : "Medel"
+        },
+        {
+            "temperature" : "-"
+        },
+        {
+            "portions" : 4
+        },
+        {
+            "cooking-time" : "30 min"
+        },
+        {
+            "summary" : "En fräsch och kryddig kycklingrätt med smak av lime, vitlök och ostronsås."
+        },
+        {
+            "rating" : 4.2
+        },
+        {
+            "additional information" : "Servera med salladslök, jordnötter, koriander eller persilja och chili."
+        },
+        {
+            "description" : [
+                "Blanda alla ingredienser till såsen.",
+                "Tillaga nudlarna enligt anvisning på förpackningen.",
+                "Hetta upp olja i en rymlig stekpanna eller wok. Stek kycklingen på stark värme, cirka 2 minuter.",
+                "Tillsätt sås, vitkål, böngroddar, nudlar och stek ytterligare 3 minuter under omrörning. Knäck i äggen. Vänd runt ordentligt tills äggen stelnat."
+            ]
+        },
+        {
+            "ingredients" : [
+                "250 g risnudlar",
+                "2 msk olja",
+                "400 g strimlad kycklingfilé",
+                "6 dl strimlad vitkål",
+                "4 dl böngroddar",
+                "2 msk ostronsås",
+                "2 msk soja",
+                "2 msk vatten",
+                "1 msk fisksås",
+                "1 lime, rivet skal och saft",
+                "2 hackade vitlöksklyftor"
+            ] 
+        }
+    ],
+    [
+        {
+            "dish" : "Sötpotatis med rostad majs, bönor och fetaost"
+        },
+        {
+            "tags" : [
+                "vegetarisk" , "snabb"
+            ]
+        },
+        {
+            "image" : "/imgs/264286.jpg.jpg"
+        },
+        {
+            "difficulty" : "Lätt"
+        },
+        {
+            "temperature" : "-"
+        },
+        {
+            "portions" : 4
+        },
+        {
+            "cooking-time" : "15 min"
+        },
+        {
+            "summary" : "De söta smakerna från sötpotatis, bönor och majs samsas med den salta smaken från fetaosten. Allt kryddas med chili, lime och koriander och blir till en härligt färgglad, vegetarik måltid."
+        },
+        {
+            "rating" : 4.6
+        },
+        {
+            "additional information" : "Var bönberedd – koka en stor laddning och frys in portionspåsar till hela veckans matlagning."
+        },
+        {
+            "description" : [
+                "Hetta upp olja i en stekpanna och stek majsen lätt krispig och till fin färg. Vänd ner bönor och ev chili, rör om tills allt är varmt och häll över på ett fat.",
+                "Droppa i mer olja i stekpannan och fräs spaghettin 2–3 min. Vänd runt hela tiden. Tillsätt bönblandningen, salladslök och salt. Pressa över limesaft och smula över fetaost. Toppa med koriander."
+            ]
+        },
+        {
+            "ingredients" : [
+                "1 msk olivolja",
+                "150 g majskorn",
+                "400 g kidneybönor, på burk, bruttovikt, avsköljda",
+                "1 röd chili, skivad",
+                "500 g sötpotatisspaghetti hackat och klart eller morotsspaghetti",
+                "2 salladslökar, strimlade",
+                "2 tsk flingsalt",
+                "1 lime, pressad saft",
+                "150 g fetaost",
+                "1 kruka koriander, plockade blad"
+            ] 
+        }
+    ],
+    [
+        {
+            "dish" : "Lax med blomkålscouscous"
+        },
+        {
+            "tags" : [
+                "fisk"
+            ]
+        },
+        {
+            "image" : "/imgs/150312.jpg.jpg"
+        },
+        {
+            "difficulty" : "Lätt"
+        },
+        {
+            "temperature" : "-"
+        },
+        {
+            "portions" : 4
+        },
+        {
+            "cooking-time" : "30 min"
+        },
+        {
+            "summary" : "Fräsch laxrätt med blomkål och yoghurt."
+        },
+        {
+            "rating" : 3.7
+        },
+        {
+            "additional information" : ""
+        },
+        {
+            "description" : [
+                "Blanda yoghurten med finrivet skal av citron(endast det gula), honung och vitlök.",
+                "Riv blomkålen på grova sidan av rivjärnet och häll smulet i kokande, saltat vatten och låt koka 3 min. Häll av vattnet i ett durkslag och blanda blomkålen med olja, citronsaft och dill.",
+                "Skär laxen i portionsbitar ,hetta upp olja i en stekpanna och stek 3 min per sida ca 48°."
+            ]
+        },
+        {
+            "ingredients" : [
+                "3 dl yoghurt",
+                "0.5 citron",
+                "1 msk honung",
+                "1 riven vitlöksklyfta",
+                "1 blomkålshuvud",
+                "1 msk olivolja",
+                "1 dl finhackad dill",
+                "500 g lax"
             ] 
         }
     ]
