@@ -109,3 +109,11 @@ nav {
     display: block;
     object-fit: cover;
 }
+
+.justify-content-stretch {
+    justify-content: stretch;
+}
+
+.form-row input {
+    width: inherit !important;
+}
