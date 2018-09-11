@@ -7,6 +7,7 @@
     min-width: 400px;
     background-color: #333333;
     min-height: 100vh;
+    height: 100%;
 }
 
 #sidebar i {
@@ -84,7 +85,7 @@
     height: 100%;
     -webkit-transition-timing-function: ease-out;
             transition-timing-function: ease-out;
-            /* transition-duration: 1000ms; */
+            /* transition-duration: 2500ms; */
 }
 
 nav {
