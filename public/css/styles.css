@@ -133,6 +133,7 @@ nav {
     margin-bottom: 0.5em;
 }
 
-.nutrition-table {
+.nutrition-table>div {
     flex-basis: 50%;
+    padding-right: 25%!important;
 }
