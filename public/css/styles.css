@@ -110,6 +110,13 @@ nav {
     object-fit: cover;
 }
 
+.justify-content-stretch {
+    justify-content: stretch;
+}
+
+.form-row input {
+    width: inherit !important;
+}
 .recipe-container {
     padding-left: 0px;
     margin-left: -8px;    
