@@ -2,11 +2,13 @@
     overflow: hidden;
     z-index: 3;
 }
+
 #sidebar .list-group {
     min-width: 400px;
     background-color: #333333;
     min-height: 100vh;
 }
+
 #sidebar i {
     margin-right: 6px;
 }
@@ -39,6 +41,7 @@
 #sidebar .list-group .list-group-item[aria-expanded="true"] {
     background-color: #222222;
 }
+
 #sidebar .list-group .list-group-item[aria-expanded="true"]::after {
     content: " \f0da";
     font-family: FontAwesome;
@@ -81,6 +84,7 @@
     height: 100%;
     -webkit-transition-timing-function: ease-out;
             transition-timing-function: ease-out;
+            /* transition-duration: 1000ms; */
 }
 
 nav {
