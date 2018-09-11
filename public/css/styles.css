@@ -127,3 +127,12 @@ nav {
   height: 250px;
   width: 250px;
 }
+
+.instruction-list>li {
+    max-width: 45em;
+    margin-bottom: 0.5em;
+}
+
+.nutrition-table {
+    flex-basis: 50%;
+}
