@@ -7,7 +7,7 @@ $.getJSON('/json/recipies.json', function(data) {
         <p class="card-text">${recipe.summary}</p>
         <div class="d-flex justify-content-between align-items-center">
           <i class="far fa-clock fa-1point5"></i>
-          <small class="text-muted">${recipe.time} mins</small>
+          <small class="text-muted">${recipe.time}</small>
         </div>
       </div>
     </div>
