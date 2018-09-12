@@ -137,3 +137,23 @@ nav {
     flex-basis: 50%;
     padding-right: 25%!important;
 }
+
+.fa-clipboard-list {
+    cursor: pointer;
+}
+
+.shopping-list {
+    margin-top: -10px;
+}
+
+.text-bold {
+    font-weight: bold; 
+}
+
+.ingredient-list {
+    list-style-type: none;
+}
+
+.ingredient-list>li {
+    margin-top: 0.6em;
+}
