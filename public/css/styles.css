@@ -128,9 +128,30 @@ nav {
   width: 250px;
 }
 
+.instruction-title {
+    font-family: 'Viga', sans-serif;
+    font-size: 4em;
+}
+
+.instruction-summary {
+    font-family: 'Khula', sans-serif;
+}
+
 .instruction-list>li {
     max-width: 45em;
     margin-bottom: 0.5em;
+    font-family: 'Amiri', serif;
+}
+
+.instructions-icons {
+    margin-right: 15px;
+    border: 2px solid #000;
+    padding: 3px 15px;
+    border-radius: 25px;
+}
+
+.btn-print {
+    cursor: pointer;
 }
 
 .nutrition-table>div {
