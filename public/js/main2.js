@@ -1,24 +1,36 @@
-$(document).on('click', '.card', function () {
-    console.log($(this))
-  })
-  
-  let dishName = 'Grönsakslasagne';
-  let allDishes = [];
-  let selectedDish = [];
-  
-  $.getJSON('/json/recipies.json', function (data) {
-    data.forEach(recipe => allDishes.push(recipe));
-  
-    selectedDish = allDishes.filter(function (recipe) {
-      return recipe.dish == dishName;
-    });
-    renderDish();
-    console.log(allDishes)
-    console.log(selectedDish[0].image)
+let dishName = 'Pad Thai';
+let allDishes = [];
+let selectedDish = [];
+// let selectedDishID = '';
+
+function loadAllDishes() {
+$.getJSON('./json/recipies.json', function (data) {
+  data.forEach(recipe => allDishes.push(recipe));
+
+  selectedDish = allDishes.filter(function (recipe) {
+    return recipe.dish == dishName;
   });
-  
-  function renderDish() {
-    $('#recipe-details').append(`<div class="d-flex flex-column justify-content-start">
+
+  console.log('allDishes', allDishes)
+  console.log(selectedDish[0].image)
+
+});
+};
+
+loadAllDishes();
+console.log('allDishes', allDishes)
+renderDish();
+
+
+async function renderDish() {
+  selectedDish = await loadAllDishes();
+  selectedDish = allDishes.filter(function (recipe) {
+    return recipe.dish == dishName;
+  })
+  console.log('selectedDish',selectedDish)
+  console.log(selectedDish[0].image)
+
+  $('#recipe-details').append(`<div class="d-flex flex-column justify-content-start">
       <img class="" src="./${selectedDish[0].image}">
         <div class="">
           <select class="custom-select" id="portion-size">
@@ -66,7 +78,6 @@ $(document).on('click', '.card', function () {
           <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus maxime dolores laboriosam voluptas dolore! Ipsum, recusandae, id neque nam consequatur unde dolore ullam nulla esse ea at sit? Tempore, perspiciatis!</li>
           <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit, voluptatum facere? Ipsum atque aspernatur fuga architecto sequi ratione soluta ex qui ab, minima accusamus expedita quod natus cum at reiciendis.</li>
           <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus maxime dolores laboriosam voluptas dolore! Ipsum, recusandae, id neque nam consequatur unde dolore ullam nulla esse ea at sit? Tempore, perspiciatis!</li>
-          ${renderInstructions()}
         </ol>
         <h4 class="mt-4">Näringsinnehåll</h4>
         <div class="d-flex flex-wrap nutrition-table">
@@ -86,13 +97,30 @@ $(document).on('click', '.card', function () {
       </div>
     </div>
     `)
-  };
-  
-  function renderInstructions() {
-    let html = '';
-    selectedDish.description.forEach(instruction => {
-      html += (`<p>${instruction}</p>`);
-    });
-    console.log(html);
-    $('#instruction-list').append(html);
-  }
+};
+
+//   function renderInstructions() {
+//     let html = '';
+//     selectedDish.description.forEach(instruction => {
+//       html += (`<p>${instruction}</p>`);
+//     });
+//     console.log(html);
+//     $('#instruction-list').append(html);
+//   }
+
+
+
+$(document).on('click', '#recipe-list .card', function () {
+  dishName = $(this)[0].id;
+  selectedDish = allDishes.filter(function (recipe) {
+    return recipe.dish == dishName;
+
+    console.log('selectedDish', selectedDish);
+    console.log('dishName', dishName)
+  })
+  renderDish();
+  // console.log('clicked dish', dishName)
+  // console.log('$(this)[0].id', $(this)[0].id)
+  //   console.log('selectedDishID', selectedDishID)
+
+}) 
