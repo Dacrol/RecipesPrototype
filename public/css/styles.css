@@ -128,18 +128,34 @@ nav {
   width: 250px;
 }
 
+.instructions-header-area {
+    background-color: rgb(255, 219, 191);
+    
+}
+
+.instructions-body-area {
+    background-color: rgb(255, 243, 232);
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffdbbf+0,fff3e8+35 */
+background: #ffdbbf; /* Old browsers */
+background: -moz-linear-gradient(top, #ffdbbf 0%, #fff3e8 35%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #ffdbbf 0%,#fff3e8 35%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #ffdbbf 0%,#fff3e8 35%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffdbbf', endColorstr='#fff3e8',GradientType=0 ); /* IE6-9 */
+}
+
 .instruction-title {
-    font-family: 'Viga', sans-serif;
+    font-family: 'Permanent Marker', cursive;
     font-size: 4em;
 }
 
 .instruction-summary {
     font-family: 'Khula', sans-serif;
+    font-style: italic;
 }
 
 .instruction-list>li {
-    max-width: 45em;
-    margin-bottom: 0.5em;
+    max-width: 40em;
+    margin-bottom: 1em;
     font-family: 'Amiri', serif;
 }
 
@@ -152,6 +168,10 @@ nav {
 
 .btn-print {
     cursor: pointer;
+}
+
+.icon-muted {
+    color: rgba(0, 0, 0, 0.2);
 }
 
 .nutrition-table>div {
