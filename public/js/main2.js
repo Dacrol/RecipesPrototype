@@ -4,7 +4,7 @@ let selectedDish = [];
 // let selectedDishID = '';
 
 function loadAllDishes() {
-$.getJSON('./json/recipies.json', function (data) {
+return $.getJSON('./json/recipies.json', function (data) {
   data.forEach(recipe => allDishes.push(recipe));
 
   selectedDish = allDishes.filter(function (recipe) {
@@ -33,7 +33,7 @@ async function renderDish() {
   $('#recipe-details').append(`<div class="d-flex flex-column justify-content-start">
       <img class="" src="./${selectedDish[0].image}">
         <div class="">
-          <select class="custom-select" id="portion-size">
+          <select class="custom-select my-3" id="portion-size">
             <option selected>Antal portioner</option>
             <option value="1">1</option>
             <option value="2">2</option>
