@@ -38,49 +38,54 @@ async function renderDish() {
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
-            <option value="1">4</option>
-            <option value="2">5</option>
-            <option value="3">6</option>
-            <option value="1">7</option>
-            <option value="2">8</option>
-            <option value="3">9</option>
-            <option value="1">10</option>
-            <option value="2">11</option>
-            <option value="3">12</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
           </select>
         </div>
         <div class="mt-2">
-          <ul id="ingredients">
-            <li>Brunt socker</li>
-            <li>Ljusbrunt socker</li>
-            <li>Brunt socker</li>
-            <li>Ljusbrunt socker</li>
-            <li>Brunt socker</li>
-            <li>Ljusbrunt socker</li>
-            <li>Brunt socker</li>
-            <li>Ljusbrunt socker</li>
+          <p class="ml-3 text-bold">Ingredienser:</p>
+          <ul class="text-bold ingredient-list">
+            <li>250 g risnudlar</li>
+            <li>2 msk olja</li>
+            <li>400 g strimlad kycklingfilé</li>
+            <li>6 dl strimlad vitkål</li>
+            <li>4 dl böngroddar</li>
+            <li>2 msk ostronsås</li>
+            <li>2 msk soja</li>
+            <li>2 msk vatten</li>
+            <li>1 msk fisksås</li>
+            <li>1 lime, rivet skal och saft</li>
+            <li>2 hackade vitlöksklyftor</li>
           </ul>
         </div>
     </div>
   
-    <div class="d-flex flex-column align-items-center flex-fill mx-5">
-      <h1 class="mb-4">${selectedDish[0].dish}</h1>
-      <span><i class="far fa-clock fa-1point5 mb-3"></i> ${selectedDish[0].time}<span> ${selectedDish[0].difficulty}</span></span>
-      <h4 class="text-muted">${selectedDish[0].summary}</h4>
-      <div class="align-self-start">
-        <h4 class="mt-3">Instruktioner:</h4>
-        <ol class="instruction-list">
-          <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit, voluptatum facere? Ipsum atque aspernatur fuga architecto sequi ratione soluta ex qui ab, minima accusamus expedita quod natus cum at reiciendis.</li>
-          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus maxime dolores laboriosam voluptas dolore! Ipsum, recusandae, id neque nam consequatur unde dolore ullam nulla esse ea at sit? Tempore, perspiciatis!</li>
-          <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit, voluptatum facere? Ipsum atque aspernatur fuga architecto sequi ratione soluta ex qui ab, minima accusamus expedita quod natus cum at reiciendis.</li>
-          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus maxime dolores laboriosam voluptas dolore! Ipsum, recusandae, id neque nam consequatur unde dolore ullam nulla esse ea at sit? Tempore, perspiciatis!</li>
-          <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit, voluptatum facere? Ipsum atque aspernatur fuga architecto sequi ratione soluta ex qui ab, minima accusamus expedita quod natus cum at reiciendis.</li>
-          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus maxime dolores laboriosam voluptas dolore! Ipsum, recusandae, id neque nam consequatur unde dolore ullam nulla esse ea at sit? Tempore, perspiciatis!</li>
-          <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit, voluptatum facere? Ipsum atque aspernatur fuga architecto sequi ratione soluta ex qui ab, minima accusamus expedita quod natus cum at reiciendis.</li>
-          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus maxime dolores laboriosam voluptas dolore! Ipsum, recusandae, id neque nam consequatur unde dolore ullam nulla esse ea at sit? Tempore, perspiciatis!</li>
-        </ol>
-        <h4 class="mt-4">Näringsinnehåll</h4>
-        <div class="d-flex flex-wrap nutrition-table">
+    <div class="d-flex flex-column flex-fill mx-5">
+    <div class="instructions-header-area d-flex flex-fill">
+      <div class="d-flex flex-column flex-fill">
+        <h1 class="mb-2 mt-3 instruction-title text-center">${selectedDish[0].dish}</h1>
+        <h4 class="instruction-summary mb-4 text-center">${selectedDish[0].summary}</h4>
+        <span class="mb-4 text-center"><span class="instructions-icons mb-3"><i class="far fa-clock"></i> ${selectedDish[0].time}</span><span class="instructions-icons"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star icon-muted"></i> ${selectedDish[0].difficulty}</span><span class="instructions-icons btn-print"><i class="fas fa-print"></i> Skriv ut</span><span class="instructions-icons"><i class="fas fa-clipboard-list"></i> Inköpslista</span></span>
+      </div>
+    </div>
+      <div class="instructions-body-area d-flex flex-fill">
+        <div class="align-self-start">
+          <h4 class="mt-3 ml-3 mb-3">Tillagning:</h4>
+          <ol class="instruction-list mr-3">
+            <li>Blanda alla ingredienser till såsen.</li>
+            <li>Tillaga nudlarna enligt anvisning på förpackningen.</li>
+            <li>Hetta upp olja i en rymlig stekpanna eller wok. Stek kycklingen på stark värme, cirka 2 minuter.</li>
+            <li>Tillsätt sås, vitkål, böngroddar, nudlar och stek ytterligare 3 minuter under omrörning. Knäck i äggen. Vänd runt ordentligt tills äggen stelnat.</li>
+          </ol>
+        <h4 class="mt-4 ml-3">Näringsinnehåll</h4>
+        <div class="d-flex flex-wrap nutrition-table ml-4 mb-5">
           <div class="pr-2">
             Kolhydrater <span class="float-right">100g</span>
           </div>
