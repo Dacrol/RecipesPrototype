@@ -13,5 +13,8 @@
   },
   "scripts": {
     "start": "live-server public"
+  },
+  "dependencies": {
+    "bootstrap": "^4.1.3"
   }
 }
