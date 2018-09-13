@@ -207,3 +207,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffdbbf', end
 .no-blue:hover, .no-blue a:hover {
     color: #454545 !important;
 }
+
+textarea#instructions {
+    min-height: 333px;
+}
