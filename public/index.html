@@ -44,28 +44,25 @@
                     <span class="navbar-toggler-icon"></span>
                   </button> -->
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                  <ul class="navbar-nav">
+                  <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                      <a class="nav-link" href="#">Alla recept<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">Features</a>
+                      <a class="nav-link" href="#">Veckans recept</a>
                     </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">Pricing</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">
-                        Dropdown link
-                      </a>
-                      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                      </div>
-                    </li>
+                    
                   </ul>
+                  <div class="nav-item dropdown no-blue">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true"
+                      aria-expanded="false">
+                      Inköpslista
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <a class="dropdown-item" href="#">Action</a>
+                      <!-- <a class="dropdown-item" href="#">Another action</a> -->
+                    </div>
+                  </div>
                 </div>
               </nav>
             </div>
@@ -74,7 +71,7 @@
             
             <div class="text-center flex-fill px-4">
               <div class="d-flex justify-content-center">
-                  <a href="#" data-target="#sidebar" data-toggle="collapse"><i class="fa fa-navicon fa-2x py-2 p-1 mr-4"></i></a>
+                  <a href="#" data-target="#sidebar" data-toggle="collapse"><i class="fas fa-filter fa-2x py-2 p-1 mr-4 no-blue"></i></a>
                 <form class="form-inline mt-0 d-flex justify-content-stretch flex-fill flex-nowrap">
                   <div class="form-row flex-nowrap w-100">
                   <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
@@ -86,7 +83,7 @@
           </div>
           <div class="album py-5">
             <div class="container">
-              <div id="recipe-list" class="row">
+              <div id="recipe-list" class="row no-blue">
 
                 <!-- <div class="col-4">
                   <div class="card mb-4 shadow-sm">

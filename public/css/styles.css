@@ -199,7 +199,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffdbbf', end
     margin-top: 0.6em;
 }
 
-#recipe-list a {
+.no-blue, .no-blue a {
     text-decoration: none;
     color: initial !important;
+}
+
+.no-blue:hover, .no-blue a:hover {
+    color: #454545 !important;
 }
