@@ -17,7 +17,28 @@ $.getJSON('/json/recipies.json', function (data) {
 
 // for new.html
 
+// Lägg till hela receptet
 $(document).on('click', '.btn-add-recipe', function(){
   $('.add-success').toggleClass('d-none');
+});
+
+// Lägg till ny instruktion
+$(document).on('click', '.btn-add-instruction', function(){
+  if($('.add-instruction').val()){
+  $('.added-instructions').append(`
+    <li class="mt-1">${$('.add-instruction').val()}</li>
+  `);
+  }
+  $('.add-instruction').val('');
+});
+
+$(document).on('click', '.btn-add-ingredient', function(){
+  
+  if(($('.add-ingredient').val()) && ($('.add-volume').val())){
+  $('.added-ingredient').append(`
+    <li class="mt-1">${$('.add-ingredient').val()} ${$('.add-volume').val()}</li>
+  `);
+  $('.add-ingredient, .add-volume').val('');
+  }
 });
 

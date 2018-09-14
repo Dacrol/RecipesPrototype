@@ -94,7 +94,7 @@
                     Lägg till bild
                   </div>
                   </div>
-                    <div class="">
+                    <div class="ml-2">
                       <select class="custom-select my-3" id="portion-size">
                         <option selected>Antal portioner</option>
                         <option value="1">1</option>
@@ -111,12 +111,13 @@
                         <option value="3">12</option>
                       </select>
                     </div>
-                    <div class="mt-2">
+                    <div class="mt-2 ml-2">
                       <div class="d-flex justify-content-between align-items-center">
                         <label for="ingredient">Lägg till ingrediens & volym</p>
-                        <input id="ingredient" placeholder=" Ingrediens" class="w-50 mr-2"><input class="w-25" placeholder=" Volym">
-                        <i class="fas fa-plus fa-1point5"></i>
+                        <input id="ingredient" placeholder=" Ingrediens" class="w-50 mr-2 add-ingredient"><input class="w-25 add-volume" placeholder=" Volym">
+                        <i class="fas fa-plus fa-1point5 btn-add-ingredient"></i>
                       </div>
+                      <ul class="added-ingredient"></ul>
                     </div>
                 </div>
               
@@ -168,9 +169,10 @@
 
                     <div class="mt-2">
                       <div class="d-flex justify-content-between align-items-center">
-                        <input class=" w-100 mx-0" placeholder=" Lägg till instruktion"> 
-                        <i class="pl-2 fas fa-plus fa-1point5"></i>
+                        <input class=" w-100 mx-0 add-instruction" placeholder=" Lägg till instruktion"> 
+                        <i class="pl-2 fas fa-plus fa-1point5 btn-add-instruction"></i>
                       </div>
+                      <ol class="added-instructions mt-2"></ol>
                     </div>
                     
                     <!--<div class="form-group">
