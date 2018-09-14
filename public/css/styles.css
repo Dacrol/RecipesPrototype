@@ -170,6 +170,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffdbbf', end
     border: 2px solid #000;
     padding: 3px 15px;
     border-radius: 25px;
+    margin-bottom: 10px;
 }
 
 .btn-print {
@@ -224,6 +225,10 @@ textarea#instructions {
     }
     .w-maxlg-100 {
         width: 100% !important;
+    }
+    .nutrition-table>div {
+        flex-basis: 100%;
+        /* padding-right: initial !important; */
     }
 }
 
