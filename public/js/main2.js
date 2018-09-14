@@ -50,8 +50,8 @@ async function renderDish() {
           </select>
         </div>
         <div class="mt-2">
-          <p class="ml-3 text-bold">Ingredienser:</p>
-          <ul class="text-bold ingredient-list">
+          <p class="ml-3">Ingredienser:</p>
+          <ul class="ingredient-list">
             <li>250 g risnudlar</li>
             <li>2 msk olja</li>
             <li>400 g strimlad kycklingfilé</li>

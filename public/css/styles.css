@@ -149,15 +149,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffdbbf', end
 }
 
 .instruction-summary {
-    font-family: 'Khula', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-style: italic;
 }
 
 .instruction-list>li {
     max-width: 40em;
     margin-bottom: 1em;
-    font-weight: bold;
-    font-family: 'Amiri', serif;
+    /* font-weight: bold; */
+    font-family: 'Roboto', sans-serif;
     font-size: 1.2em;
 }
 
