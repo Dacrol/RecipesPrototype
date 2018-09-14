@@ -227,6 +227,23 @@ textarea#instructions {
     }
 }
 
+#sidebar .list-group-item:not(.collapsed) {
+    background-color: #2c2c2c;
+    border: none;
+}
+
+#sidebar .list-group-item div, #sidebar .left-subitem {
+    text-align: left !important;
+    padding-left: 7% !important;
+}
+
+#sidebar .list-group .collapse .list-group-item, #sidebar .list-group .collapsing .list-group-item {
+    padding-left: 20px;
+}
+
+#sidebar .list-group .collapse > .collapse .list-group-item, #sidebar .list-group .collapse > .collapsing .list-group-item {
+    padding-left: 20px;
+}
 
 .btn-add-recipe {
     width: 17%;
