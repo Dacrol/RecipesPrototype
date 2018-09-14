@@ -1,6 +1,6 @@
 {
   "name": "RecipesPrototype",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Recipe search site",
   "main": "app.js",
   "repository": "git@github.com:Dacrol/RecipesPrototype.git",
@@ -8,9 +8,13 @@
   "license": "UNLICENSED",
   "private": true,
   "devDependencies": {
+    "@types/jquery": "^3.3.6",
     "live-server": "^1.2.0"
   },
   "scripts": {
     "start": "live-server public"
+  },
+  "dependencies": {
+    "bootstrap": "^4.1.3"
   }
 }

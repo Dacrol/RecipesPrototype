@@ -1,0 +1,270 @@
+.wrapper {
+    overflow-y: auto;
+}
+
+#sidebar {
+    overflow: hidden;
+    z-index: 3;
+    /* height: 100%; */
+    background-color: #333333;
+}
+
+#sidebar .list-group {
+    min-width: 400px;
+    background-color: #333333;
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+}
+
+#sidebar i {
+    margin-right: 6px;
+}
+
+#sidebar .list-group-item {
+    border-radius: 0;
+    background-color: #333333;
+    color: #cccccc;
+    border-left: 0;
+    border-right: 0;
+    border-color: #2c2c2c;
+    white-space: nowrap;
+}
+
+/* highlight active menu */
+#sidebar .list-group-item:not(.collapsed) {
+    background-color: #222222;
+}
+
+/* closed state */
+#sidebar .list-group .list-group-item[aria-expanded="false"]::after {
+    content: " \f0d7";
+    font-family: FontAwesome;
+    display: inline;
+    text-align: right;
+    padding-left: 5px;
+}
+
+/* open state */
+#sidebar .list-group .list-group-item[aria-expanded="true"] {
+    background-color: #222222;
+}
+
+#sidebar .list-group .list-group-item[aria-expanded="true"]::after {
+    content: " \f0da";
+    font-family: FontAwesome;
+    display: inline;
+    text-align: right;
+    padding-left: 5px;
+}
+
+/* level 1*/
+#sidebar .list-group .collapse .list-group-item, #sidebar .list-group .collapsing .list-group-item {
+    padding-left: 20px;
+}
+
+/* level 2*/
+#sidebar .list-group .collapse > .collapse .list-group-item, #sidebar .list-group .collapse > .collapsing .list-group-item {
+    padding-left: 30px;
+}
+
+/* level 3*/
+#sidebar .list-group .collapse > .collapse > .collapse .list-group-item {
+    padding-left: 40px;
+}
+
+
+.collapse.show {
+    visibility: visible;
+}
+.collapsing {
+    visibility: visible;
+    height: 0;
+    -webkit-transition-property: height, visibility;
+            transition-property: height, visibility;
+    -webkit-transition-timing-function: ease-out;
+            transition-timing-function: ease-out;
+}
+.collapsing.width {
+    -webkit-transition-property: width, visibility;
+            transition-property: width, visibility;
+    width: 0;
+    height: 100%;
+    -webkit-transition-timing-function: ease-out;
+            transition-timing-function: ease-out;
+            /* transition-duration: 2500ms; */
+}
+
+nav {
+    margin-left: -25px;
+    margin-top: -10px;
+}
+
+.fa-1point5 {
+    font-size: 1.5em;
+}
+
+.recipe-thumbnail {
+    height: 225px;
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.justify-content-stretch {
+    justify-content: stretch;
+}
+
+.form-row input {
+    width: inherit !important;
+}
+.recipe-container {
+    position: absolute;
+    left: 0;
+    padding-left: 0px;
+    /* margin-left: -8px;     */
+}
+
+.recipe-container img {
+  object-fit: cover;
+  height: 300px;
+  width: 300px;
+}
+
+.solid-background {
+    background-color: rgb(255, 219, 191);
+    /* padding: 0 15px; */
+    
+}
+
+.gradient-background {
+    /* padding: 0 15px; */
+    background-color: rgb(255, 243, 232);
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffdbbf+0,fff3e8+35 */
+background: #ffdbbf; /* Old browsers */
+background: -moz-linear-gradient(top, #ffdbbf 0%, #fff3e8 35%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #ffdbbf 0%,#fff3e8 35%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #ffdbbf 0%,#fff3e8 35%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffdbbf', endColorstr='#fff3e8',GradientType=0 ); /* IE6-9 */
+}
+
+.instruction-title {
+    font-family: 'Francois One', sans-serif;
+    font-size: 4em;
+}
+
+.instruction-summary {
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+}
+
+.instruction-list>li {
+    max-width: 40em;
+    margin-bottom: 1em;
+    /* font-weight: bold; */
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2em;
+}
+
+.instructions-icons {
+    margin-right: 15px;
+    border: 2px solid #000;
+    padding: 3px 15px;
+    border-radius: 25px;
+    margin-bottom: 10px;
+}
+
+.btn-print {
+    cursor: pointer;
+}
+
+.icon-muted {
+    color: rgba(0, 0, 0, 0.2);
+}
+
+.nutrition-table>div {
+    flex-basis: 50%;
+    padding-right: 25%!important;
+}
+
+.fa-clipboard-list {
+    cursor: pointer;
+}
+
+.shopping-list {
+    margin-top: -10px;
+}
+
+.text-bold {
+    font-weight: bold; 
+}
+
+.ingredient-list {
+    list-style-type: none;
+}
+
+.ingredient-list>li {
+    margin-top: 0.6em;
+}
+
+.no-blue, .no-blue a {
+    text-decoration: none;
+    color: initial !important;
+}
+
+.no-blue:hover, .no-blue a:hover {
+    color: #454545 !important;
+}
+
+textarea#instructions {
+    min-height: 333px;
+}
+
+@media (max-width: 993px) { 
+    .instructions-icons {
+        display: inline-block;
+    }
+    .w-maxlg-100 {
+        width: 100% !important;
+    }
+    .nutrition-table>div {
+        flex-basis: 100%;
+        /* padding-right: initial !important; */
+    }
+}
+
+#sidebar .list-group-item:not(.collapsed) {
+    background-color: #2c2c2c;
+    border: none;
+}
+
+#sidebar .list-group-item div, #sidebar .left-subitem {
+    text-align: left !important;
+    padding-left: 7% !important;
+}
+
+#sidebar .list-group .collapse .list-group-item, #sidebar .list-group .collapsing .list-group-item {
+    padding-left: 20px;
+}
+
+#sidebar .list-group .collapse > .collapse .list-group-item, #sidebar .list-group .collapse > .collapsing .list-group-item {
+    padding-left: 20px;
+}
+
+.btn-add-recipe {
+    width: 17%;
+    cursor: pointer;
+}
+
+.added-ingredient {
+    list-style-type: circle;
+}
+
+@media (max-width: 450px) {
+    img.logo {
+        width: 120px;
+    }
+}
+
+.navbar-nav>li {
+    font-family: 'Viga';
+}
