@@ -113,37 +113,73 @@
                     </div>
                     <div class="mt-2">
                       <div class="d-flex justify-content-between align-items-center">
-                      <input placeholder="Lägg till ingrediens"> 
-                      <i class="fas fa-plus fa-1point5"></i>
-                    </div>
+                        <label for="ingredient">Lägg till ingrediens & volym</p>
+                        <input id="ingredient" placeholder=" Ingrediens" class="w-50 mr-2"><input class="w-25" placeholder=" Volym">
+                        <i class="fas fa-plus fa-1point5"></i>
+                      </div>
                     </div>
                 </div>
               
                 <div class="d-flex flex-column flex-fill mx-5">
                   <div class="w-75">
                     <!-- <label for="title">Titel: </label> -->
-                    <input placeholder="Titel" id="title" class="w-100 mb-2">
+                    <label for="title">Receptets namn : </label>
+                    <input placeholder=" T.ex. 'Pad Thai'" id="title" class="w-100 mb-2">
                   
                   <form class="w-100">
-                    <label for="time">Tid: </label>
-                    <input placeholder="Tid" id="time" class="ml-1">
-                    <div class="float-right">
-                    <label for="difficulty" class="ml-1">Svårighetsgrad: </label>
-                    <input placeholder="Svårighetsgrad" id="difficulty" class="ml-1">
-                  </div>
-                  <div class="form-group">
-                    <label for="summary">Sammanfattning: </label>
-                    <div class="w-100 mx-0">
-                    <textarea class="form-control w-100" id="summary" rows="3"></textarea></div>
-                  </div></form>
+
+                      <div class="mb-3">
+                          <label for="difficulty">Uppskatta tid i minuter: </label>
+                          <select class="custom-select" id="difficulty">
+                            <option selected>Välj tidsintervall</option>
+                            <option value="1">15</option>
+                            <option value="2">30</option>
+                            <option value="3">45</option>
+                            <option value="4">45</option>
+                            <option value="5">60</option>
+                            <option value="6">90</option>
+                            <option value="7">120</option>
+                            <option value="8">150+</option>
+                          </select>
+                          <div class="">
+                              <div class="mb-3 mt-3">
+                                <label for="difficulty">Uppskatta svårighetsgrad: </label>
+                                <select class="custom-select" id="difficulty">
+                                  <option selected>Välj svårighetsgrad</option>
+                                  <option value="easy">Lätt</option>
+                                  <option value="medium">Medelsvår</option>
+                                  <option value="hard">Svår</option>
+                                </select>
+                              </div>
+                            </div>
+                        </div>
+
+                    <!--<label for="time">Tid: </label>
+                    <input placeholder="Tid" id="time" class="ml-1">-->
+                    
+                    <div class="form-group">
+                      <label for="summary">Sammanfattning: </label>
+                      <div class="w-100 mx-0">
+                      <textarea class="form-control w-100" id="summary" rows="3" placeholder="T.ex. 'En fräsch och kryddig kycklingrätt med smak av lime, vitlök och ostronsås.'"></textarea></div>
+                    </div></form>
                 </div>
                   <div class="align-self-start w-75">
-                    <label for="instructions h4" class="mt-3">Instruktioner:</label>
-                    <div class="form-group">
+                    
+
+                    <div class="mt-2">
+                      <div class="d-flex justify-content-between align-items-center">
+                        <input class=" w-100 mx-0" placeholder=" Lägg till instruktion"> 
+                        <i class="pl-2 fas fa-plus fa-1point5"></i>
+                      </div>
+                    </div>
+                    
+                    <!--<div class="form-group">
+                        <label for="instructions h4" class="mt-3">Instruktioner:</label>
                         <div class="w-100 mx-0">
                         <textarea class="form-control w-100" id="instructions" rows="3"></textarea></div>
-                      </div>
+                      </div>-->
                   </div>
+                  <p class="mt-5"><span class="btn-add-recipe instructions-icons pb-2 pt-2">Lägg till receptet</span> <span class="d-none add-success">Ditt recept är tillagt!</span></p>
                 </div>
               </div>
             </div>

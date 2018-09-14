@@ -244,3 +244,8 @@ textarea#instructions {
 #sidebar .list-group .collapse > .collapse .list-group-item, #sidebar .list-group .collapse > .collapsing .list-group-item {
     padding-left: 20px;
 }
+
+.btn-add-recipe {
+    width: 17%;
+    cursor: pointer;
+}
