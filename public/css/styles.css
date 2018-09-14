@@ -213,3 +213,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffdbbf', end
 textarea#instructions {
     min-height: 333px;
 }
+
+.btn-add-recipe {
+    width: 17%;
+    cursor: pointer;
+}
