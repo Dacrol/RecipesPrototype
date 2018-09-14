@@ -29,8 +29,106 @@
     <div class="row d-flex flex-nowrap wrapper m-0 p-0">
       <div class="pl-0 pr-0 collapse width flex-shrink-0 flex-grow-1" id="sidebar">
         <div class="list-group border-0 card text-center text-left">
-          <a href="#menu3" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i
-            class="fa fa-book"></i> <span>Item 3 </span></a>
+            <a href="#" class="list-group-item d-inline-block collapsed"><span class="d-inline">Veckans recept</span></a>
+            <a href="#" class="list-group-item d-inline-block collapsed"><span class="d-inline">Populära recept</span></a>
+            <a href="#recipe-time" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><span class="d-inline">Tidsåtgång</span></a>
+                <div class="collapse" id="recipe-time">
+                    
+                  <div class="list-group-item">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="15min">
+                      <label class="form-check-label" for="15min">
+                        < 15 minuter
+                      </label>
+                    </div>
+
+                  </div>
+
+                </div>
+          <a href="#recipe-type" class="list-group-item d-inline-block collapsed multi-collapse" data-toggle="collapse" aria-expanded="false"><span class="d-inline">Recepttyp</span></a>
+                <div class="collapse multi-collapse" id="recipe-type">
+                    
+                  <div class="list-group-item">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="meat">
+                      <label class="form-check-label" for="meat">
+                        Kött
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="vego">
+                      <label class="form-check-label" for="vego">
+                        Vego
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="fish">
+                      <label class="form-check-label" for="fish">
+                        Fisk
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="soup">
+                      <label class="form-check-label" for="soup">
+                        Soppa
+                      </label>
+                    </div>
+
+                  </div>
+
+                </div>
+                <a href="#recipe-ingredients" class="list-group-item d-inline-block collapsed multi-collapse" data-toggle="collapse" aria-expanded="false"><span class="d-inline">Ingredienser</span></a>
+                <div class="collapse multi-collapse" id="recipe-ingredients">
+                   
+                  <a href="#vegetables" class="list-group-item left-subitem" data-toggle="collapse" aria-expanded="false">Grönsaker</a>
+                    <div class="collapse" id="vegetables" data-parent="#recipe-ingredients">
+                      <div class="list-group-item">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="lettuce">
+                            <label class="form-check-label" for="lettuce">
+                              Sallad
+                            </label>
+                          </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="tomato">
+                            <label class="form-check-label" for="tomato">
+                              Tomat
+                            </label>
+                          </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="cucumber">
+                            <label class="form-check-label" for="cucumber">
+                              Gurka
+                            </label>
+                          </div>
+                        </div>
+                    </div>
+
+                  <a href="#side-dishes" class="list-group-item left-subitem" data-toggle="collapse" aria-expanded="false">Tillbehör</a>
+                    <div class="collapse" id="side-dishes" data-parent="#side-dishes">
+                      <div class="list-group-item">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="potato">
+                            <label class="form-check-label" for="potato">
+                              Potatis
+                            </label>
+                          </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="rice">
+                            <label class="form-check-label" for="rice">
+                              Ris
+                            </label>
+                          </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="pasta">
+                            <label class="form-check-label" for="pasta">
+                              Pasta
+                            </label>
+                          </div>
+                        </div>
+                    </div>
+
+                </div>
         </div>
       </div>
 
