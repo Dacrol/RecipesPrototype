@@ -32,7 +32,7 @@ async function renderDish() {
     .append(`<div class="d-flex flex-column justify-content-start align-items-stretch w-maxlg-100">
       <img class="align-self-center w-maxlg-100 solid-background" src="./${
         selectedDish[0].image
-      }">
+      }" alt="${selectedDish[0].dish}>
         <div class="solid-background">
           <select class="custom-select my-3" id="portion-size">
             <option selected>Antal portioner</option>

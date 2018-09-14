@@ -249,3 +249,7 @@ textarea#instructions {
     width: 17%;
     cursor: pointer;
 }
+
+.added-ingredient {
+    list-style-type: circle;
+}
