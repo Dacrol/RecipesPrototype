@@ -91,7 +91,7 @@
     height: 100%;
     -webkit-transition-timing-function: ease-out;
             transition-timing-function: ease-out;
-            /* transition-duration: 2500ms; */
+    /* transition-duration: 2500ms; */
 }
 
 nav {
@@ -125,26 +125,25 @@ nav {
 }
 
 .recipe-container img {
-  object-fit: cover;
-  height: 300px;
-  width: 300px;
+    object-fit: cover;
+    height: 300px;
+    width: 300px;
 }
 
 .solid-background {
     background-color: rgb(255, 219, 191);
     /* padding: 0 15px; */
-    
 }
 
 .gradient-background {
     /* padding: 0 15px; */
     background-color: rgb(255, 243, 232);
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffdbbf+0,fff3e8+35 */
-background: #ffdbbf; /* Old browsers */
-background: -moz-linear-gradient(top, #ffdbbf 0%, #fff3e8 35%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top, #ffdbbf 0%,#fff3e8 35%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom, #ffdbbf 0%,#fff3e8 35%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffdbbf', endColorstr='#fff3e8',GradientType=0 ); /* IE6-9 */
+    background: #ffdbbf; /* Old browsers */
+    background:    -moz-linear-gradient(top, #ffdbbf 0%, #fff3e8 35%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #ffdbbf 0%,#fff3e8 35%); /* Chrome10-25,Safari5.1-6 */
+    background:         linear-gradient(to bottom, #ffdbbf 0%,#fff3e8 35%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffdbbf', endColorstr='#fff3e8',GradientType=0 ); /* IE6-9 */
 }
 
 .instruction-title {
@@ -157,7 +156,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffdbbf', end
     font-style: italic;
 }
 
-.instruction-list>li {
+.instruction-list > li {
     max-width: 40em;
     margin-bottom: 1em;
     /* font-weight: bold; */
@@ -167,7 +166,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffdbbf', end
 
 .instructions-icons {
     margin-right: 15px;
-    border: 2px solid #000;
+    border: 2px solid #000000;
     padding: 3px 15px;
     border-radius: 25px;
     margin-bottom: 10px;
@@ -181,7 +180,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffdbbf', end
     color: rgba(0, 0, 0, 0.2);
 }
 
-.nutrition-table>div {
+.nutrition-table > div {
     flex-basis: 50%;
     padding-right: 25%!important;
 }
@@ -195,14 +194,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffdbbf', end
 }
 
 .text-bold {
-    font-weight: bold; 
+    font-weight: bold;
 }
 
 .ingredient-list {
     list-style-type: none;
 }
 
-.ingredient-list>li {
+.ingredient-list > li {
     margin-top: 0.6em;
 }
 
@@ -219,14 +218,14 @@ textarea#instructions {
     min-height: 333px;
 }
 
-@media (max-width: 993px) { 
+@media (max-width: 993px) {
     .instructions-icons {
         display: inline-block;
     }
     .w-maxlg-100 {
         width: 100% !important;
     }
-    .nutrition-table>div {
+    .nutrition-table > div {
         flex-basis: 100%;
         /* padding-right: initial !important; */
     }
@@ -265,7 +264,7 @@ textarea#instructions {
     }
 }
 
-.navbar-nav>li {
+.navbar-nav > li {
     font-family: 'Viga';
 }
 
