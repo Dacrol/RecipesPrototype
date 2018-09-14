@@ -118,22 +118,26 @@ nav {
     width: inherit !important;
 }
 .recipe-container {
+    position: absolute;
+    left: 0;
     padding-left: 0px;
-    margin-left: -8px;    
+    /* margin-left: -8px;     */
 }
 
 .recipe-container img {
   object-fit: cover;
-  height: 250px;
-  width: 250px;
+  height: 300px;
+  width: 300px;
 }
 
-.instructions-header-area {
+.solid-background {
     background-color: rgb(255, 219, 191);
+    /* padding: 0 15px; */
     
 }
 
-.instructions-body-area {
+.gradient-background {
+    /* padding: 0 15px; */
     background-color: rgb(255, 243, 232);
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffdbbf+0,fff3e8+35 */
 background: #ffdbbf; /* Old browsers */
@@ -149,15 +153,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffdbbf', end
 }
 
 .instruction-summary {
-    font-family: 'Khula', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-style: italic;
 }
 
 .instruction-list>li {
     max-width: 40em;
     margin-bottom: 1em;
-    font-weight: bold;
-    font-family: 'Amiri', serif;
+    /* font-weight: bold; */
+    font-family: 'Roboto', sans-serif;
     font-size: 1.2em;
 }
 
@@ -213,6 +217,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffdbbf', end
 textarea#instructions {
     min-height: 333px;
 }
+
+@media (max-width: 993px) { 
+    .instructions-icons {
+        display: inline-block;
+    }
+    .w-maxlg-100 {
+        width: 100% !important;
+    }
+}
+
 
 .btn-add-recipe {
     width: 17%;
