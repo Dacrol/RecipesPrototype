@@ -31,8 +31,8 @@ async function renderDish() {
   console.log(selectedDish[0].image)
 
   $('#recipe-details').append(`<div class="d-flex flex-column justify-content-start">
-      <img class="" src="./${selectedDish[0].image}">
-        <div class="">
+      <img class="solid-background" src="./${selectedDish[0].image}">
+        <div class="solid-background">
           <select class="custom-select my-3" id="portion-size">
             <option selected>Antal portioner</option>
             <option value="1">1</option>
@@ -49,7 +49,7 @@ async function renderDish() {
             <option value="12">12</option>
           </select>
         </div>
-        <div class="mt-2">
+        <div class="pt-2 gradient-background">
           <p class="ml-3">Ingredienser:</p>
           <ul class="ingredient-list">
             <li>250 g risnudlar</li>

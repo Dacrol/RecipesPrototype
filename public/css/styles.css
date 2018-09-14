@@ -118,22 +118,26 @@ nav {
     width: inherit !important;
 }
 .recipe-container {
+    position: absolute;
+    left: 0;
     padding-left: 0px;
-    margin-left: -8px;    
+    /* margin-left: -8px;     */
 }
 
 .recipe-container img {
   object-fit: cover;
-  height: 250px;
-  width: 250px;
+  height: 300px;
+  width: 300px;
 }
 
-.instructions-header-area {
+.solid-background {
     background-color: rgb(255, 219, 191);
+    /* padding: 0 15px; */
     
 }
 
-.instructions-body-area {
+.gradient-background {
+    /* padding: 0 15px; */
     background-color: rgb(255, 243, 232);
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffdbbf+0,fff3e8+35 */
 background: #ffdbbf; /* Old browsers */
