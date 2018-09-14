@@ -1,37 +1,38 @@
-let dishName = 'Pad Thai';
-let allDishes = [];
-let selectedDish = [];
+let dishName = 'Pad Thai'
+let allDishes = []
+let selectedDish = []
 // let selectedDishID = '';
 
 function loadAllDishes() {
-return $.getJSON('./json/recipies.json', function (data) {
-  data.forEach(recipe => allDishes.push(recipe));
+  return $.getJSON('./json/recipies.json', function(data) {
+    data.forEach(recipe => allDishes.push(recipe))
 
-  selectedDish = allDishes.filter(function (recipe) {
-    return recipe.dish == dishName;
-  });
+    selectedDish = allDishes.filter(function(recipe) {
+      return recipe.dish == dishName
+    })
 
-  console.log('allDishes', allDishes)
-  console.log(selectedDish[0].image)
+    console.log('allDishes', allDishes)
+    console.log(selectedDish[0].image)
+  })
+}
 
-});
-};
-
-loadAllDishes();
+loadAllDishes()
 console.log('allDishes', allDishes)
-renderDish();
-
+renderDish()
 
 async function renderDish() {
-  selectedDish = await loadAllDishes();
-  selectedDish = allDishes.filter(function (recipe) {
-    return recipe.dish == dishName;
+  selectedDish = await loadAllDishes()
+  selectedDish = allDishes.filter(function(recipe) {
+    return recipe.dish == dishName
   })
-  console.log('selectedDish',selectedDish)
+  console.log('selectedDish', selectedDish)
   console.log(selectedDish[0].image)
 
-  $('#recipe-details').append(`<div class="d-flex flex-column justify-content-start">
-      <img class="solid-background" src="./${selectedDish[0].image}">
+  $('#recipe-details')
+    .append(`<div class="d-flex flex-column justify-content-start align-items-stretch w-maxlg-100">
+      <img class="align-self-center w-maxlg-100 solid-background" src="./${
+        selectedDish[0].image
+      }">
         <div class="solid-background">
           <select class="custom-select my-3" id="portion-size">
             <option selected>Antal portioner</option>
@@ -70,9 +71,17 @@ async function renderDish() {
     <div class="d-flex flex-column flex-fill mx-5">
     <div class="instructions-header-area d-flex flex-fill">
       <div class="d-flex flex-column flex-fill">
-        <h1 class="mb-2 mt-3 instruction-title text-center">${selectedDish[0].dish}</h1>
-        <h4 class="instruction-summary mb-4 text-center">${selectedDish[0].summary}</h4>
-        <span class="mb-4 text-center"><span class="instructions-icons mb-3"><i class="far fa-clock"></i> ${selectedDish[0].time}</span><span class="instructions-icons"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star icon-muted"></i> ${selectedDish[0].difficulty}</span><span class="instructions-icons btn-print"><i class="fas fa-print"></i> Skriv ut</span><span class="instructions-icons"><i class="fas fa-clipboard-list"></i> Inköpslista</span></span>
+        <h1 class="mb-2 mt-3 instruction-title text-center">${
+          selectedDish[0].dish
+        }</h1>
+        <h4 class="instruction-summary mb-4 text-center">${
+          selectedDish[0].summary
+        }</h4>
+        <span class="mb-4 text-center"><span class="instructions-icons mb-3"><i class="far fa-clock"></i> ${
+          selectedDish[0].time
+        }</span><span class="instructions-icons"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star icon-muted"></i> ${
+    selectedDish[0].difficulty
+  }</span><span class="instructions-icons btn-print"><i class="fas fa-print"></i> Skriv ut</span><span class="instructions-icons"><i class="fas fa-clipboard-list"></i> Inköpslista</span></span>
       </div>
     </div>
       <div class="instructions-body-area d-flex flex-fill">
@@ -102,7 +111,7 @@ async function renderDish() {
       </div>
     </div>
     `)
-};
+}
 
 //   function renderInstructions() {
 //     let html = '';
@@ -113,19 +122,16 @@ async function renderDish() {
 //     $('#instruction-list').append(html);
 //   }
 
+$(document).on('click', '#recipe-list .card', function() {
+  dishName = $(this)[0].id
+  selectedDish = allDishes.filter(function(recipe) {
+    return recipe.dish == dishName
 
-
-$(document).on('click', '#recipe-list .card', function () {
-  dishName = $(this)[0].id;
-  selectedDish = allDishes.filter(function (recipe) {
-    return recipe.dish == dishName;
-
-    console.log('selectedDish', selectedDish);
+    console.log('selectedDish', selectedDish)
     console.log('dishName', dishName)
   })
-  renderDish();
+  renderDish()
   // console.log('clicked dish', dishName)
   // console.log('$(this)[0].id', $(this)[0].id)
   //   console.log('selectedDishID', selectedDishID)
-
-}) 
+})

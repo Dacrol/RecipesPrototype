@@ -217,3 +217,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffdbbf', end
 textarea#instructions {
     min-height: 333px;
 }
+
+@media (max-width: 993px) { 
+    .instructions-icons {
+        display: inline-block;
+    }
+    .w-maxlg-100 {
+        width: 100% !important;
+    }
+}
