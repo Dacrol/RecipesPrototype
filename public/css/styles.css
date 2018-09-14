@@ -253,3 +253,9 @@ textarea#instructions {
 .added-ingredient {
     list-style-type: circle;
 }
+
+@media (max-width: 450px) {
+    img.logo {
+        width: 120px;
+    }
+}
