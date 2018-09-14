@@ -264,3 +264,7 @@ textarea#instructions {
         width: 120px;
     }
 }
+
+.navbar-nav>li {
+    font-family: 'Viga';
+}
