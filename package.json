@@ -9,6 +9,7 @@
   "private": true,
   "devDependencies": {
     "@types/jquery": "^3.3.6",
+    "browser-sync": "^2.24.7",
     "live-server": "^1.2.0"
   },
   "scripts": {
