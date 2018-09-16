@@ -9,11 +9,10 @@
   "private": true,
   "devDependencies": {
     "@types/jquery": "^3.3.6",
-    "browser-sync": "^2.24.7",
-    "live-server": "^1.2.0"
+    "browser-sync": "^2.24.7"
   },
   "scripts": {
-    "start": "live-server public"
+    "start-express": "node app.js",
   },
   "dependencies": {
     "bootstrap": "^4.1.3",
