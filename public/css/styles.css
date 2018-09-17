@@ -189,7 +189,13 @@ nav {
 
 .nutrition-table > div {
     flex-basis: 50%;
-    padding-right: 25%!important;
+    padding-right: 15%!important;
+}
+
+@media (min-width: 1200px) {
+    .nutrition-table > div {
+        padding-right: 20%!important;
+    }
 }
 
 .fa-clipboard-list {

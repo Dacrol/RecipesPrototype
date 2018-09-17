@@ -71,7 +71,7 @@ async function renderDish() {
     </div>
   
     <div class="d-flex flex-column flex-fill mx-5">
-    <div class="instructions-header-area d-flex flex-fill">
+    <div class="instructions-header-area d-flex mb-3 mx-3">
       <div class="d-flex flex-column flex-fill">
         <h1 class="mb-2 mt-3 instruction-title text-center">${
           selectedDish[0].dish
@@ -86,8 +86,8 @@ async function renderDish() {
   }</span><span class="instructions-icons btn-print"><i class="fas fa-print"></i> Skriv ut</span><span class="instructions-icons"><i class="fas fa-clipboard-list"></i> Inköpslista</span></span>
       </div>
     </div>
-      <div class="instructions-body-area d-flex flex-fill">
-        <div class="align-self-start">
+      <div class="instructions-body-area d-flex flex-fill container">
+        <div class="align-self-start d-flex flex-column">
           <h4 class="mt-3 ml-3 mb-3">Tillagning:</h4>
           <ol class="instruction-list mr-3">
             <li>Blanda alla ingredienser till såsen.</li>
@@ -95,7 +95,7 @@ async function renderDish() {
             <li>Hetta upp olja i en rymlig stekpanna eller wok. Stek kycklingen på stark värme, cirka 2 minuter.</li>
             <li>Tillsätt sås, vitkål, böngroddar, nudlar och stek ytterligare 3 minuter under omrörning. Knäck i äggen. Vänd runt ordentligt tills äggen stelnat.</li>
           </ol>
-        <h4 class="mt-4 ml-3">Näringsinnehåll</h4>
+        <h4 class="mt-4 ml-3 mb-3">Näringsinnehåll</h4>
         <div class="d-flex flex-wrap nutrition-table ml-4 mb-5">
           <div class="pr-2">
             Kolhydrater <span class="float-right">100g</span>
