@@ -18,7 +18,7 @@ app.engine('html', exphbs({
 app.set('view engine', 'html')
 
 app.get('/', function (req, res) {
-  res.render('home')
+  res.render('home', {layout: 'main-sidebar'})
 })
 
 app.use(express.static('public'));
