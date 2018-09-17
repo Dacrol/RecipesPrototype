@@ -10,5 +10,16 @@ app.set('view engine', 'handlebars')
   res.render('home')
 }) */
 
+
+app.engine('html', exphbs({
+  extname: 'html',
+  defaultLayout: 'main'
+}))
+app.set('view engine', 'html')
+
+app.get('/', function (req, res) {
+  res.render('home')
+})
+
 app.use(express.static('public'));
 app.listen(3000, () => {console.log('Server open on port 3000')})
