@@ -16,6 +16,12 @@
     min-height: -webkit-fill-available;
 }
 
+@media (max-width: 991px) {
+    #sidebar .list-group {
+        min-width: 300px;
+    }
+}
+
 #sidebar i {
     margin-right: 6px;
 }

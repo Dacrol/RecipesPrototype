@@ -1,7 +1,7 @@
 $.getJSON('/json/recipies.json', function(data) {
   data.forEach(recipe =>
     $('#recipe-list')
-      .append(`<div class="col-12 col-md-6 col-lg-4 mb-5"><a href="recdetails.html">
+      .append(`<div class="col-12 col-md-6 col-xl-4 mb-5"><a href="recdetails.html">
     <div id="${recipe.dish}" class="card h-100 mb-4 shadow-sm">
       <img class="card-img-top recipe-thumbnail" alt="${recipe.dish}" src="${
       recipe.image
