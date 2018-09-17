@@ -17,6 +17,10 @@ app.get('/', function(req, res) {
   res.render('home', { layout: 'main-sidebar' })
 })
 
+app.get('/recipe', function(req, res) {
+  res.render('recipe')
+})
+
 app.get('/recipe/:id', function(req, res) {
   res.render('recipe')
 })
