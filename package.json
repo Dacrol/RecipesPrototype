@@ -9,7 +9,8 @@
   "private": true,
   "devDependencies": {
     "@types/jquery": "^3.3.6",
-    "browser-sync": "^2.24.7"
+    "browser-sync": "^2.24.7",
+    "nodemon": "^1.18.4"
   },
   "scripts": {
     "start-express": "node app.js",
