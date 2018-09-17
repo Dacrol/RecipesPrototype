@@ -16,9 +16,11 @@ function loadAllDishes() {
   })
 }
 
-loadAllDishes()
-console.log('allDishes', allDishes)
-renderDish()
+if (window.location.pathname.startsWith('/recipe')) {
+  loadAllDishes()
+  console.log('allDishes', allDishes)
+  renderDish()
+}
 
 async function renderDish() {
   selectedDish = await loadAllDishes()
