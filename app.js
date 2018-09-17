@@ -1,19 +1,17 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
+const helpers = require('./helpers/navbar')
 
 const app = express()
 
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
-app.set('view engine', 'handlebars')
+const hbs = exphbs.create({
+  defaultLayout: 'main',
+  extname: '.html',
+  helpers: helpers
+})
 
-app.engine(
-  'html',
-  exphbs({
-    extname: 'html',
-    defaultLayout: 'main'
-  })
-)
-app.set('view engine', 'html')
+app.engine('.html', hbs.engine)
+app.set('view engine', '.html')
 
 app.get('/', function(req, res) {
   res.render('home', { layout: 'main-sidebar' })
