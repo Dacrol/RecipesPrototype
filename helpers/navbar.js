@@ -4,7 +4,6 @@ module.exports = {
 
 function navbarContent(context) {
   const view = context.data.exphbs.view
-  // console.log(view)
   return `
   <li class="nav-item ${view === 'home' ? 'active' : ''}">
                       <a class="nav-link" href="/">Alla recept${
