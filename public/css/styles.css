@@ -127,7 +127,14 @@ nav {
 .recipe-container img {
     object-fit: cover;
     height: 300px;
-    width: 300px;
+    width: 400px;
+}
+
+@media (max-width: 1301px) {
+    .recipe-container img {
+        height: 275px;
+        width: 350px;
+    }
 }
 
 .solid-background {
