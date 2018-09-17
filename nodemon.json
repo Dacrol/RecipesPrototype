@@ -6,7 +6,8 @@
      "node_modules/*"
     ],
   "watch": [
-    "app.js"
+    "app.js",
+    "helpers/*"
   ],
   "verbose": true,
   "runOnChangeOnly": false,
