@@ -15,7 +15,7 @@
   },
   "scripts": {
     "start-express": "node app.js",
-    "watch": "nodemon --config nodemon.json app.js",
+    "watch": "nodemon --config nodemon.json --inspect app.js",
     "sync": "browser-sync start --proxy localhost:3000 --no-online --no-reload-on-restart --files \"public, views, !**/src/*, !**/*.map\" --port 3001 --ui-port 3002",
     "start": "concurrently  --kill-others \"npm run watch\" \"npm run sync\""
   },
