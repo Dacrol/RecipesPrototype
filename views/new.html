@@ -29,9 +29,18 @@
         <div class="mt-2 ml-2">
           <div class="d-flex justify-content-between align-items-center">
             <label for="ingredient">Lägg till ingrediens & volym</p>
-              <input id="ingredient" placeholder=" Ingrediens" class="w-50 mr-2 add-ingredient"><input class="w-25 add-volume"
-                placeholder=" Volym">
+                <form>
+                  <div class="typeahead__container">
+                      <div class="typeahead__field">
+                          <div class="typeahead__query">
+                              <input class="typeahead-ingredients" name="q" type="search" autocomplete="off" id="ingredient" placeholder=" Ingrediens" class="w-50 mr-2 add-ingredient">
+                          </div>
+                      </div>
+                      
+                  </div>
+              </form>
               <i class="fas fa-plus fa-1point5 btn-add-ingredient"></i>
+              
           </div>
           <ul class="added-ingredient"></ul>
         </div>

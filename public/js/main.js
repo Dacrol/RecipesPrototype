@@ -45,3 +45,20 @@ $(document).on('click', '.btn-add-ingredient', function() {
     $('.add-ingredient, .add-volume').val('')
   }
 })
+
+$.getJSON('json/naringsinnehall.json', function(data) {
+  let livsmedel = data['Blad1'].map((item) =>{
+    return item["Livsmedelsnamn"]
+  })
+  console.log(livsmedel)
+  $.typeahead({
+    input: ".typeahead-ingredients",
+    order: "desc",
+    source: livsmedel,
+    callback: {
+        onClickBefore: function () {  }
+    },
+    hint: true
+});
+  //console.log(livsmedel)
+})
