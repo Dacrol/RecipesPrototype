@@ -8,6 +8,7 @@
   "license": "UNLICENSED",
   "private": true,
   "devDependencies": {
+    "@firebase/app-types": "^0.3.2",
     "@types/jquery": "^3.3.6",
     "browser-sync": "^2.24.7",
     "concurrently": "^4.0.1",
