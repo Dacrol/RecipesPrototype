@@ -13,11 +13,6 @@ function loadAllDishes() {
   return $.getJSON('/json/recipies.json', function(data) {
     data.forEach(recipe => allDishes.push(recipe))
 
-    console.log(allDishes.map(dish => {
-      dish.ingredients = convertIngredientStringArray(dish.ingredients)
-      return dish
-    }))
-
     selectedDish = allDishes.find(function(recipe) {
       return recipe.dish.toLowerCase().replace('å', 'a').replace('ä', 'a').replace('ö', 'o').replace(' ', '') == dishName;
     });
