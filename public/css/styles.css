@@ -277,6 +277,12 @@ textarea#instructions {
     list-style-type: circle;
 }
 
+section.form-group, .form-section {
+    padding: 5px;
+    border: 1px solid #969696;
+    border-radius: 10px;
+}
+
 @media (max-width: 450px) {
     img.logo {
         width: 120px;

@@ -25,6 +25,12 @@ $(document).on('click', '.btn-add-recipe', function () {
   $('.add-success').toggleClass('d-none')
 })
 
+$(document).on('click', '.btn-add-ingrediend-info', function () {
+  $('.added-ingredient-info').toggleClass('d-none')
+  $('.btn-add-ingrediend-info').toggleClass('fa-plus')
+  $('.btn-add-ingrediend-info').toggleClass('fa-minus')
+})
+
 // Lägg till ny instruktion
 $(document).on('click', '.btn-add-instruction', function () {
   if ($('.add-instruction').val()) {
@@ -45,6 +51,8 @@ $(document).on('click', '.btn-add-ingredient', function () {
     $('.add-ingredient, .add-volume').val('')
   }
 })
+
+// end new.html
 
 $.getJSON('json/naringsinnehall.json', function (data) {
   let livsmedel = data['Blad1'].map((item) => {
