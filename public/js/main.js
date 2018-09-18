@@ -67,4 +67,6 @@ function formatUrl(url) {
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[\s\W-]+/g, '')
     .replace(/((%C3%B6)|(%C3%A4)|(%C3%A5))/g, '')
+    .replace(/&/g, '-')
+    .trim()
 }
