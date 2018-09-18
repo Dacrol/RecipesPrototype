@@ -2,44 +2,66 @@
   <div class="container-fluid w-100 d-flex">
     <div id="recipe-details" class="d-flex flex-row flex-fill">
       <div class="d-flex flex-column justify-content-start">
-        <!-- <img class="" src="/${selectedDish[0].image}"> -->
         <div class="d-flex flex-column justify-content-center align-items-center" style="min-height: 250px; min-width: 250px">
           <i class="fas fa-plus fa-3x"></i>
           <div class="mt-4">
             Lägg till bild
           </div>
+          <div class="form-group mt-3">
+              <label for="exampleFormControlFile1">Eller bläddra: </label>
+              <input type="file" class="form-control-file" id="exampleFormControlFile1">
+            </div>
         </div>
-        <div class="ml-2">
-          <select class="custom-select my-3" id="portion-size">
-            <option selected>Antal portioner</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="1">4</option>
-            <option value="2">5</option>
-            <option value="3">6</option>
-            <option value="1">7</option>
-            <option value="2">8</option>
-            <option value="3">9</option>
-            <option value="1">10</option>
-            <option value="2">11</option>
-            <option value="3">12</option>
-          </select>
-        </div>
-        <div class="mt-2 ml-2">
-          <div class="d-flex justify-content-between align-items-center">
-            <label for="ingredient">Lägg till ingrediens & volym</p>
-              <input id="ingredient" placeholder=" Ingrediens" class="w-50 mr-2 add-ingredient"><input class="w-25 add-volume"
-                placeholder=" Volym">
-              <i class="fas fa-plus fa-1point5 btn-add-ingredient"></i>
-          </div>
-          <ul class="added-ingredient"></ul>
-        </div>
+          <form class="my-3">
+            <div class="form-group">
+              <label for="portion-size">Välj antal portioner receptet är avsett för</label>
+              <select class="custom-select" id="portion-size">
+                <option selected>Antal portioner</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+              </select>
+            </div>
+            <div class="form-group mt-2">
+                <div class="d-flex justify-content-between align-items-center">
+                    <label class="w-100" for="ingredient">Lägg till ingrediens & volym</label>
+                    <input id="ingredient" placeholder=" Ingrediens" class="w-50 mr-2 add-ingredient"><input class="w-25 mr-2 add-volume" placeholder=" Antal">
+                    
+                    <select class="custom-select w-25 mr-2" id="add-unit">
+                      <option selected>enhet</option>
+                      <option value="kdm">kryddmått</option>
+                      <option value="tsk">tesked</option>
+                      <option value="msk">matsked</option>
+                      <option value="dl">deciliter</option>
+                      <option value="ml">milliliter</option>
+                      <option value="cl">centiliter</option>
+                      <option value="l">liter</option>
+                      <option value="g">gram</option>
+                      <option value="kg">kilogram</option>
+                    </select>
+                    
+                    
+                    
+                    <input class="w-25 add-weight mr-2" placeholder=" Vikt i g">
+                    <i class="fas fa-plus fa-1point5 btn-add-ingredient"></i>
+                </div>
+                <ul class="added-ingredient"></ul>
+              </div>
+          </form>
+        
       </div>
 
-      <div class="d-flex flex-column flex-fill mx-5">
-        <div class="w-75">
-          <!-- <label for="title">Titel: </label> -->
+      <div class="d-flex flex-column flex-fill mx-5 w-50">
+        <div class="w-100">
           <label for="title">Receptets namn : </label>
           <input placeholder=" T.ex. 'Pad Thai'" id="title" class="w-100 mb-2">
 
