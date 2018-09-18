@@ -29,6 +29,10 @@ app.get('/new', function(req, res) {
   res.render('new')
 })
 
+app.get('/shoppinglist', function(req, res) {
+  res.render('shoppinglist', { layout: false })
+})
+
 app.use(express.static('public'))
 app.listen(3000, () => {
   console.log('Server open on port 3000')
