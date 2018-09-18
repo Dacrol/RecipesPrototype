@@ -1,7 +1,7 @@
-$.getJSON('/json/recipies.json', function(data) {
+$.getJSON('/json/recipies.json', function (data) {
   data.forEach(recipe =>
     $('#recipe-list')
-      .append(`<div class="col-12 col-md-6 col-xl-4 mb-5"><a href="/recipe">
+    .append(`<div class="col-12 col-md-6 col-xl-4 mb-5"><a href="/recipe">
     <div id="${recipe.dish}" class="card h-100 mb-4 shadow-sm">
       <img class="card-img-top recipe-thumbnail" alt="${recipe.dish}" src="${
       recipe.image
@@ -21,12 +21,12 @@ $.getJSON('/json/recipies.json', function(data) {
 // for new.html
 
 // Lägg till hela receptet
-$(document).on('click', '.btn-add-recipe', function() {
+$(document).on('click', '.btn-add-recipe', function () {
   $('.add-success').toggleClass('d-none')
 })
 
 // Lägg till ny instruktion
-$(document).on('click', '.btn-add-instruction', function() {
+$(document).on('click', '.btn-add-instruction', function () {
   if ($('.add-instruction').val()) {
     $('.added-instructions').append(`
     <li class="mt-1">${$('.add-instruction').val()}</li>
@@ -35,7 +35,7 @@ $(document).on('click', '.btn-add-instruction', function() {
   $('.add-instruction').val('')
 })
 
-$(document).on('click', '.btn-add-ingredient', function() {
+$(document).on('click', '.btn-add-ingredient', function () {
   if ($('.add-ingredient').val() && $('.add-volume').val()) {
     $('.added-ingredient').append(`
     <li class="mt-1">${$('.add-ingredient').val()} ${$(
@@ -46,19 +46,17 @@ $(document).on('click', '.btn-add-ingredient', function() {
   }
 })
 
-$.getJSON('json/naringsinnehall.json', function(data) {
-  let livsmedel = data['Blad1'].map((item) =>{
+$.getJSON('json/naringsinnehall.json', function (data) {
+  let livsmedel = data['Blad1'].map((item) => {
     return item["Livsmedelsnamn"]
   })
-  console.log(livsmedel)
   $.typeahead({
     input: ".typeahead-ingredients",
     order: "desc",
     source: livsmedel,
     callback: {
-        onClickBefore: function () {  }
+      onClickBefore: function () {}
     },
     hint: true
-});
-  //console.log(livsmedel)
+  });
 })
