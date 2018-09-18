@@ -54,9 +54,6 @@ $.getJSON('json/naringsinnehall.json', function (data) {
     input: ".typeahead-ingredients",
     order: "desc",
     source: livsmedel,
-    callback: {
-      onClickBefore: function () {}
-    },
     hint: true
   });
 })
