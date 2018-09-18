@@ -136,7 +136,7 @@ function convertIngredientStringArray (ingredients) {
 
 function convertIngredientString(ingredient) {
   const i = ingredient.split(' ')
-  let obj = { amount: i[0], unit: i[1], name: i.slice(2).join(' ') }
+  let obj = { name: i.slice(2).join(' '), amount: i[0], unit: i[1] }
   if (obj.unit === 'g' || obj.unit === 'gram') {
     obj.mass = obj.amount
   } else {
