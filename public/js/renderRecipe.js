@@ -13,6 +13,11 @@ function loadAllDishes() {
   return $.getJSON('/json/recipies.json', function(data) {
     data.forEach(recipe => allDishes.push(recipe))
 
+    console.log(allDishes.map(dish => {
+      dish.ingredients = convertIngredientStringArray(dish.ingredients)
+      return dish
+    }))
+
     selectedDish = allDishes.find(function(recipe) {
       return recipe.dish.toLowerCase().replace('å', 'a').replace('ä', 'a').replace('ö', 'o').replace(' ', '') == dishName;
     });
@@ -124,3 +129,21 @@ $(document).on('click', '#recipe-list .card', function() {
   });
   renderDish()
 });
+
+function convertIngredientStringArray (ingredients) {
+  return ingredients.map(i => convertIngredientString(i))
+}
+
+function convertIngredientString(ingredient) {
+  const i = ingredient.split(' ')
+  let obj = { amount: i[0], unit: i[1], name: i.slice(2).join(' ') }
+  if (obj.unit === 'g' || obj.unit === 'gram') {
+    obj.mass = obj.amount
+  } else {
+    obj.mass = '?'
+  }
+  if (!obj.unit) {
+    obj.unit = 'st'
+  }
+  return obj
+}
