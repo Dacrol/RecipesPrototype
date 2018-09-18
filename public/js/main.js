@@ -48,7 +48,7 @@ $(document).on('click', '.btn-add-ingredient', function() {
   }
 })
 
-$.getJSON('json/naringsinnehall.json', function(data) {
+$.getJSON('/json/naringsinnehall.json', function(data) {
   let livsmedel = data.map(item => {
     return item['Livsmedelsnamn']
   })

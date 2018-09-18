@@ -112,7 +112,7 @@ async function renderDish() {
   function renderIngridients() {
     let html = '';
     selectedDish.ingredients.forEach(ingredient => {
-      html += (`<li>${ingredient}</li>`);
+      html += (`<li>${ingredient.amount} ${ingredient.unit} ${ingredient.name}</li>`);
     });
     return html;
   };
@@ -124,3 +124,21 @@ $(document).on('click', '#recipe-list .card', function() {
   });
   renderDish()
 });
+
+function convertIngredientStringArray (ingredients) {
+  return ingredients.map(i => convertIngredientString(i))
+}
+
+function convertIngredientString(ingredient) {
+  const i = ingredient.split(' ')
+  let obj = { name: i.slice(2).join(' '), amount: i[0], unit: i[1] }
+  if (obj.unit === 'g' || obj.unit === 'gram') {
+    obj.mass = obj.amount
+  } else {
+    obj.mass = '?'
+  }
+  if (!obj.unit) {
+    obj.unit = 'st'
+  }
+  return obj
+}

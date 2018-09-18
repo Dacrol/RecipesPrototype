@@ -18,29 +18,59 @@
       "Varva bechamelsås med grönsakssås, smulad fetaost och lasagneplattor i en passande gratängform. Toppa med riven ost och gratinera mitt i ugnen ca 20 min. Toppa med färsk basilika vid servering."
     ],
     "ingredients": [
-      "500 g färska lasagneplattor",
-      "300 g fetaost",
-      "2 dl riven ost",
-      "0.5 kruka färsk basilika",
-      "200 g portabellosvamp",
-      "300 g aubergine",
-      "1 msk olivolja",
-      "1 st stor gul lök, hackad",
-      "1 vitlöksklyfta, finhackad",
-      "1 msk tomatpuré",
-      "400 g krossade tomater",
-      "3 dl vatten",
-      "1 msk grönsaksfond",
-      "1 msk balsamvinäger",
-      "0.5 msk honung",
-      "1 tsk timjan",
-      "1 tsk salt",
-      "0.5 tsk svartpeppar",
-      "20 g smör",
-      "2.5 msk vetemjöl",
-      "5 dl mjölk",
-      "salt",
-      "peppar"
+      {
+        "name": "färska lasagneplattor",
+        "amount": "500",
+        "unit": "g",
+        "mass": "500"
+      },
+      { "name": "fetaost", "amount": "300", "unit": "g", "mass": "300" },
+      { "name": "riven ost", "amount": "2", "unit": "dl", "mass": "?" },
+      {
+        "name": "färsk basilika",
+        "amount": "0.5",
+        "unit": "kruka",
+        "mass": "?"
+      },
+      {
+        "name": "portabellosvamp",
+        "amount": "200",
+        "unit": "g",
+        "mass": "200"
+      },
+      { "name": "aubergine", "amount": "300", "unit": "g", "mass": "300" },
+      { "name": "olivolja", "amount": "1", "unit": "msk", "mass": "?" },
+      {
+        "name": "stor gul lök, hackad",
+        "amount": "1",
+        "unit": "st",
+        "mass": "?"
+      },
+      {
+        "name": "finhackad",
+        "amount": "1",
+        "unit": "vitlöksklyfta,",
+        "mass": "?"
+      },
+      { "name": "tomatpuré", "amount": "1", "unit": "msk", "mass": "?" },
+      {
+        "name": "krossade tomater",
+        "amount": "400",
+        "unit": "g",
+        "mass": "400"
+      },
+      { "name": "vatten", "amount": "3", "unit": "dl", "mass": "?" },
+      { "name": "grönsaksfond", "amount": "1", "unit": "msk", "mass": "?" },
+      { "name": "balsamvinäger", "amount": "1", "unit": "msk", "mass": "?" },
+      { "name": "honung", "amount": "0.5", "unit": "msk", "mass": "?" },
+      { "name": "timjan", "amount": "1", "unit": "tsk", "mass": "?" },
+      { "name": "salt", "amount": "1", "unit": "tsk", "mass": "?" },
+      { "name": "svartpeppar", "amount": "0.5", "unit": "tsk", "mass": "?" },
+      { "name": "smör", "amount": "20", "unit": "g", "mass": "20" },
+      { "name": "vetemjöl", "amount": "2.5", "unit": "msk", "mass": "?" },
+      { "name": "mjölk", "amount": "5", "unit": "dl", "mass": "?" },
+      { "name": "", "amount": "salt", "unit": "st", "mass": "?" },
+      { "name": "", "amount": "peppar", "unit": "st", "mass": "?" }
     ]
   },
   {
@@ -61,17 +91,32 @@
       "Tillsätt sås, vitkål, böngroddar, nudlar och stek ytterligare 3 minuter under omrörning. Knäck i äggen. Vänd runt ordentligt tills äggen stelnat."
     ],
     "ingredients": [
-      "250 g risnudlar",
-      "2 msk olja",
-      "400 g strimlad kycklingfilé",
-      "6 dl strimlad vitkål",
-      "4 dl böngroddar",
-      "2 msk ostronsås",
-      "2 msk soja",
-      "2 msk vatten",
-      "1 msk fisksås",
-      "1 lime, rivet skal och saft",
-      "2 hackade vitlöksklyftor"
+      { "name": "risnudlar", "amount": "250", "unit": "g", "mass": "250" },
+      { "name": "olja", "amount": "2", "unit": "msk", "mass": "?" },
+      {
+        "name": "strimlad kycklingfilé",
+        "amount": "400",
+        "unit": "g",
+        "mass": "400"
+      },
+      { "name": "strimlad vitkål", "amount": "6", "unit": "dl", "mass": "?" },
+      { "name": "böngroddar", "amount": "4", "unit": "dl", "mass": "?" },
+      { "name": "ostronsås", "amount": "2", "unit": "msk", "mass": "?" },
+      { "name": "soja", "amount": "2", "unit": "msk", "mass": "?" },
+      { "name": "vatten", "amount": "2", "unit": "msk", "mass": "?" },
+      { "name": "fisksås", "amount": "1", "unit": "msk", "mass": "?" },
+      {
+        "name": "rivet skal och saft",
+        "amount": "1",
+        "unit": "lime,",
+        "mass": "?"
+      },
+      {
+        "name": "vitlöksklyftor",
+        "amount": "2",
+        "unit": "hackade",
+        "mass": "?"
+      }
     ]
   },
   {
@@ -90,16 +135,36 @@
       "Droppa i mer olja i stekpannan och fräs spaghettin 2–3 min. Vänd runt hela tiden. Tillsätt bönblandningen, salladslök och salt. Pressa över limesaft och smula över fetaost. Toppa med koriander."
     ],
     "ingredients": [
-      "1 msk olivolja",
-      "150 g majskorn",
-      "400 g kidneybönor, på burk, bruttovikt, avsköljda",
-      "1 röd chili, skivad",
-      "500 g sötpotatisspaghetti hackat och klart eller morotsspaghetti",
-      "2 salladslökar, strimlade",
-      "2 tsk flingsalt",
-      "1 lime, pressad saft",
-      "150 g fetaost",
-      "1 kruka koriander, plockade blad"
+      { "name": "olivolja", "amount": "1", "unit": "msk", "mass": "?" },
+      { "name": "majskorn", "amount": "150", "unit": "g", "mass": "150" },
+      {
+        "name": "kidneybönor, på burk, bruttovikt, avsköljda",
+        "amount": "400",
+        "unit": "g",
+        "mass": "400"
+      },
+      { "name": "chili, skivad", "amount": "1", "unit": "röd", "mass": "?" },
+      {
+        "name": "sötpotatisspaghetti hackat och klart eller morotsspaghetti",
+        "amount": "500",
+        "unit": "g",
+        "mass": "500"
+      },
+      {
+        "name": "strimlade",
+        "amount": "2",
+        "unit": "salladslökar,",
+        "mass": "?"
+      },
+      { "name": "flingsalt", "amount": "2", "unit": "tsk", "mass": "?" },
+      { "name": "pressad saft", "amount": "1", "unit": "lime,", "mass": "?" },
+      { "name": "fetaost", "amount": "150", "unit": "g", "mass": "150" },
+      {
+        "name": "koriander, plockade blad",
+        "amount": "1",
+        "unit": "kruka",
+        "mass": "?"
+      }
     ]
   },
   {
@@ -119,14 +184,14 @@
       "Skär laxen i portionsbitar ,hetta upp olja i en stekpanna och stek 3 min per sida ca 48°."
     ],
     "ingredients": [
-      "3 dl yoghurt",
-      "0.5 citron",
-      "1 msk honung",
-      "1 riven vitlöksklyfta",
-      "1 blomkålshuvud",
-      "1 msk olivolja",
-      "1 dl finhackad dill",
-      "500 g lax"
+      { "name": "yoghurt", "amount": "3", "unit": "dl", "mass": "?" },
+      { "name": "", "amount": "0.5", "unit": "citron", "mass": "?" },
+      { "name": "honung", "amount": "1", "unit": "msk", "mass": "?" },
+      { "name": "vitlöksklyfta", "amount": "1", "unit": "riven", "mass": "?" },
+      { "name": "", "amount": "1", "unit": "blomkålshuvud", "mass": "?" },
+      { "name": "olivolja", "amount": "1", "unit": "msk", "mass": "?" },
+      { "name": "finhackad dill", "amount": "1", "unit": "dl", "mass": "?" },
+      { "name": "lax", "amount": "500", "unit": "g", "mass": "500" }
     ]
   },
   {
@@ -146,11 +211,16 @@
       "Grilla ca 15-20 minuter på inte alltför varm grill. Det bästa är att lägga dem i kanten av grillen där det inte är lika varmt."
     ],
     "ingredients": [
-      "ca 250 g champinjoner",
-      "2-4 klyftor vitlök",
-      "ca 25 g smör",
-      "eller  ca 1.5 msk olivolja",
-      "salt t.ex. flingsalt"
+      { "name": "g champinjoner", "amount": "ca", "unit": "250", "mass": "?" },
+      { "name": "vitlök", "amount": "2-4", "unit": "klyftor", "mass": "?" },
+      { "name": "g smör", "amount": "ca", "unit": "25", "mass": "?" },
+      {
+        "name": "ca 1.5 msk olivolja",
+        "amount": "eller",
+        "unit": "st",
+        "mass": "?"
+      },
+      { "name": "flingsalt", "amount": "salt", "unit": "t.ex.", "mass": "?" }
     ]
   },
   {
@@ -180,13 +250,18 @@
       "Ajvarkycklingen är klar. Servera med tillbehören."
     ],
     "ingredients": [
-      "2 dl crème fraiche",
-      "3 dl vispgrädde",
-      "1.5 dl (ca 156 g) mild ajvar relish",
-      "1 tsk honung",
-      "1-2 klyftor vitlök",
-      "0.75 tsk salt",
-      "1 krm vitpeppar"
+      { "name": "crème fraiche", "amount": "2", "unit": "dl", "mass": "?" },
+      { "name": "vispgrädde", "amount": "3", "unit": "dl", "mass": "?" },
+      {
+        "name": "(ca 156 g) mild ajvar relish",
+        "amount": "1.5",
+        "unit": "dl",
+        "mass": "?"
+      },
+      { "name": "honung", "amount": "1", "unit": "tsk", "mass": "?" },
+      { "name": "vitlök", "amount": "1-2", "unit": "klyftor", "mass": "?" },
+      { "name": "salt", "amount": "0.75", "unit": "tsk", "mass": "?" },
+      { "name": "vitpeppar", "amount": "1", "unit": "krm", "mass": "?" }
     ]
   }
 ]
