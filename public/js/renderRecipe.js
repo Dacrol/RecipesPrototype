@@ -30,10 +30,8 @@ async function renderDish() {
   })
 
   $('#recipe-details')
-    .append(`<div class="d-flex flex-column justify-content-start align-items-stretch w-maxlg-100">
-      <img class="align-self-center w-maxlg-100 solid-background" src="${
-        selectedDish.image
-      }" alt="bild på maträtten ${selectedDish.dish}">
+    .append(`<section class="d-flex flex-column justify-content-start align-items-stretch w-maxlg-100" alt="">
+      <img class="align-self-center w-maxlg-100 solid-background" src="${selectedDish.image}" alt="bild på maträtten ${selectedDish.dish}">
         <div class="solid-background">
           <select class="custom-select my-3" id="portion-size">
             <option selected>Antal portioner</option>
@@ -57,7 +55,7 @@ async function renderDish() {
             ${renderIngridients()}
           </ul>
         </div>
-    </div>
+    </section>
   
     <div class="d-flex flex-column flex-fill mx-5">
     <div class="instructions-header-area d-flex mb-3 mx-3">
@@ -72,7 +70,8 @@ async function renderDish() {
           selectedDish.time
         }</span><span class="instructions-icons"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star icon-muted"></i> ${
     selectedDish.difficulty
-  }</span><span class="instructions-icons btn-print"><i class="fas fa-print"></i> Skriv ut</span><span class="instructions-icons"><i class="fas fa-clipboard-list"></i> Inköpslista</span></span>
+  }</span><span class="instructions-icons btn-print"><i class="fas fa-print"></i> Skriv ut</span>
+    <a href="/shoppinglist"><span class="instructions-icons shopping-list"><i class="fas fa-clipboard-list"></i> Inköpslista</span></span></a>
       </div>
     </div>
       <div class="instructions-body-area d-flex flex-fill container">
@@ -142,3 +141,12 @@ function convertIngredientString(ingredient) {
   }
   return obj
 }
+
+$(document).on('click', '.shopping-list', function(e) {
+  e.preventDefault;
+  let html = renderIngridients();
+  localStorage.setItem('shoppinglist', html);
+  window.location.href = '/shoppinglist';
+});
+
+
