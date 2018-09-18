@@ -49,7 +49,7 @@ $(document).on('click', '.btn-add-ingredient', function() {
 })
 
 $.getJSON('json/naringsinnehall.json', function(data) {
-  let livsmedel = data['Blad1'].map(item => {
+  let livsmedel = data.map(item => {
     return item['Livsmedelsnamn']
   })
   $.typeahead({
