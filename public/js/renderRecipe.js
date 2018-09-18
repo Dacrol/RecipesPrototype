@@ -1,14 +1,23 @@
-let dishName = 'Pad Thai'
+let dishName = location.pathname; 
+dishName = dishName.substr(dishName.lastIndexOf('/') + 1).replace('%C3%B6', 'o').replace('%C3%A4', 'a').replace('%C3%A5', 'a').replace(' ', '').toLowerCase();
+
+if (dishName === 'recipe') {
+  dishName = 'Pad Thai';
+}
 let allDishes = []
+console.log(allDishes)
+
 let selectedDish = []
+console.log(selectedDish)
 // let selectedDishID = '';
+console.log('disgname', dishName)
 
 function loadAllDishes() {
   return $.getJSON('/json/recipies.json', function(data) {
     data.forEach(recipe => allDishes.push(recipe))
 
     selectedDish = allDishes.filter(function(recipe) {
-      return recipe.dish == dishName
+      return recipe.dish.toLowerCase().replace('å', 'a').replace('ä', 'a').replace('ö', 'o').replace(' ', '') == dishName
     })
 
     console.log('allDishes', allDishes)
@@ -25,7 +34,7 @@ if (window.location.pathname.startsWith('/recipe')) {
 async function renderDish() {
   selectedDish = await loadAllDishes()
   selectedDish = allDishes.filter(function(recipe) {
-    return recipe.dish == dishName
+    return recipe.dish.toLowerCase().replace('å', 'a').replace('ä', 'a').replace('ö', 'o').replace(' ', '') == dishName
   })
   console.log('selectedDish', selectedDish)
   console.log(selectedDish[0].image)
