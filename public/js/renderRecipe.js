@@ -117,7 +117,7 @@ async function renderDish() {
   function renderIngridients() {
     let html = '';
     selectedDish.ingredients.forEach(ingredient => {
-      html += (`<li>${ingredient}</li>`);
+      html += (`<li>${ingredient.amount} ${ingredient.unit} ${ingredient.name}</li>`);
     });
     return html;
   };
