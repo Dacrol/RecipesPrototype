@@ -25,12 +25,12 @@
         "mass": "500"
       },
       { "name": "fetaost", "amount": "300", "unit": "g", "mass": "300" },
-      { "name": "riven ost", "amount": "2", "unit": "dl", "mass": "?" },
+      { "name": "riven ost", "amount": "2", "unit": "dl", "mass": "" },
       {
         "name": "färsk basilika",
         "amount": "0.5",
         "unit": "kruka",
-        "mass": "?"
+        "mass": ""
       },
       {
         "name": "portabellosvamp",
@@ -39,38 +39,38 @@
         "mass": "200"
       },
       { "name": "aubergine", "amount": "300", "unit": "g", "mass": "300" },
-      { "name": "olivolja", "amount": "1", "unit": "msk", "mass": "?" },
+      { "name": "olivolja", "amount": "1", "unit": "msk", "mass": "" },
       {
         "name": "stor gul lök, hackad",
         "amount": "1",
         "unit": "st",
-        "mass": "?"
+        "mass": ""
       },
       {
-        "name": "finhackad",
+        "name": "finhackad vitlöksklyfta",
         "amount": "1",
-        "unit": "vitlöksklyfta,",
-        "mass": "?"
+        "unit": "st",
+        "mass": ""
       },
-      { "name": "tomatpuré", "amount": "1", "unit": "msk", "mass": "?" },
+      { "name": "tomatpuré", "amount": "1", "unit": "msk", "mass": "" },
       {
         "name": "krossade tomater",
         "amount": "400",
         "unit": "g",
         "mass": "400"
       },
-      { "name": "vatten", "amount": "3", "unit": "dl", "mass": "?" },
-      { "name": "grönsaksfond", "amount": "1", "unit": "msk", "mass": "?" },
-      { "name": "balsamvinäger", "amount": "1", "unit": "msk", "mass": "?" },
-      { "name": "honung", "amount": "0.5", "unit": "msk", "mass": "?" },
-      { "name": "timjan", "amount": "1", "unit": "tsk", "mass": "?" },
-      { "name": "salt", "amount": "1", "unit": "tsk", "mass": "?" },
-      { "name": "svartpeppar", "amount": "0.5", "unit": "tsk", "mass": "?" },
+      { "name": "vatten", "amount": "3", "unit": "dl", "mass": "" },
+      { "name": "grönsaksfond", "amount": "1", "unit": "msk", "mass": "" },
+      { "name": "balsamvinäger", "amount": "1", "unit": "msk", "mass": "" },
+      { "name": "honung", "amount": "0.5", "unit": "msk", "mass": "" },
+      { "name": "timjan", "amount": "1", "unit": "tsk", "mass": "" },
+      { "name": "salt", "amount": "1", "unit": "tsk", "mass": "" },
+      { "name": "svartpeppar", "amount": "0.5", "unit": "tsk", "mass": "" },
       { "name": "smör", "amount": "20", "unit": "g", "mass": "20" },
-      { "name": "vetemjöl", "amount": "2.5", "unit": "msk", "mass": "?" },
-      { "name": "mjölk", "amount": "5", "unit": "dl", "mass": "?" },
-      { "name": "", "amount": "salt", "unit": "st", "mass": "?" },
-      { "name": "", "amount": "peppar", "unit": "st", "mass": "?" }
+      { "name": "vetemjöl", "amount": "2.5", "unit": "msk", "mass": "" },
+      { "name": "mjölk", "amount": "5", "unit": "dl", "mass": "" },
+      { "name": "salt", "amount": "", "unit": "st", "mass": "" },
+      { "name": "peppar", "amount": "", "unit": "st", "mass": "" }
     ]
   },
   {
@@ -92,30 +92,30 @@
     ],
     "ingredients": [
       { "name": "risnudlar", "amount": "250", "unit": "g", "mass": "250" },
-      { "name": "olja", "amount": "2", "unit": "msk", "mass": "?" },
+      { "name": "olja", "amount": "2", "unit": "msk", "mass": "" },
       {
         "name": "strimlad kycklingfilé",
         "amount": "400",
         "unit": "g",
         "mass": "400"
       },
-      { "name": "strimlad vitkål", "amount": "6", "unit": "dl", "mass": "?" },
-      { "name": "böngroddar", "amount": "4", "unit": "dl", "mass": "?" },
-      { "name": "ostronsås", "amount": "2", "unit": "msk", "mass": "?" },
-      { "name": "soja", "amount": "2", "unit": "msk", "mass": "?" },
-      { "name": "vatten", "amount": "2", "unit": "msk", "mass": "?" },
-      { "name": "fisksås", "amount": "1", "unit": "msk", "mass": "?" },
+      { "name": "strimlad vitkål", "amount": "6", "unit": "dl", "mass": "" },
+      { "name": "böngroddar", "amount": "4", "unit": "dl", "mass": "" },
+      { "name": "ostronsås", "amount": "2", "unit": "msk", "mass": "" },
+      { "name": "soja", "amount": "2", "unit": "msk", "mass": "" },
+      { "name": "vatten", "amount": "2", "unit": "msk", "mass": "" },
+      { "name": "fisksås", "amount": "1", "unit": "msk", "mass": "" },
       {
-        "name": "rivet skal och saft",
+        "name": "lime, rivet skal och saft",
         "amount": "1",
-        "unit": "lime,",
-        "mass": "?"
+        "unit": "st",
+        "mass": ""
       },
       {
-        "name": "vitlöksklyftor",
+        "name": "hackade vitlöksklyftor",
         "amount": "2",
-        "unit": "hackade",
-        "mass": "?"
+        "unit": "st",
+        "mass": ""
       }
     ]
   },
@@ -135,7 +135,7 @@
       "Droppa i mer olja i stekpannan och fräs spaghettin 2–3 min. Vänd runt hela tiden. Tillsätt bönblandningen, salladslök och salt. Pressa över limesaft och smula över fetaost. Toppa med koriander."
     ],
     "ingredients": [
-      { "name": "olivolja", "amount": "1", "unit": "msk", "mass": "?" },
+      { "name": "olivolja", "amount": "1", "unit": "msk", "mass": "" },
       { "name": "majskorn", "amount": "150", "unit": "g", "mass": "150" },
       {
         "name": "kidneybönor, på burk, bruttovikt, avsköljda",
@@ -143,7 +143,7 @@
         "unit": "g",
         "mass": "400"
       },
-      { "name": "chili, skivad", "amount": "1", "unit": "röd", "mass": "?" },
+      { "name": "röd chili, skivad", "amount": "1", "unit": "st", "mass": "" },
       {
         "name": "sötpotatisspaghetti hackat och klart eller morotsspaghetti",
         "amount": "500",
@@ -151,19 +151,19 @@
         "mass": "500"
       },
       {
-        "name": "strimlade",
+        "name": "strimlade salladslökar",
         "amount": "2",
-        "unit": "salladslökar,",
-        "mass": "?"
+        "unit": "st",
+        "mass": ""
       },
-      { "name": "flingsalt", "amount": "2", "unit": "tsk", "mass": "?" },
-      { "name": "pressad saft", "amount": "1", "unit": "lime,", "mass": "?" },
+      { "name": "flingsalt", "amount": "2", "unit": "tsk", "mass": "" },
+      { "name": "lime, pressad saft", "amount": "1", "unit": "st", "mass": "" },
       { "name": "fetaost", "amount": "150", "unit": "g", "mass": "150" },
       {
         "name": "koriander, plockade blad",
         "amount": "1",
         "unit": "kruka",
-        "mass": "?"
+        "mass": ""
       }
     ]
   },
@@ -184,13 +184,13 @@
       "Skär laxen i portionsbitar ,hetta upp olja i en stekpanna och stek 3 min per sida ca 48°."
     ],
     "ingredients": [
-      { "name": "yoghurt", "amount": "3", "unit": "dl", "mass": "?" },
-      { "name": "", "amount": "0.5", "unit": "citron", "mass": "?" },
-      { "name": "honung", "amount": "1", "unit": "msk", "mass": "?" },
-      { "name": "vitlöksklyfta", "amount": "1", "unit": "riven", "mass": "?" },
-      { "name": "", "amount": "1", "unit": "blomkålshuvud", "mass": "?" },
-      { "name": "olivolja", "amount": "1", "unit": "msk", "mass": "?" },
-      { "name": "finhackad dill", "amount": "1", "unit": "dl", "mass": "?" },
+      { "name": "yoghurt", "amount": "3", "unit": "dl", "mass": "" },
+      { "name": "citron", "amount": "0.5", "unit": "", "mass": "" },
+      { "name": "honung", "amount": "1", "unit": "msk", "mass": "" },
+      { "name": "vitlöksklyfta, riven", "amount": "1", "unit": "st", "mass": "" },
+      { "name": "blomkålshuvud", "amount": "1", "unit": "", "mass": "" },
+      { "name": "olivolja", "amount": "1", "unit": "msk", "mass": "" },
+      { "name": "finhackad dill", "amount": "1", "unit": "dl", "mass": "" },
       { "name": "lax", "amount": "500", "unit": "g", "mass": "500" }
     ]
   },
@@ -211,16 +211,16 @@
       "Grilla ca 15-20 minuter på inte alltför varm grill. Det bästa är att lägga dem i kanten av grillen där det inte är lika varmt."
     ],
     "ingredients": [
-      { "name": "g champinjoner", "amount": "ca", "unit": "250", "mass": "?" },
-      { "name": "vitlök", "amount": "2-4", "unit": "klyftor", "mass": "?" },
-      { "name": "g smör", "amount": "ca", "unit": "25", "mass": "?" },
+      { "name": "champinjoner", "amount": "g", "unit": "250", "mass": "" },
+      { "name": "vitlöksklyftor", "amount": "2-4", "unit": "st", "mass": "" },
+      { "name": "smör", "amount": "g", "unit": "25", "mass": "" },
       {
         "name": "ca 1.5 msk olivolja",
         "amount": "eller",
         "unit": "st",
-        "mass": "?"
+        "mass": ""
       },
-      { "name": "flingsalt", "amount": "salt", "unit": "t.ex.", "mass": "?" }
+      { "name": "flingsalt", "amount": "salt", "unit": "", "mass": "" }
     ]
   },
   {
@@ -250,18 +250,18 @@
       "Ajvarkycklingen är klar. Servera med tillbehören."
     ],
     "ingredients": [
-      { "name": "crème fraiche", "amount": "2", "unit": "dl", "mass": "?" },
-      { "name": "vispgrädde", "amount": "3", "unit": "dl", "mass": "?" },
+      { "name": "crème fraiche", "amount": "2", "unit": "dl", "mass": "" },
+      { "name": "vispgrädde", "amount": "3", "unit": "dl", "mass": "" },
       {
-        "name": "(ca 156 g) mild ajvar relish",
+        "name": "mild ajvar relish",
         "amount": "1.5",
         "unit": "dl",
-        "mass": "?"
+        "mass": "156"
       },
-      { "name": "honung", "amount": "1", "unit": "tsk", "mass": "?" },
-      { "name": "vitlök", "amount": "1-2", "unit": "klyftor", "mass": "?" },
-      { "name": "salt", "amount": "0.75", "unit": "tsk", "mass": "?" },
-      { "name": "vitpeppar", "amount": "1", "unit": "krm", "mass": "?" }
+      { "name": "honung", "amount": "1", "unit": "tsk", "mass": "" },
+      { "name": "vitlöksklyftor", "amount": "1-2", "unit": "", "mass": "" },
+      { "name": "salt", "amount": "0.75", "unit": "tsk", "mass": "" },
+      { "name": "vitpeppar", "amount": "1", "unit": "krm", "mass": "" }
     ]
   }
 ]
