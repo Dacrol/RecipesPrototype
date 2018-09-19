@@ -7,3 +7,12 @@
     font-weight: bold;
     margin-right: 0.5em;
 }
+
+.fa-print {
+    font-size: 3em;
+    padding: 5px;
+}
+
+.fa-print:hover {
+    background-color: aqua;
+};
