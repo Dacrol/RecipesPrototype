@@ -1,8 +1,20 @@
 
 // Lägg till hela receptet
-$(document).on('click', '.btn-add-recipe', function () {
+$(document).on('click', '.btn-add-recipe', function() {
+
+    let newRecipeObj = {};
+    newRecipeObj.dish = $('#title').val();
+
+    let searchTags = $(".checkboxes input:checkbox:checked").map(function(){
+      return $(this).val();
+    }).get();
+
+    newRecipeObj.tags = searchTags;
+  
+    
+    console.log(newRecipeObj);
     $('.add-success').toggleClass('d-none')
-  })
+  });
 
 // Visa/dölj ny inmatning för ingrediensmängder
 $(document).on('click', '.btn-add-ingredient-info', function () {
