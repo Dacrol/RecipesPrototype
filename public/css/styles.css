@@ -224,12 +224,13 @@ nav {
     margin-top: 0.6em;
 }
 
-.no-blue, .no-blue a {
+.no-blue, .no-blue * {
     text-decoration: none;
     color: initial !important;
 }
 
 .no-blue:hover, .no-blue a:hover {
+    text-decoration: none;
     color: #454545 !important;
 }
 
@@ -300,4 +301,8 @@ textarea#instructions {
 .sidebar-header {
     background-color: transparent !important;
     font-size: 1.2rem;
+}
+
+.dropdown-item {
+    background-color: initial;
 }
