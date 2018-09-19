@@ -1,16 +1,21 @@
-let dishName = location.pathname; 
-let allDishes = [];
-let selectedDish = [];
+let dishName = location.pathname
+let allDishes = []
+let selectedDish = []
 
-dishName = dishName.substr(dishName.lastIndexOf('/') + 1).replace('%C3%B6', 'o').replace('%C3%A4', 'a').replace('%C3%A5', 'a').replace(' ', '').toLowerCase();
+dishName = dishName
+  .substr(dishName.lastIndexOf('/') + 1)
+  .replace('%C3%B6', 'o')
+  .replace('%C3%A4', 'a')
+  .replace('%C3%A5', 'a')
+  .replace(' ', '')
+  .toLowerCase()
 
 if (dishName === 'recipe') {
-  dishName = 'padthai';
-};
-
+  dishName = 'padthai'
+}
 
 function loadAllDishes() {
-  return $.getJSON('/json/recipies.json', function(data) {
+  return $.getJSON('/json/recipes.json', function(data) {
     data.forEach(recipe => allDishes.push(recipe))
 
     // const dishObj = allDishes.map(dish =>
@@ -28,27 +33,43 @@ function loadAllDishes() {
     //   })
     // )
     // console.log(JSON.stringify(dishObj))
-    // console.log(dishObj) 
+    // console.log(dishObj)
 
     selectedDish = allDishes.find(function(recipe) {
-      return recipe.dish.toLowerCase().replace('å', 'a').replace('ä', 'a').replace('ö', 'o').replace(' ', '') == dishName;
-    });
-  });
-};
+      return (
+        recipe.dish
+          .toLowerCase()
+          .replace('å', 'a')
+          .replace('ä', 'a')
+          .replace('ö', 'o')
+          .replace(' ', '') == dishName
+      )
+    })
+  })
+}
 
 if (window.location.pathname.startsWith('/recipe')) {
-  renderDish();
+  renderDish()
 }
 
 async function renderDish() {
   selectedDish = await loadAllDishes()
   selectedDish = allDishes.find(function(recipe) {
-    return recipe.dish.toLowerCase().replace('å', 'a').replace('ä', 'a').replace('ö', 'o').replace(' ', '') == dishName
+    return (
+      recipe.dish
+        .toLowerCase()
+        .replace('å', 'a')
+        .replace('ä', 'a')
+        .replace('ö', 'o')
+        .replace(' ', '') == dishName
+    )
   })
 
   $('#recipe-details')
     .append(`<section class="d-flex flex-column justify-content-start align-items-stretch w-maxlg-100" alt="">
-      <img class="align-self-center w-maxlg-100 solid-background" src="${selectedDish.image}" alt="bild på maträtten ${selectedDish.dish}">
+      <img class="align-self-center w-maxlg-100 solid-background" src="${
+        selectedDish.image
+      }" alt="bild på maträtten ${selectedDish.dish}">
         <div class="solid-background">
           <select class="custom-select my-3" id="portion-size">
             <option selected>Antal portioner</option>
@@ -115,33 +136,35 @@ async function renderDish() {
       </div>
     </div>
     `)
-};
+}
 
-  function renderInstructions() {
-    let html = '';
-    selectedDish.description.forEach(instruction => {
-      html += (`<li>${instruction}</li>`);
-    });
-    return html;
-  };
+function renderInstructions() {
+  let html = ''
+  selectedDish.description.forEach(instruction => {
+    html += `<li>${instruction}</li>`
+  })
+  return html
+}
 
-  function renderIngridients() {
-    let html = '';
-    selectedDish.ingredients.forEach(ingredient => {
-      html += (`<li>${ingredient.amount} ${ingredient.unit} ${ingredient.name}</li>`);
-    });
-    return html;
-  };
+function renderIngridients() {
+  let html = ''
+  selectedDish.ingredients.forEach(ingredient => {
+    html += `<li>${ingredient.amount} ${ingredient.unit} ${
+      ingredient.name
+    }</li>`
+  })
+  return html
+}
 
 $(document).on('click', '#recipe-list .card', function() {
   dishName = $(this)[0].id
   selectedDish = allDishes.find(function(recipe) {
     return recipe.dish == dishName
-  });
+  })
   renderDish()
-});
+})
 
-function convertIngredientStringArray (ingredients) {
+function convertIngredientStringArray(ingredients) {
   return ingredients.map(i => convertIngredientString(i))
 }
 
@@ -160,25 +183,26 @@ function convertIngredientString(ingredient) {
 }
 
 function renderShoppingList() {
-  let html = '';
+  let html = ''
 
   selectedDish.ingredients.forEach(ingredient => {
     if (ingredient.amount == '' || ingredient.amount == null) {
-      html += (`<li><input type="checkbox" class="checkbox"><label>${ingredient.name}</label></input></li>`);
-      }
-      else 
-    html += (`<li><input type="checkbox" class="checkbox"><label>${ingredient.amount} ${ingredient.unit} ${ingredient.name}</label></input></li>`);
-  });
+      html += `<li><input type="checkbox" class="checkbox"><label>${
+        ingredient.name
+      }</label></input></li>`
+    } else
+      html += `<li><input type="checkbox" class="checkbox"><label>${
+        ingredient.amount
+      } ${ingredient.unit} ${ingredient.name}</label></input></li>`
+  })
 
-  html += '<i class="fas fa-print" onclick="window.print();return false;"></i>';
-  return html;
-};
+  html += '<i class="fas fa-print" onclick="window.print();return false;"></i>'
+  return html
+}
 
 $(document).on('click', '.shopping-list', function(e) {
-  e.preventDefault;
-  let html = renderShoppingList();
-  localStorage.setItem('shoppinglist', html);
-  window.location.href = '/shoppinglist';
-});
-
-
+  e.preventDefault
+  let html = renderShoppingList()
+  localStorage.setItem('shoppinglist', html)
+  window.location.href = '/shoppinglist'
+})
