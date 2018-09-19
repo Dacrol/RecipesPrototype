@@ -13,6 +13,23 @@ function loadAllDishes() {
   return $.getJSON('/json/recipies.json', function(data) {
     data.forEach(recipe => allDishes.push(recipe))
 
+    // const dishObj = allDishes.map(dish =>
+    //   dish.ingredients.map(i => i.split(' ')).map(i => {
+    //     let obj ={ amount: i[0], unit: i[1], name: i.slice(2).join(' ') }
+    //     if (obj.unit === 'g' || obj.unit === 'gram') {
+    //       obj.mass = obj.amount
+    //     } else {
+    //       obj.mass = '?'
+    //     }
+    //     if (!obj.unit) {
+    //       obj.unit = 'st'
+    //     }
+    //     return obj
+    //   })
+    // )
+    // console.log(JSON.stringify(dishObj))
+    // console.log(dishObj) 
+
     selectedDish = allDishes.find(function(recipe) {
       return recipe.dish.toLowerCase().replace('å', 'a').replace('ä', 'a').replace('ö', 'o').replace(' ', '') == dishName;
     });
@@ -30,10 +47,8 @@ async function renderDish() {
   })
 
   $('#recipe-details')
-    .append(`<div class="d-flex flex-column justify-content-start align-items-stretch w-maxlg-100">
-      <img class="align-self-center w-maxlg-100 solid-background" src="${
-        selectedDish.image
-      }" alt="bild på maträtten ${selectedDish.dish}">
+    .append(`<section class="d-flex flex-column justify-content-start align-items-stretch w-maxlg-100" alt="">
+      <img class="align-self-center w-maxlg-100 solid-background" src="${selectedDish.image}" alt="bild på maträtten ${selectedDish.dish}">
         <div class="solid-background">
           <select class="custom-select my-3" id="portion-size">
             <option selected>Antal portioner</option>
@@ -57,7 +72,7 @@ async function renderDish() {
             ${renderIngridients()}
           </ul>
         </div>
-    </div>
+    </section>
   
     <div class="d-flex flex-column flex-fill mx-5">
     <div class="instructions-header-area d-flex mb-3 mx-3">
@@ -72,7 +87,8 @@ async function renderDish() {
           selectedDish.time
         }</span><span class="instructions-icons"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star icon-muted"></i> ${
     selectedDish.difficulty
-  }</span><span class="instructions-icons btn-print"><i class="fas fa-print"></i> Skriv ut</span><span class="instructions-icons"><i class="fas fa-clipboard-list"></i> Inköpslista</span></span>
+  }</span><span class="instructions-icons btn-print"><i class="fas fa-print"></i> Skriv ut</span>
+    <a href="/shoppinglist"><span class="instructions-icons shopping-list"><i class="fas fa-clipboard-list"></i> Inköpslista</span></span></a>
       </div>
     </div>
       <div class="instructions-body-area d-flex flex-fill container">
@@ -142,3 +158,27 @@ function convertIngredientString(ingredient) {
   }
   return obj
 }
+
+function renderShoppingList() {
+  let html = '';
+
+  selectedDish.ingredients.forEach(ingredient => {
+    if (ingredient.amount == '' || ingredient.amount == null) {
+      html += (`<li><input type="checkbox" class="checkbox"><label>${ingredient.name}</label></input></li>`);
+      }
+      else 
+    html += (`<li><input type="checkbox" class="checkbox"><label>${ingredient.amount} ${ingredient.unit} ${ingredient.name}</label></input></li>`);
+  });
+
+  html += '<i class="fas fa-print" onclick="window.print();return false;"></i>';
+  return html;
+};
+
+$(document).on('click', '.shopping-list', function(e) {
+  e.preventDefault;
+  let html = renderShoppingList();
+  localStorage.setItem('shoppinglist', html);
+  window.location.href = '/shoppinglist';
+});
+
+
