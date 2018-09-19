@@ -1,8 +1,9 @@
 const db = firebase.firestore()
 
-$.getJSON('/json/recipes.json', function(data) {
-  data.forEach(recipe =>
-    $('#recipe-list')
+db.collection('Recipes').get().then(querySnapshot => {
+  Promise.all(querySnapshot.docs.map(doc => doc.data())).then(recipes => {
+    recipes.forEach(recipe => {
+      $('#recipe-list')
       .append(`<div class="col-12 col-md-6 col-xl-4 mb-5"><a href="/recipe/${formatUrl(
       recipe.dish
     )}">
@@ -19,7 +20,8 @@ $.getJSON('/json/recipes.json', function(data) {
       </div>
     </div>
   </div></a>`)
-  )
+    })
+  })
 })
 
 // for new.html
