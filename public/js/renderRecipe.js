@@ -85,7 +85,7 @@ async function renderDish() {
         }</span><span class="instructions-icons"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star icon-muted"></i> ${
     selectedDish.difficulty
   }</span><span class="instructions-icons btn-print"><i class="fas fa-print"></i> Skriv ut</span>
-    <a href="/shoppinglist"><span class="instructions-icons shopping-list"><i class="fas fa-clipboard-list"></i> Inköpslista</span></span></a>
+    <a class="no-blue" href="/shoppinglist"><span class="instructions-icons shopping-list"><i class="fas fa-clipboard-list"></i> Inköpslista</span></span></a>
       </div>
     </div>
       <div class="instructions-body-area d-flex flex-fill container">
