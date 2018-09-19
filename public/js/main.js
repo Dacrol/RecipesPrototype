@@ -1,3 +1,5 @@
+const db = firebase.firestore()
+
 $.getJSON('/json/recipes.json', function(data) {
   data.forEach(recipe =>
     $('#recipe-list')
