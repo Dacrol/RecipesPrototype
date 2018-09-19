@@ -10,7 +10,7 @@ if (dishName === 'recipe') {
 
 
 function loadAllDishes() {
-  return $.getJSON('/json/recipies.json', function(data) {
+  return $.getJSON('/json/recipes.json', function(data) {
     data.forEach(recipe => allDishes.push(recipe))
 
     // const dishObj = allDishes.map(dish =>
