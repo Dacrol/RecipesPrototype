@@ -13,6 +13,23 @@ function loadAllDishes() {
   return $.getJSON('/json/recipies.json', function(data) {
     data.forEach(recipe => allDishes.push(recipe))
 
+    const dishObj = allDishes.map(dish =>
+      dish.ingredients.map(i => i.split(' ')).map(i => {
+        let obj ={ amount: i[0], unit: i[1], name: i.slice(2).join(' ') }
+        if (obj.unit === 'g' || obj.unit === 'gram') {
+          obj.mass = obj.amount
+        } else {
+          obj.mass = '?'
+        }
+        if (!obj.unit) {
+          obj.unit = 'st'
+        }
+        return obj
+      })
+    )
+    console.log(JSON.stringify(dishObj))
+    console.log(dishObj) 
+
     selectedDish = allDishes.find(function(recipe) {
       return recipe.dish.toLowerCase().replace('å', 'a').replace('ä', 'a').replace('ö', 'o').replace(' ', '') == dishName;
     });
@@ -142,9 +159,18 @@ function convertIngredientString(ingredient) {
   return obj
 }
 
+function renderShoppingList() {
+  let html = '';
+  selectedDish.ingredients.forEach(ingredient => {
+    html += (`<li><input type="checkbox" class="checkbox"><label>${ingredient.amount} ${ingredient.unit} ${ingredient.name}</label></input></li>`);
+  });
+  console.log(html) 
+  return html;
+};
+
 $(document).on('click', '.shopping-list', function(e) {
   e.preventDefault;
-  let html = renderIngridients();
+  let html = renderShoppingList();
   localStorage.setItem('shoppinglist', html);
   window.location.href = '/shoppinglist';
 });
