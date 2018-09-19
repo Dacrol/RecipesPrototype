@@ -1,6 +1,6 @@
 let dishName = location.pathname
 let allDishes = []
-let selectedDish = []
+let selectedDish
 
 dishName = dishName
   .substr(dishName.lastIndexOf('/') + 1)
@@ -17,23 +17,6 @@ if (dishName === 'recipe') {
 function loadAllDishes() {
   return $.getJSON('/json/recipes.json', function(data) {
     data.forEach(recipe => allDishes.push(recipe))
-
-    // const dishObj = allDishes.map(dish =>
-    //   dish.ingredients.map(i => i.split(' ')).map(i => {
-    //     let obj ={ amount: i[0], unit: i[1], name: i.slice(2).join(' ') }
-    //     if (obj.unit === 'g' || obj.unit === 'gram') {
-    //       obj.mass = obj.amount
-    //     } else {
-    //       obj.mass = '?'
-    //     }
-    //     if (!obj.unit) {
-    //       obj.unit = 'st'
-    //     }
-    //     return obj
-    //   })
-    // )
-    // console.log(JSON.stringify(dishObj))
-    // console.log(dishObj)
 
     selectedDish = allDishes.find(function(recipe) {
       return (
@@ -53,17 +36,10 @@ if (window.location.pathname.startsWith('/recipe')) {
 }
 
 async function renderDish() {
-  selectedDish = await loadAllDishes()
-  selectedDish = allDishes.find(function(recipe) {
-    return (
-      recipe.dish
-        .toLowerCase()
-        .replace('å', 'a')
-        .replace('ä', 'a')
-        .replace('ö', 'o')
-        .replace(' ', '') == dishName
-    )
-  })
+  selectedDish = (await db
+    .collection('Recipes')
+    .doc(formatUrl(dishName))
+    .get()).data()
 
   $('#recipe-details')
     .append(`<section class="d-flex flex-column justify-content-start align-items-stretch w-maxlg-100" alt="">

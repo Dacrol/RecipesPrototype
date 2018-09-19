@@ -21,7 +21,7 @@ $.getJSON('/json/recipes.json').then(recipes =>
   recipes.forEach(recipe =>
     db
       .collection('Recipes')
-      .doc(recipe.dish.replace(/\//g, ''))
+      .doc(formatUrl(recipe.dish.replace(/\//g, '')))
       .set(recipe)
   )
 )
@@ -33,7 +33,7 @@ db.collection('Recipes')
 
 // Hämta ett recept
 db.collection('Recipes')
-  .doc('Grönsakslasagne')
+  .doc('gronsakslasagne')
   .get()
   .then(recipe => {
     console.log(recipe.data())
