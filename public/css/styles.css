@@ -27,7 +27,7 @@
 #sidebar.collapse.show .sidebar-container {
     overflow-y: scroll;
     overflow-x: hidden;
-    width: 417px;
+    width: 417px !important;
 }
 
 #sidebar .list-group {

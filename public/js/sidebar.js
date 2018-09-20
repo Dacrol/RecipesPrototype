@@ -23,6 +23,14 @@ db.collection('Recipes')
     })
   })
 
+$('#sidebar').on('shown.bs.collapse', function() {
+  const collapsible = $('.sidebar-container').get(0)
+  if (collapsible.offsetWidth - collapsible.clientWidth !== 17) {
+    collapsible.style.width =
+      417 - (collapsible.offsetWidth - collapsible.clientWidth) + 'px'
+  }
+})
+
 function capitalizeFirstLetter(str) {
   return str.charAt(0).toUpperCase() + str.slice(1)
 }
