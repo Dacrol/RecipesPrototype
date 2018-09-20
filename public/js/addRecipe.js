@@ -3,15 +3,52 @@
 $(document).on('click', '.btn-add-recipe', function() {
 
     let newRecipeObj = {};
-    newRecipeObj.dish = $('#title').val();
+
+    let dishTitle = $('#title').val();
+    if(dishTitle.length < 2){
+      $('#title').val('');
+      $('#title').attr('placeholder', 'Fyll i minst 2 bokstäver');
+      $('#title').addClass('bg-danger');
+      return;
+    }
+    else {
+      newRecipeObj.dish = $('#title').val();
+    }
 
     let searchTags = $(".checkboxes input:checkbox:checked").map(function(){
       return $(this).val();
     }).get();
-
     newRecipeObj.tags = searchTags;
-  
+
+    // att göra - lägga in bild
+    newRecipeObj.image = "/imgs/veg-lasagne.jpg"
+
+    newRecipeObj.difficulty = $('#difficulty').val();
     
+    newRecipeObj.portions = $('#portion-size').val();
+  
+    newRecipeObj.time = $('#cooking-time').val() + " min";
+
+    // att göra - hantera rating
+    newRecipeObj.rating = 0;
+
+    let dishSummary = $('#summary').val();
+    if(dishSummary.length < 2){
+      $('#summary').val('');
+      $('#summary').attr('placeholder', 'Fyll i minst 2 bokstäver');
+      $('#summary').addClass('bg-danger');
+      return;
+    }
+    else {
+      newRecipeObj.summary = $('#summary').val();
+    }
+
+    newRecipeObj.additionalInfo = $('#additional-info').val();
+
+    let descItems = $('instruction-item');
+    console.log(descItems);
+    //newRecipeObj.description
+
     console.log(newRecipeObj);
     $('.add-success').toggleClass('d-none')
   });
@@ -26,7 +63,7 @@ $(document).on('click', '.btn-add-ingredient-info', function () {
 })
   
 // Lägg till ny instruktion
-$(document).on('click', '.btn-add-instruction', function () {
+$(document).on(' click', '.btn-add-instruction', function () {
   if ($('.add-instruction').val()) {
     $('.added-instructions').append(`
     <p class="btn-sub-instruction mt-2 ml-3 instruction-item"><i class="fas fa-minus" role="button"></i> ${$('.add-instruction').val()}</p>
@@ -36,6 +73,7 @@ $(document).on('click', '.btn-add-instruction', function () {
 })
 
 // Lägg till ingredienser
+let ingArr = [];
 $(document).on('click', '.btn-add-ingredient', function () {
   if(!formCheck()){
     return;
@@ -44,8 +82,10 @@ $(document).on('click', '.btn-add-ingredient', function () {
     <p class="btn-sub-ingredient mt-2 ml-3 ingredient-item"><i class="fas fa-minus" role="button"></i> ${$('.typeahead-ingredients').val()} ${$(
     '.add-volume').val()} ${$('#add-unit').val()}/ ${$('.add-weight').val()}g</p>
   `)
+  ingArr.push(`${$('.typeahead-ingredients').val()} ${$(
+    '.add-volume').val()} ${$('#add-unit').val()}/${$('.add-weight').val()}g`);
+    console.log(ingArr);
   $('.typeahead-ingredients, .add-volume, .add-weight').val('')
-  
 })
 
 // Kontrollera inmatning av ingredienser
@@ -90,9 +130,11 @@ function formCheck(){
 
 
 // Ta bort felmeddelande från inmatning
-$('.typeahead-ingredients').focus(function(){
-  $('.typeahead-ingredients').removeClass('bg-danger');
+$('.typeahead-ingredients, #title, #summary').focus(function(){
+  $('.typeahead-ingredients, #title, #summary').removeClass('bg-danger');
   $('.typeahead-ingredients').attr('placeholder', 'Ingrediens');
+  $('#title').attr('placeholder', " T.ex. 'Pad Thai'");
+  $('#summary').attr('placeholder', "T.ex. 'En fräsch och kryddig kycklingrätt med smak av lime, vitlök och ostronsås.'");
 });
 
 $('.add-volume').focus(function(){

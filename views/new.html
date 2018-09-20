@@ -15,11 +15,10 @@
           <section class="form-group">
             <label for="portion-size">Välj antal portioner receptet är avsett för</label>
             <select class="custom-select" id="portion-size">
-              <option selected>Antal portioner</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
-              <option value="4">4</option>
+              <option selected value="4">4</option>
               <option value="5">5</option>
               <option value="6">6</option>
               <option value="7">7</option>
@@ -143,23 +142,21 @@
             </section>
             <section class=" form-group mb-3">
               <label for="difficulty">Uppskatta tid i minuter: </label>
-              <select class="custom-select" id="difficulty">
-                <option selected>Välj tidsintervall</option>
+              <select class="custom-select" id="cooking-time">
                 <option value="15">15</option>
-                <option value="30">30</option>
+                <option selected value="30">30</option>
                 <option value="45">45</option>
                 <option value="60">60</option>
                 <option value="90">90</option>
                 <option value="120">120</option>
-                <option value="150">150+</option>
+                <option value="150+">150+</option>
               </select>
             </section>
             <section class="form-group mb-3 mt-3">
               <label for="difficulty">Uppskatta svårighetsgrad: </label>
               <select class="custom-select" id="difficulty">
-                <option selected>Välj svårighetsgrad</option>
                 <option value="easy">Lätt</option>
-                <option value="medium">Medelsvår</option>
+                <option selected value="medium">Medel</option>
                 <option value="hard">Svår</option>
               </select>
             </section>
@@ -173,10 +170,26 @@
               <i class="pl-2 fas fa-plus fa-1point5 btn-add-instruction pull-right"></i>
               <section class="added-instructions mt-4"></section>
             </section>
+            <section class="form-group mt-2">
+              <label for="additional-info">Lägg till tips (frivillig):</label>
+              <textarea class="mx-0 add-instruction w-100" id="additional-info" rows="2" placeholder="Det går lika bra med selleri"></textarea>
+            </section>
           </div>
           <section class="checkboxes" id="find-table">
-            <p>Recepttyp</p>
-            <label class="w-25"><input type="checkbox" value="kött"> Kött</label><label class="w-25"><input type="checkbox" value="vego"> Vego</label><label class="w-25"><input type="checkbox" value="fisk"> Fisk</label><label class="w-25"><input type="checkbox" value="soppa"> Soppa</label><label class="w-25"><input type="checkbox" value="pizza"> Pizza</label><label class="w-25"><input type="checkbox" value="gryta"> Gryta</label><label class="w-25"><input type="checkbox" value="långkok"> Långkok</label><label class="w-25"><input type="checkbox" value="laktosfri"> Laktosfri</label>
+            <p class="text-bold">Recepttyp</p>
+            <label class="w-25"><input type="checkbox" value="kött"> Kött</label>
+            <label class="w-25"><input type="checkbox" value="vego"> Vego</label>
+            <label class="w-25"><input type="checkbox" value="fisk"> Fisk</label>
+            <label class="w-25"><input type="checkbox" value="soppa"> Soppa</label>
+            <label class="w-25"><input type="checkbox" value="pizza"> Pizza</label>
+            <label class="w-25"><input type="checkbox" value="gryta"> Gryta</label>
+            <label class="w-25"><input type="checkbox" value="långkok"> Långkok</label>
+            <label class="w-25"><input type="checkbox" value="laktosfri"> Laktosfri</label>
+            <p class="mt-2 text-bold">Ingredienser</p>
+            <label class="w-25"><input type="checkbox" value="sallad"> Sallad</label>
+            <label class="w-25"><input type="checkbox" value="tomat"> Tomat</label>
+            <label class="w-25"><input type="checkbox" value="gurka"> Gurka</label>
+            <label class="w-25"><input type="checkbox" value="potatis"> Potatis</label>
           </section>
           <section class="">
             <p class="mt-3 pull-right" role="button"><span class="btn-add-recipe instructions-icons pb-2 pt-2">Lägg till receptet</span><span class="d-none add-success">Ditt recept är tillagt!</span></p>
