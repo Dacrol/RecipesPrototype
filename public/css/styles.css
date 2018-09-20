@@ -13,14 +13,21 @@
     bottom: 0;
 }
 
+#sidebar.collapse.show {
+    width: 400px;
+}
+
 #sidebar .sidebar-container {
     box-sizing: content-box;
     height: 100%;
+    width: 400px;
+    /* padding-right: 20px; */
 }
 
 #sidebar.collapse.show .sidebar-container {
     overflow-y: scroll;
     overflow-x: hidden;
+    width: 417px;
 }
 
 #sidebar .list-group {
@@ -115,7 +122,7 @@
     height: 100%;
     -webkit-transition-timing-function: ease-out;
             transition-timing-function: ease-out;
-    /* transition-duration: 2500ms; */
+    /* transition-duration: 3500ms; */
 }
 
 nav {
