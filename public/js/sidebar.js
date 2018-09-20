@@ -9,17 +9,14 @@ db.collection('Recipes')
       })
     })
     existingIngredients.forEach(ingredient => {
-      $('#ingredients-list').append(`
-    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="${formatUrl(
-                      ingredient
-                    )}">
-                    <label class="form-check-label" for="${formatUrl(
-                      ingredient
-                    )}">
-                      ${ingredient}
-                    </label>
-                  </div>`)
+      $('#ingredients-list').append(`<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" id="${formatUrl(
+    ingredient
+  )}">
+  <label class="form-check-label" for="${formatUrl(ingredient)}">
+    ${ingredient}
+  </label>
+</div>`)
     })
   })
 
