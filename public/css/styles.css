@@ -42,7 +42,7 @@
 
 /* highlight active menu */
 #sidebar .list-group-item:not(.collapsed) {
-    background-color: #222222;
+    background-color: #282828;
 }
 
 /* closed state */
@@ -56,7 +56,7 @@
 
 /* open state */
 #sidebar .list-group .list-group-item[aria-expanded="true"] {
-    background-color: #222222;
+    background-color: #282828;
 }
 
 #sidebar .list-group .list-group-item[aria-expanded="true"]::after {
