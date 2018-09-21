@@ -3,8 +3,30 @@ class RecipesFilter {
     this.filterBy = []
   }
 
-
- 
+  renderFiltered(ingredients) {
+    console.log(ingredients)
+    if (Array.isArray(ingredients)) {
+      this.filterBy = ingredients
+    }
+    // console.log(this.filterBy)
+    if (this.filterBy.length > 0) {
+      let collection = db.collection('Recipes')
+      let potentialRecipes = collection.where('ingredientNames', 'array-contains', this.filterBy[0])
+      potentialRecipes.get().then(snapshot => {
+        const recipes = snapshot.docs.map(docs => docs.data())
+        console.log(recipes)
+        const filteredRecipes = recipes.filter(recipe => {
+          return this.filterBy.every((ingredient => {
+            return recipe.ingredientNames.includes(ingredient)
+          }))
+        })
+        console.log(filteredRecipes)
+        this.renderRecipes(filteredRecipes)
+      })
+    } else {
+      this.renderAllRecipes()
+    }
+  }
 
   renderAllRecipes() {
     db.collection('Recipes')
@@ -67,6 +89,11 @@ recipesFilter.renderAllRecipes()
         })
     })
 })()
+
+$('#ingredients-list').on('change', '.form-check-input', function (e) {
+  e.stopPropagation()
+  recipesFilter.renderFiltered($('#ingredients-list input:checked').map((index, element) => $(element).data('ingredient')).get())
+})
 
 // Make sure scrollbar is hidden even if it's not 17px wide
 $('#sidebar').on('shown.bs.collapse', function() {
