@@ -149,7 +149,7 @@ nav {
     width: inherit !important;
 }
 .recipe-container {
-    position: absolute;
+    /* position: absolute; */
     left: 0;
     padding-left: 0px;
     /* margin-left: -8px;     */
