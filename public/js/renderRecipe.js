@@ -132,18 +132,14 @@ function convertIngredientString(ingredient) {
   return obj
 }
 
-function renderShoppingList() {
+function renderIngredientList() {
   let html = ''
 
   selectedDish.ingredients.forEach(ingredient => {
     if (ingredient.amount == '' || ingredient.amount == null) {
-      html += `<li><input type="checkbox" class="checkbox"><label>${
-        ingredient.name
-      }</label></input></li>`
+      html += `${ingredient.name}`
     } else
-      html += `<li><input type="checkbox" class="checkbox"><label>${
-        ingredient.amount
-      } ${ingredient.unit} ${ingredient.name}</label></input></li>`
+      html += `${ingredient.amount} ${ingredient.unit} ${ingredient.name}`
   })
 
   html += '<i class="fas fa-print" onclick="window.print();return false;"></i>'
@@ -152,7 +148,7 @@ function renderShoppingList() {
 
 $(document).on('click', '.shopping-list', function(e) {
   e.preventDefault
-  let html = renderShoppingList()
-  localStorage.setItem('shoppinglist', html)
+  let html = renderIngredientList()
+  localStorage.setItem('shoppinglist', JSON.stringify(selectedDish.ingredients));
   window.location.href = '/shoppinglist'
 })
