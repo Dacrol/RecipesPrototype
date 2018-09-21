@@ -53,7 +53,7 @@ class RecipesFilter {
     <img class="card-img-top recipe-thumbnail" alt="${recipe.dish}" src="${
         recipe.image
       }">
-    <div class="card-body d-flex flex-column justify-content-between">
+    <div class="card-body d-flex flex-column justify-content-between gradient-background">
       <p class="card-text">${recipe.summary}</p>
       <div class="d-flex justify-content-between align-items-center">
         <i class="far fa-clock fa-1point5"></i>
