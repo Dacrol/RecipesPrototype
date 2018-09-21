@@ -1,3 +1,16 @@
+// kvar att fixa
+// när man tar bort ingrediens/instruktion måste de tas bort från respektive array
+// när man lagt till ett recept ska alla fält nollställas
+// enhet ska nollställas när man lagt till ingrediens
+// referens till annans ingrediensmängd är inte inlagt alls
+// fler taggar?
+// rating, hur ska det funka?
+// möjlighet att lägga till bild, vet ej hur
+// måste gå att refaktorera en hel del
+// css
+
+let ingArr = [];
+let instArr = [];
 
 // Lägg till hela receptet
 $(document).on('click', '.btn-add-recipe', function() {
@@ -45,9 +58,23 @@ $(document).on('click', '.btn-add-recipe', function() {
 
     newRecipeObj.additionalInfo = $('#additional-info').val();
 
-    let descItems = $('instruction-item');
-    console.log(descItems);
-    //newRecipeObj.description
+    if(instArr.length > 0) {
+      newRecipeObj.description = instArr;
+    }
+    else {
+      $('#instruction').addClass('darkFont');
+      $('#instruction').attr('placeholder', 'Fyll i minst 1 instruktion');
+      $('#instruction').addClass('bg-danger');
+      return;
+    }
+
+    if(ingArr.length > 0) {
+      newRecipeObj.ingredients = ingArr;
+    }
+    else {
+      formCheck();
+      return;
+    }
 
     console.log(newRecipeObj);
     $('.add-success').toggleClass('d-none')
@@ -68,12 +95,13 @@ $(document).on(' click', '.btn-add-instruction', function () {
     $('.added-instructions').append(`
     <p class="btn-sub-instruction mt-2 ml-3 instruction-item"><i class="fas fa-minus" role="button"></i> ${$('.add-instruction').val()}</p>
   `)
+  instArr.push($('.add-instruction').val());
   }
   $('.add-instruction').val('')
 })
 
 // Lägg till ingredienser
-let ingArr = [];
+
 $(document).on('click', '.btn-add-ingredient', function () {
   if(!formCheck()){
     return;
@@ -84,7 +112,6 @@ $(document).on('click', '.btn-add-ingredient', function () {
   `)
   ingArr.push(`${$('.typeahead-ingredients').val()} ${$(
     '.add-volume').val()} ${$('#add-unit').val()}/${$('.add-weight').val()}g`);
-    console.log(ingArr);
   $('.typeahead-ingredients, .add-volume, .add-weight').val('')
 })
 
@@ -130,11 +157,12 @@ function formCheck(){
 
 
 // Ta bort felmeddelande från inmatning
-$('.typeahead-ingredients, #title, #summary').focus(function(){
-  $('.typeahead-ingredients, #title, #summary').removeClass('bg-danger');
+$('.typeahead-ingredients, #title, #summary, #instruction').focus(function(){
+  $('.typeahead-ingredients, #title, #summary, #instruction').removeClass('bg-danger');
   $('.typeahead-ingredients').attr('placeholder', 'Ingrediens');
   $('#title').attr('placeholder', " T.ex. 'Pad Thai'");
   $('#summary').attr('placeholder', "T.ex. 'En fräsch och kryddig kycklingrätt med smak av lime, vitlök och ostronsås.'");
+  $('#instruction').attr('placeholder', "T.ex. 'Skär kamelen i bitar innan du steker den i rikligt med smör'")
 });
 
 $('.add-volume').focus(function(){
