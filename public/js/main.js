@@ -1,6 +1,5 @@
 const db = firebase.firestore()
 
-
 // for new.html
 
 // Lägg till hela receptet
@@ -33,12 +32,14 @@ $.getJSON('/json/naringsinnehall.json', function(data) {
   let livsmedel = data.map(item => {
     return item['Livsmedelsnamn']
   })
-  $.typeahead({
-    input: '.typeahead-ingredients',
-    order: 'desc',
-    source: livsmedel,
-    hint: true
-  })
+  try {
+    $.typeahead({
+      input: '.typeahead-ingredients',
+      order: 'desc',
+      source: livsmedel,
+      hint: true
+    })
+  } catch (e) {}
 })
 
 function formatUrl(url) {
@@ -49,5 +50,6 @@ function formatUrl(url) {
     .replace(/[\s\W-]+/g, '')
     .replace(/((%C3%B6)|(%C3%A4)|(%C3%A5))/g, '')
     .replace(/&/g, '-')
+    .replace(/\//g, '')
     .trim()
 }
