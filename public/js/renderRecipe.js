@@ -1,5 +1,4 @@
 let dishName = location.pathname
-let allDishes = []
 let selectedDish
 
 dishName = dishName
@@ -12,23 +11,6 @@ dishName = dishName
 
 if (dishName === 'recipe') {
   dishName = 'padthai'
-}
-
-function loadAllDishes() {
-  return $.getJSON('/json/recipes.json', function(data) {
-    data.forEach(recipe => allDishes.push(recipe))
-
-    selectedDish = allDishes.find(function(recipe) {
-      return (
-        recipe.dish
-          .toLowerCase()
-          .replace('å', 'a')
-          .replace('ä', 'a')
-          .replace('ö', 'o')
-          .replace(' ', '') == dishName
-      )
-    })
-  })
 }
 
 if (window.location.pathname.startsWith('/recipe')) {
@@ -131,14 +113,6 @@ function renderIngridients() {
   })
   return html
 }
-
-$(document).on('click', '#recipe-list .card', function() {
-  dishName = $(this)[0].id
-  selectedDish = allDishes.find(function(recipe) {
-    return recipe.dish == dishName
-  })
-  renderDish()
-})
 
 function convertIngredientStringArray(ingredients) {
   return ingredients.map(i => convertIngredientString(i))
