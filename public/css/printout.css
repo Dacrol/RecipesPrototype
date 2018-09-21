@@ -1,11 +1,6 @@
-#shopping-list li {
+#shopping-list li, #ingredient-list li {
     font-size: 16px;
     list-style: none;
-}
-
-.checkbox {    
-    font-weight: bold;
-    margin-right: 0.5em;
 }
 
 .fa-print {
@@ -15,4 +10,8 @@
 
 .fa-print:hover {
     background-color: aqua;
-};
+}
+
+.check {
+    font-size: 20px !important;
+}
