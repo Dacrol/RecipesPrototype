@@ -13,9 +13,7 @@ function renderShoppinglist() {
     console.log('Shoppinglistan är tom');
     console.error(error)
   }
-
 }
-
 
 function printData() {
   $('#printer').hide();
@@ -28,3 +26,4 @@ function printData() {
 $('#printer').on('click', function () {
   printData();
 })
+

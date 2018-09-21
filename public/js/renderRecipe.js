@@ -47,8 +47,7 @@ async function renderDish() {
         </div>
         <div class="pt-2 gradient-background">
           <p class="ml-3">Ingredienser:</p>
-          <ul class="ingredient-list">
-            ${renderIngridients()}
+          <ul id="ingredient-list" class="ingredient-list">
           </ul>
         </div>
     </section>
@@ -67,7 +66,7 @@ async function renderDish() {
         }</span><span class="instructions-icons"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star icon-muted"></i> ${
     selectedDish.difficulty
   }</span><span class="instructions-icons btn-print"><i class="fas fa-print"></i> Skriv ut</span>
-    <a class="no-blue" href="/shoppinglist"><span class="instructions-icons shopping-list"><i class="fas fa-clipboard-list"></i> Inköpslista</span></span></a>
+    <a class="no-blue" href="/shoppinglist"><span class="instructions-icons shopping-list"><i class="fas fa-clipboard-list"></i> Handla allt</span></span></a>
       </div>
     </div>
       <div class="instructions-body-area d-flex flex-fill container">
@@ -94,6 +93,7 @@ async function renderDish() {
       </div>
     </div>
     `)
+    $('#ingredient-list').append(renderIngridients());
 }
 
 function renderInstructions() {
@@ -105,13 +105,20 @@ function renderInstructions() {
 }
 
 function renderIngridients() {
-  let html = ''
+  let html = $(`<div id="cartform" class="form-check">`);
+  
+  // selectedDish.ingredients.forEach(ingredient => {
+  //   html += `<li>${ingredient.amount} ${ingredient.unit} ${ingredient.name}</li>`
+  // })
+
   selectedDish.ingredients.forEach(ingredient => {
-    html += `<li>${ingredient.amount} ${ingredient.unit} ${
-      ingredient.name
-    }</li>`
-  })
-  return html
+    let newelement = $(`<li><input class="form-check-input" type="checkbox" value="${ingredient.name}" id="${ingredient.name}">${ingredient.amount} ${ingredient.unit} ${ingredient.name}</li>`
+  )
+  newelement.children('input').data('ingredient', ingredient);
+  html.append(newelement);
+});
+  html.append(`</div><div class="form-group row"><div class="col-sm-10"><button id="addtocart" type="submit" class="btn border-primary mt-2">Handla valda</button></div></div></form>`);
+  return html;
 }
 
 function convertIngredientStringArray(ingredients) {
@@ -152,3 +159,13 @@ $(document).on('click', '.shopping-list', function(e) {
   localStorage.setItem('shoppinglist', JSON.stringify(selectedDish.ingredients));
   window.location.href = '/shoppinglist'
 })
+
+$(document).on('click', '#addtocart', function(e) {
+  e.preventDefault
+  submitForm();
+  window.location.href = '/shoppinglist';
+})
+
+function submitForm(){
+  localStorage.setItem('shoppinglist', JSON.stringify($('#cartform input:checked').map((index, element) => $(element).data('ingredient')).get()));
+  }
