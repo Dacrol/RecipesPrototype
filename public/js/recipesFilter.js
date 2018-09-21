@@ -9,7 +9,7 @@ db.collection('Recipes')
     })
     Array.from(existingIngredients).sort().forEach(ingredient => {
       $('#ingredients-list').append(`<div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" id="${formatUrl(
+  <input class="form-check-input" type="checkbox" value="" data-ingredient="${ingredient}" id="${formatUrl(
     ingredient
   )}">
   <label class="form-check-label" for="${formatUrl(ingredient)}">
