@@ -94,6 +94,26 @@ async function renderDish() {
     </div>
     `)
     $('#ingredient-list').append(renderIngridients());
+
+
+    let img = $('section img').get(0);
+    img.addEventListener('load', function() {
+      var vibrant = new Vibrant(img);
+      var swatches = vibrant.swatches()
+      for (var swatch in swatches)
+          if (swatches.hasOwnProperty(swatch) && swatches[swatch])
+              console.log(swatch, swatches[swatch].getHex())
+  
+      /*
+       * Results into:
+       * Vibrant #7a4426
+       * Muted #7b9eae
+       * DarkVibrant #348945
+       * DarkMuted #141414
+       * LightVibrant #f3ccb4
+       */
+  });
+
 }
 
 function renderInstructions() {
