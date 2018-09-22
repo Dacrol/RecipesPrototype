@@ -203,6 +203,7 @@ nav {
 }
 
 .instructions-icons {
+    display: inline-block;
     margin-right: 15px;
     border: 2px solid #000000;
     padding: 3px 15px;
