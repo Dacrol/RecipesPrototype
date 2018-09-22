@@ -304,6 +304,36 @@ textarea#instructions {
     list-style-type: circle;
 }
 
+section.form-group, .form-section {
+    padding: 5px;
+    border: 1px solid #969696;
+    border-radius: 10px;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgb(63, 63, 63);
+    opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: rgb(63, 63, 63);
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: rgb(63, 63, 63);
+}
+
+.bg-danger {
+    background-color: rgb(255, 116, 116)!important;
+}
+
+.fa-minus {
+    color: red;
+    border: 2px solid red;
+    border-radius: 100%;
+    padding: 4px;
+}
+
 @media (max-width: 450px) {
     img.logo {
         width: 120px;
