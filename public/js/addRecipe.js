@@ -1,12 +1,12 @@
 // kvar att fixa
-// när man tar bort ingrediens/instruktion måste de tas bort från respektive array
-// när man lagt till ett recept ska alla fält nollställas
-// enhet ska nollställas när man lagt till ingrediens
 // referens till annans ingrediensmängd är inte inlagt alls
 // fler taggar?
 // rating, hur ska det funka?
 // möjlighet att lägga till bild, vet ej hur
 // måste gå att refaktorera en hel del
+// knappar måste vara tabindexerade
+// skicka info till databasen
+// förtydliga ingrediens och instruktions +:et ?
 // css
 
 let ingArr = [];
@@ -77,8 +77,25 @@ $(document).on('click', '.btn-add-recipe', function() {
     }
 
     console.log(newRecipeObj);
-    $('.add-success').toggleClass('d-none')
+    emptyForm();
   });
+
+// Töm formulär
+function emptyForm() {
+  $('#portion-size').val(4);
+  $('.added-ingredient').empty();
+  $('.typeahead-ingredients, .add-volume, .add-weight').val('')
+  $('#add-unit').val("unit");
+  ingArr = [];
+  $('#title, #summary, #instruction, #additional-info').val('');
+  $('#cooking-time').val(30);
+  $('#difficulty').val('medium');
+  $('.added-instructions').empty();
+  instArr = [];
+  $('input:checkbox:checked').prop('checked', false);
+
+}
+
 
 // Visa/dölj ny inmatning för ingrediensmängder
 $(document).on('click', '.btn-add-ingredient-info', function () {
@@ -93,11 +110,19 @@ $(document).on('click', '.btn-add-ingredient-info', function () {
 $(document).on(' click', '.btn-add-instruction', function () {
   if ($('.add-instruction').val()) {
     $('.added-instructions').append(`
-    <p class="btn-sub-instruction mt-2 ml-3 instruction-item"><i class="fas fa-minus" role="button"></i> ${$('.add-instruction').val()}</p>
+    <p class="btn-sub-instruction mt-2 ml-3 instruction-item" data-text="${$('.add-instruction').val()}"><i class="fas fa-minus" data-text="${$('.add-instruction').val()}" role="button"></i> ${$('.add-instruction').val()}</p>
   `)
   instArr.push($('.add-instruction').val());
   }
-  $('.add-instruction').val('')
+  else {
+    $('#instruction').val('');
+    $('#instruction').attr('placeholder', 'Fyll i minst 1 tecken');
+    $('#instruction').addClass('bg-danger');
+    return;
+  }
+  $('.add-instruction').val('');
+  $('.add-instruction').removeClass('bg-danger');
+  
 })
 
 // Lägg till ingredienser
@@ -106,13 +131,13 @@ $(document).on('click', '.btn-add-ingredient', function () {
   if(!formCheck()){
     return;
   }
+  let ingText = (`${$('.typeahead-ingredients').val()} ${$('.add-volume').val()} ${$('#add-unit').val()}/${$('.add-weight').val()}g`)
   $('.added-ingredient').append(`
-    <p class="btn-sub-ingredient mt-2 ml-3 ingredient-item"><i class="fas fa-minus" role="button"></i> ${$('.typeahead-ingredients').val()} ${$(
-    '.add-volume').val()} ${$('#add-unit').val()}/ ${$('.add-weight').val()}g</p>
+    <p class="btn-sub-ingredient mt-2 ml-3 ingredient-item" data-text="${ingText}"><i class="fas fa-minus" role="button" data-text="${ingText}"></i> ${ingText}</p>
   `)
-  ingArr.push(`${$('.typeahead-ingredients').val()} ${$(
-    '.add-volume').val()} ${$('#add-unit').val()}/${$('.add-weight').val()}g`);
+  ingArr.push(ingText);
   $('.typeahead-ingredients, .add-volume, .add-weight').val('')
+  $('#add-unit').val("unit");
 })
 
 // Kontrollera inmatning av ingredienser
@@ -179,7 +204,24 @@ $('#add-unit').focus(function(){
   $('#add-unit').removeClass('bg-danger');
 })
 
-// Ta bort från ingrediens- eller instruktions-lista
-$(document).on('click', '.btn-sub-ingredient, .btn-sub-instruction', function(){
+// Ta bort från instruktions-lista
+$(document).on('click', '.btn-sub-instruction', function(e){
+  let delInstruction = $(e.target).data('text');
+  for(let i = 0; i < instArr.length; i++){
+    if(instArr[i] == delInstruction){
+      instArr.splice(i, 1);
+    }
+  }
+  $(this).remove();
+})
+
+// Ta bort från ingrediens-lista
+$(document).on('click', '.btn-sub-ingredient', function(e){
+  let delInstruction = $(e.target).data('text');
+  for(let i = 0; i < ingArr.length; i++){
+    if(ingArr[i] == delInstruction){
+      ingArr.splice(i, 1);
+    }
+  }
   $(this).remove();
 })
