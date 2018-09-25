@@ -284,3 +284,24 @@ $(document).on('click', '.btn-sub-ingredient', function(e){
   }
   $(this).remove();
 })
+
+$(document).ready(function()
+{
+	$("#fileuploader").uploadFile({
+    multiple: false,
+  autoSubmit: false,
+  maxFileCount: 1,
+  onSubmit:function(files)
+{
+  console.log(files)
+  return false
+    //files : List of files to be uploaded
+    //return flase;   to stop upload
+},
+onSelect:function(files)
+{
+    console.log(files[0])
+    return true //to allow file submission.
+}
+	});
+});
