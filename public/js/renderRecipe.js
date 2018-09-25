@@ -174,25 +174,41 @@ function convertIngredientString(ingredient) {
 }
 
 function renderIngredientList() {
-  let html = ''
-
+  let html = '';
   selectedDish.ingredients.forEach(ingredient => {
     if (ingredient.amount == '' || ingredient.amount == null) {
       html += `${ingredient.name}`
     } else
       html += `${ingredient.amount} ${ingredient.unit} ${ingredient.name}`
   })
-
   html += '<i class="fas fa-print" onclick="window.print();return false;"></i>'
   return html
 }
 
 $(document).on('click', '.shopping-list', function (e) {
-  e.preventDefault
-  let html = renderIngredientList()
-  localStorage.setItem('shoppinglist', JSON.stringify(selectedDish.ingredients));
-  window.location.href = '/shoppinglist'
-})
+  e.preventDefault()
+  // let html = renderIngredientList()
+
+  if (selectedNumberOfPortions === defaultSelectedNumberOfPortions) {
+    localStorage.setItem('shoppinglist', JSON.stringify(selectedDish.ingredients));
+    console.log('HEj');
+  }
+  else {    
+    localStorage.setItem('shoppinglist', JSON.stringify(selectedDish.ingredients.map(ingredient => {
+      let ingredientamount = ingredient.amount / defaultSelectedNumberOfPortions;
+      // console.log('ingredientamount', ingredientamount)
+      ingredientamount = ingredientamount * selectedNumberOfPortions;
+      console.log(selectedNumberOfPortions);
+      ingredient.amount = ingredientamount;
+      return ingredient;
+    } )))
+
+  // localStorage.setItem('shoppinglist', JSON.stringify(selectedDish.ingredients));
+}
+window.location.href = '/shoppinglist'
+}
+ )
+
 
 $(document).on('click', '#addtocart', function (e) {
   e.preventDefault
@@ -209,7 +225,6 @@ $(document).on('change', '#portion-size', function () {
 })
 
 function submitForm() {
-
   if (selectedNumberOfPortions === defaultSelectedNumberOfPortions) {
     localStorage.setItem('shoppinglist', JSON.stringify($('#cartform input:checked').map((index, element) => $(element).data('ingredient')).get()));
   }
@@ -226,7 +241,6 @@ function submitForm() {
     )));
   }
 }
-
 
 renderNutrition(livsmedelsNamn);
 
