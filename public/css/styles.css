@@ -149,7 +149,7 @@ nav {
     width: inherit !important;
 }
 .recipe-container {
-    position: absolute;
+    /* position: absolute; */
     left: 0;
     padding-left: 0px;
     /* margin-left: -8px;     */
@@ -169,7 +169,7 @@ nav {
 }
 
 .solid-background {
-    background-color: rgb(255, 219, 191);
+    background-color: #ffffff;
     /* padding: 0 15px; */
 }
 
@@ -177,10 +177,10 @@ nav {
     /* padding: 0 15px; */
     background-color: rgb(255, 243, 232);
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffdbbf+0,fff3e8+35 */
-    background: #ffdbbf; /* Old browsers */
-    background:    -moz-linear-gradient(top, #ffdbbf 0%, #fff3e8 35%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, #ffdbbf 0%,#fff3e8 35%); /* Chrome10-25,Safari5.1-6 */
-    background:         linear-gradient(to bottom, #ffdbbf 0%,#fff3e8 35%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background: #ffffff; /* Old browsers */
+    background:    -moz-linear-gradient(top, #ffffff 0%, #ffffff 35%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #ffffff 0%,#ffffff 35%); /* Chrome10-25,Safari5.1-6 */
+    background:         linear-gradient(to bottom, #ffffff 0%,#ffffff 35%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffdbbf', endColorstr='#fff3e8',GradientType=0 ); /* IE6-9 */
 }
 
@@ -203,6 +203,7 @@ nav {
 }
 
 .instructions-icons {
+    display: inline-block;
     margin-right: 15px;
     border: 2px solid #000000;
     padding: 3px 15px;
@@ -302,6 +303,36 @@ textarea#instructions {
 
 .added-ingredient {
     list-style-type: circle;
+}
+
+section.form-group, .form-section {
+    padding: 5px;
+    border: 1px solid #969696;
+    border-radius: 10px;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgb(63, 63, 63);
+    opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: rgb(63, 63, 63);
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: rgb(63, 63, 63);
+}
+
+.bg-danger {
+    background-color: rgb(255, 116, 116)!important;
+}
+
+.fa-minus {
+    color: red;
+    border: 2px solid red;
+    border-radius: 100%;
+    padding: 4px;
 }
 
 @media (max-width: 450px) {
