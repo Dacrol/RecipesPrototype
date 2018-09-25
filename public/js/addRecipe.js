@@ -262,7 +262,7 @@ $(document).on('click keypress', '.secondary-btn-add-ingredient', function (e) {
   }
   let ingText = (`${$('.secondary-typeahead-ingredients').val()} ${$('.secondary-add-volume').val()} ${$('#secondary-add-unit').val()}/${$('.secondary-add-weight').val()}g`)
   $('.secondary-added-ingredient').append(`
-    <p class="btn-sub-ingredient mt-2 ingredient-item" data-text="${ingText}"><i class="fas fa-minus" role="button" data-text="${ingText}"></i> ${ingText}</p>
+    <p class="btn-sec-sub-ingredient mt-2 ingredient-item" data-text="${ingText}"><i class="fas fa-minus" role="button" data-text="${ingText}"></i> ${ingText}</p>
   `)
   secondaryIngArr.push(ingText);
 
@@ -354,7 +354,6 @@ $(document).on('click', '.btn-sub-instruction', function(e){
 
 // Ta bort från ingrediens-lista
 $(document).on('click keypress', '.btn-sub-ingredient', function(e){
-  console.log(e.target);
   if(e.keyCode == 32 || e.which == 1){
     e.preventDefault;
     let delInstruction = $(e.target).data('text');
@@ -365,6 +364,29 @@ $(document).on('click keypress', '.btn-sub-ingredient', function(e){
         ingredientNames.splice(i, 1);
       }
     }
+    console.log(ingArr);
+    console.log(secondaryIngArr);
+  }
+  else {
+    return;
+  }
+  $(this).remove();
+});
+
+// Ta bort från ingrediens-lista
+$(document).on('click keypress', '.btn-sec-sub-ingredient', function(e){
+  if(e.keyCode == 32 || e.which == 1){
+    e.preventDefault;
+    let delInstruction = $(e.target).data('text');
+    for(let i = 0; i < secondaryIngArr.length; i++){
+      if(secondaryIngArr[i] == delInstruction){
+        secondaryIngArr.splice(i, 1);
+        secondaryIngredients.splice(i, 1);
+        secondaryIngredientNames.splice(i, 1);
+      }
+    }
+    console.log(ingArr);
+    console.log(secondaryIngArr);
   }
   else {
     return;
@@ -378,7 +400,6 @@ $('#secondary-portion-size').on('change', function(){
 
 $(document).ready(function()
 {
-  let dude = "Asd asd"
 	$("#fileuploader").uploadFile({
     multiple: false,
   autoSubmit: false,
@@ -396,11 +417,15 @@ onSelect:function(files)
     console.log(files[0])
     return true //to allow file submiss ion.
 },
-  dragDropStr: "<span>Eller drag och släpp din bild här</span>",
+  dragDropStr: "<span>Eller dra och släpp din bild här</span>",
   uploadStr: "Välj bild",
   showPreview: true,
-  maxFileCountErrorStr: "<span> kan ej laddas upp. Max tillåtna bilder är: </span>"
-
+  maxFileCountErrorStr: "<span> kan ej laddas upp. Max tillåtna bilder är: </span>",
+  onLoad: function() {
+    setTimeout(() => {
+      $("[id^=ajax-upload-id]").prop('tabindex', '1')
+    }, 1000);
+  }
 	});
 });
 

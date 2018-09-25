@@ -302,7 +302,8 @@ textarea#instructions {
 }
 
 .adding-text {
-    font-family: cursive;
+    font-family: 'Roboto';
+    padding-top: 5px;
 }
 
 .reference-error {
@@ -322,7 +323,7 @@ section.form-group, .form-section {
     padding: 15px;
     border: 1px solid #969696;
     border-radius: 10px;
-    background-color: rgb(173, 173, 231);
+    background-color: rgba(160, 177, 222, 0.12);;
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -428,4 +429,24 @@ section.form-group, .form-section {
 
 body {
     background-color: #efefef;
+}
+
+#recipe-ingredients {
+    border: solid rgba(0, 0, 0, 0.25) 1px;
+    background: #ffffff40;
+    height: max-content;
+}
+
+.ajax-upload-dragdrop {
+    color: initial;
+}
+
+#recipe-list .card {
+    min-height: 350px;
+    text-shadow: #00000030 1px 1px 0px;
+}
+
+#recipe-list .card-body {
+    background-position: center;
+    background-size: cover;
 }
