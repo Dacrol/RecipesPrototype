@@ -380,3 +380,18 @@ section.form-group, .form-section {
 #sidebar label {
     white-space: normal;
 }
+
+.page-header {
+    min-height: 225px;
+}
+
+.page-background {
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgb(255, 255, 255)),url(/imgs/mariana-medvedeva-379662-unsplash.jpg);
+    min-height: 225px;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
