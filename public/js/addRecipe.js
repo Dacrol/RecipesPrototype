@@ -13,6 +13,8 @@
 let ingArr = [];
 let ingredientNames = [];
 let ingredients = [];
+let secondaryIngredientNames = [];
+let secondaryIngredients = [];
 let instArr = [];
 let secondaryIngArr = [];
 
@@ -94,16 +96,19 @@ function emptyForm() {
   $('.added-ingredient').empty();
   $('.typeahead-ingredients, .add-volume, .add-weight').val('')
   $('#add-unit').val("unit");
-  ingArr = [];
   $('#title, #summary, #instruction, #additional-info').val('');
   $('#cooking-time').val(30);
   $('#difficulty').val('medium');
   $('.added-instructions').empty();
   instArr = [];
+  ingArr = [];
+  ingredientNames = [];
+  ingredients = [];
+  secondaryIngredientNames = [];
+  secondaryIngredients = [];
+  secondaryIngArr = [];
   $('input:checkbox:checked').prop('checked', false);
-
 }
-
 
 // Visa/dölj ny inmatning för ingrediensmängder
 $(document).on('click', '.btn-add-ingredient-info', function () {
@@ -134,7 +139,6 @@ $(document).on(' click', '.btn-add-instruction', function () {
 })
 
 // Lägg till ingredienser
-
 $(document).on('click', '.btn-add-ingredient', function () {
   if(!formCheck()){
     return;
@@ -161,12 +165,12 @@ function formCheck(){
 
 // Kontroll av ingredienslängd
   let ingredientCheck = $('.typeahead-ingredients').val();
-    if(ingredientCheck.length < 2){
-      $('.typeahead-ingredients').val('');
-      $('.typeahead-ingredients').attr('placeholder', 'Fyll i minst 2 bokstäver');
-      $('.typeahead-ingredients').addClass('bg-danger');
-      return false;
-    }
+  if(ingredientCheck.length < 2){
+    $('.typeahead-ingredients').val('');
+    $('.typeahead-ingredients').attr('placeholder', 'Fyll i minst 2 bokstäver');
+    $('.typeahead-ingredients').addClass('bg-danger');
+    return false;
+  }
 
   // Kontroll av antal
   let volumeCheck = $('.add-volume').val();

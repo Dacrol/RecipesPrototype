@@ -14,7 +14,7 @@
         <form class="my-3 d-flex flex-column">
           <section class="form-group">
             <label for="portion-size">Välj antal portioner receptet är avsett för</label>
-            <select class="custom-select" id="portion-size">
+            <select class="custom-select" id="portion-size" tabindex="2">
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -36,12 +36,12 @@
               <div class="typeahead__container">
                 <div class="typeahead__field">
                   <div class="typeahead__query">
-                    <input class="typeahead-ingredients w-100 mb-2" name="q" type="search" autocomplete="off" id="ingredient" placeholder="Ingrediens" class="add-ingredient">
+                    <input class="typeahead-ingredients w-100 mb-2" tabindex="3" name="q" type="search" autocomplete="off" id="ingredient" placeholder="Ingrediens" class="add-ingredient">
                   </div>
                 </div>
               </div>
-              <input class="w-25 add-volume mr-2 py-1" placeholder=" Antal">
-              <select class="custom-select w-25 mr-2" id="add-unit">
+              <input class="w-25 add-volume mr-2 py-1" placeholder=" Antal" tabindex="4">
+              <select class="custom-select w-25 mr-2" id="add-unit" tabindex="5">
                 <option selected value="unit">enhet</option>
                 <option value="kdm">kryddmått</option>
                 <option value="tsk">tesked</option>
@@ -55,8 +55,8 @@
                 <option value="kg">kilogram</option>
                 <option value="st">styck</option>
               </select>
-              <input class="w-25 add-weight py-1 mr-2" placeholder=" Vikt i g">
-              <i class="ml-4 fas fa-plus fa-1point5 btn-add-ingredient" role="button"></i>
+              <input class="w-25 add-weight py-1 mr-2" placeholder=" Vikt i g" tabindex="6">
+              <i class="ml-4 fas fa-plus fa-1point5 btn-add-ingredient" role="button" tabindex="7"></i>
             </div>
             </div>
             <section class="added-ingredient"></section>
@@ -65,7 +65,7 @@
           
           <p class="small">Om receptet har olika mängder av ingredienserna beroende på hur många portioner som tillagas kan du här välja att lägga till ytterligare en referens till med en annan ingrediensmängd</p>
           <section class="form-section d-flex flex-column justify-content-center align-items-center">
-            <i class="btn-add-ingredient-info fas fa-plus fa-3x mt-2"></i>
+            <i class="btn-add-ingredient-info fas fa-plus fa-3x mt-2" tabindex="8"></i>
             <div class="add-reference mt-2 mb-1">
               Lägg till referens
             </div>
@@ -77,7 +77,7 @@
           <article class="d-none added-ingredient-info mt-2">
             <section class="form-group">
               <label for="added-portion-size">Välj antal portioner receptet är avsett för</label>
-              <select class="custom-select" id="secondary-portion-size">
+              <select class="custom-select" id="secondary-portion-size" tabindex="9">
                 <option selected>Antal portioner</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -100,13 +100,13 @@
                 <div class="typeahead__container">
                   <div class="typeahead__field">
                     <div class="typeahead__query">
-                      <input class="secondary-typeahead-ingredients w-100 mb-2" name="q" type="search" autocomplete="off" id="second-ingredient"
+                      <input class="secondary-typeahead-ingredients w-100 mb-2" tabindex="10" name="q" type="search" autocomplete="off" id="second-ingredient"
                         placeholder="Ingrediens" class="secondary-add-ingredient">
                     </div>
                   </div>
                 </div>
-                <input class="w-25 secondary-add-volume mr-2 py-1" placeholder=" Antal">
-                <select class="custom-select w-25 mr-2" id="secondary-add-unit">
+                <input class="w-25 secondary-add-volume mr-2 py-1" placeholder=" Antal" tabindex="11">
+                <select class="custom-select w-25 mr-2" id="secondary-add-unit" tabindex="12">
                   <option selected>enhet</option>
                   <option value="kdm">kryddmått</option>
                   <option value="tsk">tesked</option>
@@ -120,8 +120,8 @@
                   <option value="kg">kilogram</option>
                   <option value="st">styck</option>
                 </select>
-                <input class="w-25 secondary-add-weight py-1 mr-2" placeholder=" Vikt i g">
-                <i class="ml-4 fas fa-plus fa-1point5 secondary-btn-add-ingredient" role="button"></i>
+                <input class="w-25 secondary-add-weight py-1 mr-2" placeholder=" Vikt i g" tabindex="13">
+                <i class="ml-4 fas fa-plus fa-1point5 secondary-btn-add-ingredient" role="button" tabindex="14"></i>
               </div>
               </div>
               <section class="secondary-added-ingredient"></section>
@@ -138,11 +138,11 @@
           <div class="">
             <section class="form-group">
               <label for="title">Receptets namn : </label>
-              <input placeholder=" T.ex. 'Pad Thai'" id="title" class="w-100 mb-2">
+              <input placeholder=" T.ex. 'Pad Thai'" id="title" class="w-100 mb-2" tabindex="15">
             </section>
             <section class=" form-group mb-3">
               <label for="difficulty">Uppskatta tid i minuter: </label>
-              <select class="custom-select" id="cooking-time">
+              <select class="custom-select" id="cooking-time" tabindex="16">
                 <option value="15">15</option>
                 <option selected value="30">30</option>
                 <option value="45">45</option>
@@ -154,7 +154,7 @@
             </section>
             <section class="form-group mb-3 mt-3">
               <label for="difficulty">Uppskatta svårighetsgrad: </label>
-              <select class="custom-select" id="difficulty">
+              <select class="custom-select" id="difficulty" tabindex="17">
                 <option value="easy">Lätt</option>
                 <option selected value="medium">Medel</option>
                 <option value="hard">Svår</option>
@@ -162,32 +162,32 @@
             </section>
             <section class="form-group">
               <label for="summary">Sammanfattning: </label>
-                <textarea class="form-control w-100" id="summary" rows="3" placeholder="T.ex. 'En fräsch och kryddig kycklingrätt med smak av lime, vitlök och ostronsås.'"></textarea>
+                <textarea tabindex="18" class="form-control w-100" id="summary" rows="3" placeholder="T.ex. 'En fräsch och kryddig kycklingrätt med smak av lime, vitlök och ostronsås.'"></textarea>
             </section>
             <section class="form-group mt-2">
               <label for="instruction">Lägg till instruktion:</label>
-              <textarea class="mx-0 add-instruction w-100" id="instruction" rows="2" placeholder="T.ex. 'Skär kamelen i bitar innan du steker den i rikligt med smör'"></textarea>
-              <i class="pl-2 fas fa-plus fa-1point5 btn-add-instruction pull-right mr-2"></i>
+              <textarea tabindex="19" class="mx-0 add-instruction w-100" id="instruction" rows="2" placeholder="T.ex. 'Skär kamelen i bitar innan du steker den i rikligt med smör'"></textarea>
+              <i class="pl-2 fas fa-plus fa-1point5 btn-add-instruction pull-right mr-2" tabindex="19.5"></i>
               <section class="added-instructions mt-4"></section>
             </section>
             <section class="form-group mt-2">
               <label for="additional-info">Lägg till tips (frivillig):</label>
-              <textarea class="mx-0 add-instruction w-100" id="additional-info" rows="2" placeholder="Det går lika bra med selleri"></textarea>
+              <textarea tabindex="20" class="mx-0 add-instruction w-100" id="additional-info" rows="2" placeholder="Det går lika bra med selleri"></textarea>
             </section>
           </div>
           <section class="checkboxes" id="find-table">
             <p class="text-bold">Recepttyp</p>
-            <label class="w-25"><input type="checkbox" value="kött"> Kött</label>
-            <label class="w-25"><input type="checkbox" value="vego"> Vego</label>
-            <label class="w-25"><input type="checkbox" value="fisk"> Fisk</label>
-            <label class="w-25"><input type="checkbox" value="soppa"> Soppa</label>
-            <label class="w-25"><input type="checkbox" value="pizza"> Pizza</label>
-            <label class="w-25"><input type="checkbox" value="gryta"> Gryta</label>
-            <label class="w-25"><input type="checkbox" value="långkok"> Långkok</label>
-            <label class="w-25"><input type="checkbox" value="laktosfri"> Laktosfri</label>
+            <label class="w-25"><input type="checkbox" value="kött" tabindex="21"> Kött</label>
+            <label class="w-25"><input type="checkbox" value="vego"tabindex="22"> Vego</label>
+            <label class="w-25"><input type="checkbox" value="fisk" tabindex="23"> Fisk</label>
+            <label class="w-25"><input type="checkbox" value="soppa" tabindex="24"> Soppa</label>
+            <label class="w-25"><input type="checkbox" value="pizza" tabindex="25"> Pizza</label>
+            <label class="w-25"><input type="checkbox" value="gryta" tabindex="26"> Gryta</label>
+            <label class="w-25"><input type="checkbox" value="långkok" tabindex="27"> Långkok</label>
+            <label class="w-25"><input type="checkbox" value="laktosfri" tabindex="28"> Laktosfri</label>
           </section>
           <section class="">
-            <p class="mt-3 pull-right" role="button"><span class="btn-add-recipe instructions-icons pb-2 pt-2">Lägg till receptet</span><span class="d-none add-success">Ditt recept är tillagt!</span></p>
+            <p class="mt-3 pull-right" role="button"><span class="btn-add-recipe instructions-icons pb-2 pt-2" tabindex="29">Lägg till receptet</span><span class="d-none add-success">Ditt recept är tillagt!</span></p>
           </section>
         </form>
         </div>
