@@ -18,6 +18,7 @@
   <link href="https://fonts.googleapis.com/css?family=Viga|Amiri|Khula|Signika" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Francois+One|Permanent+Marker" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-typeahead/2.10.6/jquery.typeahead.css" rel="stylesheet">
+  <link href="http://hayageek.github.io/jQuery-Upload-File/4.0.11/uploadfile.css" rel="stylesheet">
 
   <link rel="stylesheet" href="/css/styles.css">
   <title>Recipes Search</title>
@@ -25,7 +26,7 @@
 </head>
 
 <body>
-
+    <div class="page-background"></div>
   <div class="container-fluid pl-0 ml-0 d-flex flex-column">
 
     <div class="row d-flex flex-nowrap wrapper m-0 p-0">
@@ -35,9 +36,9 @@
               class="fa fa-book"></i> <span>Item 3 </span></a>
         </div>
       </div>
-
       <div class="px-5 pl-2 pt-2 flex-shrink-1 w-100">
         <div class="container-fluid">
+          <div class="page-header">
           <div class="row">
             <div class="float-left col-12">
               <nav class="navbar navbar-expand-md navbar-light">
@@ -68,7 +69,7 @@
             <div class="text-center flex-fill px-4">
               <div class="d-flex justify-content-center">
                 <!-- <a href="#" data-target="#sidebar" data-toggle="collapse"><i class="fas fa-filter fa-2x py-2 p-1 mr-4 no-blue"></i></a> -->
-                <form class="form-inline mt-0 d-flex justify-content-stretch flex-fill flex-nowrap">
+                <form class="form-inline mt-0 d-flex justify-content-stretch flex-fill flex-nowrap" id="form-search">
                   <div class="form-row flex-nowrap w-100 d-flex align-items-center">
                     <input class="form-control mr-2" type="text" placeholder="Vad är du sugen på?" aria-label="Sök">
                     <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Sök</button>
@@ -76,6 +77,7 @@
                 </form>
               </div>
             </div>
+          </div>
           </div>
 
           {{{body}}}
@@ -101,7 +103,7 @@
       authDomain: "food-fighters-europe.firebaseapp.com",
       databaseURL: "https://food-fighters-europe.firebaseio.com",
       projectId: "food-fighters-europe",
-      storageBucket: "",
+      storageBucket: "food-fighters-europe.appspot.com",
       messagingSenderId: "127003841487"
     };
     firebase.initializeApp(config);
@@ -110,6 +112,7 @@
 
   <!-- applicaiton specific JavaScript -->
   <script src="/vendor/Vibrant.js"></script>
+  <script src="http://hayageek.github.io/jQuery-Upload-File/4.0.11/jquery.uploadfile.min.js"></script>
   <script src="/js/main.js"></script>
   <script src="/js/renderRecipe.js"></script>
   <script src="/js/addRecipe.js"></script>

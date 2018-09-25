@@ -24,7 +24,8 @@
 </head>
 
 <body>
-
+  
+    <div class="page-background"></div>
   <div class="container-fluid pl-0 ml-0 d-flex flex-column">
 
     <div class="row d-flex flex-nowrap wrapper m-0 p-0">
@@ -165,9 +166,9 @@
           </div>
         </div>
       </aside>
-
       <div class="px-5 pl-2 pt-2 flex-shrink-1 w-100">
         <div class="container-fluid">
+          <div class="page-header">
           <div class="row">
             <div class="float-left col-12">
               <nav class="navbar navbar-expand-md navbar-light">
@@ -199,7 +200,7 @@
             <div class="text-center flex-fill px-4">
               <div class="d-flex justify-content-center">
                 <a href="#" data-target="#sidebar" data-toggle="collapse"><i class="fas fa-filter fa-2x py-2 p-1 mr-4 no-blue"></i></a>
-                <form class="form-inline mt-0 d-flex justify-content-stretch flex-fill flex-nowrap">
+                <form class="form-inline mt-0 d-flex justify-content-stretch flex-fill flex-nowrap" id="form-search">
                   <div class="form-row flex-nowrap w-100 d-flex align-items-center">
                     <input class="form-control mr-2" type="text" placeholder="Vad är du sugen på?" aria-label="Sök">
                     <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Sök</button>
@@ -208,6 +209,7 @@
               </div>
             </div>
           </div>
+        </div>
           {{{body}}}
         </div>
       </div>

@@ -211,8 +211,8 @@
       "Grilla ca 15-20 minuter på inte alltför varm grill. Det bästa är att lägga dem i kanten av grillen där det inte är lika varmt."
     ],
     "ingredients": [
-      { "name": "champinjoner", "amount": "g", "unit": "250", "mass": "" },
-      { "name": "vitlöksklyftor", "amount": "2-4", "unit": "st", "mass": "" },
+      { "name": "champinjoner", "amount": "250", "unit": "g", "mass": "" },
+      { "name": "vitlöksklyftor", "amount": "3", "unit": "st", "mass": "" },
       { "name": "smör", "amount": "g", "unit": "25", "mass": "" },
       {
         "name": "ca 1.5 msk olivolja",
