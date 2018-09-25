@@ -17,6 +17,14 @@ app.get('/', function(req, res) {
   res.render('home', { layout: 'main-sidebar' })
 })
 
+app.get('/search/:id', function(req, res) {
+  res.render('home', { layout: 'main-sidebar' })
+})
+
+app.get('/search', function(req, res) {
+  res.render('home', { layout: 'main-sidebar' })
+})
+
 app.get('/recipe', function(req, res) {
   res.render('recipe')
 })
@@ -27,6 +35,10 @@ app.get('/recipe/:id', function(req, res) {
 
 app.get('/new', function(req, res) {
   res.render('new')
+})
+
+app.get('/shoppinglist', function(req, res) {
+  res.render('shoppinglist', { layout: false })
 })
 
 app.use(express.static('public'))

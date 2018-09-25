@@ -1,0 +1,267 @@
+[
+  {
+    "dish": "Grönsakslasagne",
+    "tags": ["vegetarisk", "lasagne"],
+    "image": "/imgs/veg-lasagne.jpg",
+    "difficulty": "Svår",
+    "temperature": "200",
+    "portions": 4,
+    "time": "30 min",
+    "summary": "Vegetarisk lasagne med grönsaker och svamp",
+    "rating": 4.5,
+    "additional information": "Går bra med champinjoner också.",
+    "description": [
+      "Hacka svampen och hacka eller riv auberginen grovt. Värm olja i en stor stekpanna eller kastrull och fräs svamp, aubergine, lök och vitlök tills vätskan ångat bort.",
+      "Tillsätt tomatpurén och stek under omrörning ca 3 min. Häll i resten av ingredienserna och låt småputtra ca 15 min.",
+      "Smält smöret i en tjockbottnad kastrull. Vispa i mjölet. Häll på lite mjölk och vispa till en jämn konsistens. Tillsätt resten av mjölken lite i taget.",
+      "Låt sjuda ca 3 min. Vispa hela tiden och var försiktig med värmen. Smaka av med salt och peppar.",
+      "Varva bechamelsås med grönsakssås, smulad fetaost och lasagneplattor i en passande gratängform. Toppa med riven ost och gratinera mitt i ugnen ca 20 min. Toppa med färsk basilika vid servering."
+    ],
+    "ingredients": [
+      {
+        "name": "färska lasagneplattor",
+        "amount": "500",
+        "unit": "g",
+        "mass": "500"
+      },
+      { "name": "fetaost", "amount": "300", "unit": "g", "mass": "300" },
+      { "name": "riven ost", "amount": "2", "unit": "dl", "mass": "" },
+      {
+        "name": "färsk basilika",
+        "amount": "0.5",
+        "unit": "kruka",
+        "mass": ""
+      },
+      {
+        "name": "portabellosvamp",
+        "amount": "200",
+        "unit": "g",
+        "mass": "200"
+      },
+      { "name": "aubergine", "amount": "300", "unit": "g", "mass": "300" },
+      { "name": "olivolja", "amount": "1", "unit": "msk", "mass": "" },
+      {
+        "name": "stor gul lök, hackad",
+        "amount": "1",
+        "unit": "st",
+        "mass": ""
+      },
+      {
+        "name": "finhackad vitlöksklyfta",
+        "amount": "1",
+        "unit": "st",
+        "mass": ""
+      },
+      { "name": "tomatpuré", "amount": "1", "unit": "msk", "mass": "" },
+      {
+        "name": "krossade tomater",
+        "amount": "400",
+        "unit": "g",
+        "mass": "400"
+      },
+      { "name": "vatten", "amount": "3", "unit": "dl", "mass": "" },
+      { "name": "grönsaksfond", "amount": "1", "unit": "msk", "mass": "" },
+      { "name": "balsamvinäger", "amount": "1", "unit": "msk", "mass": "" },
+      { "name": "honung", "amount": "0.5", "unit": "msk", "mass": "" },
+      { "name": "timjan", "amount": "1", "unit": "tsk", "mass": "" },
+      { "name": "salt", "amount": "1", "unit": "tsk", "mass": "" },
+      { "name": "svartpeppar", "amount": "0.5", "unit": "tsk", "mass": "" },
+      { "name": "smör", "amount": "20", "unit": "g", "mass": "20" },
+      { "name": "vetemjöl", "amount": "2.5", "unit": "msk", "mass": "" },
+      { "name": "mjölk", "amount": "5", "unit": "dl", "mass": "" },
+      { "name": "salt", "amount": "", "unit": "st", "mass": "" },
+      { "name": "peppar", "amount": "", "unit": "st", "mass": "" }
+    ]
+  },
+  {
+    "dish": "Pad Thai",
+    "tags": ["kyckling", "wok"],
+    "image": "/imgs/pad_thai.jpg",
+    "difficulty": "Medel",
+    "temperature": "-",
+    "portions": 4,
+    "time": "30 min",
+    "summary": "En fräsch och kryddig kycklingrätt med smak av lime, vitlök och ostronsås.",
+    "rating": 4.2,
+    "additional information": "Servera med salladslök, jordnötter, koriander eller persilja och chili.",
+    "description": [
+      "Blanda alla ingredienser till såsen.",
+      "Tillaga nudlarna enligt anvisning på förpackningen.",
+      "Hetta upp olja i en rymlig stekpanna eller wok. Stek kycklingen på stark värme, cirka 2 minuter.",
+      "Tillsätt sås, vitkål, böngroddar, nudlar och stek ytterligare 3 minuter under omrörning. Knäck i äggen. Vänd runt ordentligt tills äggen stelnat."
+    ],
+    "ingredients": [
+      { "name": "risnudlar", "amount": "250", "unit": "g", "mass": "250" },
+      { "name": "olja", "amount": "2", "unit": "msk", "mass": "" },
+      {
+        "name": "strimlad kycklingfilé",
+        "amount": "400",
+        "unit": "g",
+        "mass": "400"
+      },
+      { "name": "strimlad vitkål", "amount": "6", "unit": "dl", "mass": "" },
+      { "name": "böngroddar", "amount": "4", "unit": "dl", "mass": "" },
+      { "name": "ostronsås", "amount": "2", "unit": "msk", "mass": "" },
+      { "name": "soja", "amount": "2", "unit": "msk", "mass": "" },
+      { "name": "vatten", "amount": "2", "unit": "msk", "mass": "" },
+      { "name": "fisksås", "amount": "1", "unit": "msk", "mass": "" },
+      {
+        "name": "lime, rivet skal och saft",
+        "amount": "1",
+        "unit": "st",
+        "mass": ""
+      },
+      {
+        "name": "hackade vitlöksklyftor",
+        "amount": "2",
+        "unit": "st",
+        "mass": ""
+      }
+    ]
+  },
+  {
+    "dish": "Sötpotatis med rostad majs, bönor och fetaost",
+    "tags": ["vegetarisk", "snabb"],
+    "image": "/imgs/264286.jpg",
+    "difficulty": "Lätt",
+    "temperature": "-",
+    "portions": 4,
+    "time": "15 min",
+    "summary": "De söta smakerna från sötpotatis, bönor och majs samsas med den salta smaken från fetaosten.",
+    "rating": 4.6,
+    "additional information": "Var bönberedd – koka en stor laddning och frys in portionspåsar till hela veckans matlagning.",
+    "description": [
+      "Hetta upp olja i en stekpanna och stek majsen lätt krispig och till fin färg. Vänd ner bönor och ev chili, rör om tills allt är varmt och häll över på ett fat.",
+      "Droppa i mer olja i stekpannan och fräs spaghettin 2–3 min. Vänd runt hela tiden. Tillsätt bönblandningen, salladslök och salt. Pressa över limesaft och smula över fetaost. Toppa med koriander."
+    ],
+    "ingredients": [
+      { "name": "olivolja", "amount": "1", "unit": "msk", "mass": "" },
+      { "name": "majskorn", "amount": "150", "unit": "g", "mass": "150" },
+      {
+        "name": "kidneybönor, på burk, bruttovikt, avsköljda",
+        "amount": "400",
+        "unit": "g",
+        "mass": "400"
+      },
+      { "name": "röd chili, skivad", "amount": "1", "unit": "st", "mass": "" },
+      {
+        "name": "sötpotatisspaghetti hackat och klart eller morotsspaghetti",
+        "amount": "500",
+        "unit": "g",
+        "mass": "500"
+      },
+      {
+        "name": "strimlade salladslökar",
+        "amount": "2",
+        "unit": "st",
+        "mass": ""
+      },
+      { "name": "flingsalt", "amount": "2", "unit": "tsk", "mass": "" },
+      { "name": "lime, pressad saft", "amount": "1", "unit": "st", "mass": "" },
+      { "name": "fetaost", "amount": "150", "unit": "g", "mass": "150" },
+      {
+        "name": "koriander, plockade blad",
+        "amount": "1",
+        "unit": "kruka",
+        "mass": ""
+      }
+    ]
+  },
+  {
+    "dish": "Lax med blomkålscouscous",
+    "tags": ["fisk"],
+    "image": "/imgs/150312.jpg",
+    "difficulty": "Lätt",
+    "temperature": "-",
+    "portions": 4,
+    "time": "30 min",
+    "summary": "Fräsch laxrätt med blomkål och yoghurt.",
+    "rating": 3.7,
+    "additional information": "",
+    "description": [
+      "Blanda yoghurten med finrivet skal av citron(endast det gula), honung och vitlök.",
+      "Riv blomkålen på grova sidan av rivjärnet och häll smulet i kokande, saltat vatten och låt koka 3 min. Häll av vattnet i ett durkslag och blanda blomkålen med olja, citronsaft och dill.",
+      "Skär laxen i portionsbitar ,hetta upp olja i en stekpanna och stek 3 min per sida ca 48°."
+    ],
+    "ingredients": [
+      { "name": "yoghurt", "amount": "3", "unit": "dl", "mass": "" },
+      { "name": "citron", "amount": "0.5", "unit": "", "mass": "" },
+      { "name": "honung", "amount": "1", "unit": "msk", "mass": "" },
+      { "name": "vitlöksklyfta, riven", "amount": "1", "unit": "st", "mass": "" },
+      { "name": "blomkålshuvud", "amount": "1", "unit": "", "mass": "" },
+      { "name": "olivolja", "amount": "1", "unit": "msk", "mass": "" },
+      { "name": "finhackad dill", "amount": "1", "unit": "dl", "mass": "" },
+      { "name": "lax", "amount": "500", "unit": "g", "mass": "500" }
+    ]
+  },
+  {
+    "dish": "Grillade vitlökschampinjoner",
+    "tags": ["vegetarisk", "glutenfritt"],
+    "image": "/imgs/vitloekschampinjoner.jpg",
+    "temperature": "200",
+    "portions": 2,
+    "time": "25 min",
+    "summary": "Grillade vitlökschampinjoner",
+    "rating": 4,
+    "additional information": "Receptet har lågt GI. Ta även med rödlöksklyftor eller schalottenlök i paketen.",
+    "description": [
+      "Torka av champinjonerna. Om det är stora champinjoner kan du dela dem i mindre bitar. Lägg dem i mitten av en rejäl bit ugnsfolie (så stor att den går att vika ihop så att champinjonerna blir täckta av folie).",
+      "Pressa över vitlök och klicka på en bit smör. Salta lite grann.",
+      "Vik ihop aluminiumfolien så det blir som ett paket med skarven uppåt.",
+      "Grilla ca 15-20 minuter på inte alltför varm grill. Det bästa är att lägga dem i kanten av grillen där det inte är lika varmt."
+    ],
+    "ingredients": [
+      { "name": "champinjoner", "amount": "250", "unit": "g", "mass": "" },
+      { "name": "vitlöksklyftor", "amount": "3", "unit": "st", "mass": "" },
+      { "name": "smör", "amount": "g", "unit": "25", "mass": "" },
+      {
+        "name": "ca 1.5 msk olivolja",
+        "amount": "eller",
+        "unit": "st",
+        "mass": ""
+      },
+      { "name": "flingsalt", "amount": "salt", "unit": "", "mass": "" }
+    ]
+  },
+  {
+    "dish": "Ajvarkyckling",
+    "tags": ["kyckling"],
+    "image": "/imgs/ajvarkyckling.jpg",
+    "temperature": "175-200",
+    "portions": 5,
+    "time": "75 min",
+    "summary": "Grillade vitlökschampinjoner",
+    "rating": 3.5,
+    "additional information": "Jättegod och enkel kycklingrätt som kräver minimalt med arbetsinsats och smakar fantastiskt gott. Passar både som bjudrätt och till att göra matlådor av. Ajvarkycklingen passar dessutom den som följer LCHF eller GI om man väljer rätt tillbehör.",
+    "description": [
+      "Lägg (tinade) kycklinglårfiléer i en ugnsform. Salta och peppra lite på båda sidor på varje filé. (Jag använder vanligt salt och grovmalen svartpeppar, lite grann bara. Ugnsformen ska vara så stor att kycklinglårfiléerna får plats i ett lager, detta för att de ska täckas av blandningen man häller över i kommande steg.)",
+      "Mät upp crème fraiche, grädde, mild ajvar relish och honung i en bunke. Pressa i vitlök. Tillsätt salt och vitpeppar. Vispa ihop till en jämn blandning.",
+      "2 dl crème fraiche",
+      "3 dl vispgrädde",
+      "1.5 dl (ca 156 g) mild ajvar relish",
+      "1 tsk honung",
+      "1-2 klyftor vitlök",
+      " 0.75 tsk salt",
+      "1 krm vitpeppar",
+      "Häll blandningen över kycklingen. Det ska vara så att kycklingbitarna täcks helst helt och hållet.",
+      "Ställ in mitt i ugnen i 175°C i 45 minuter. Riv under tiden ca 100 g (ca 2 dl) riven ost",
+      "Ta ut ur ugnen och strö över den rivna osten.",
+      "Ställ in i mitten av ugnen igen och höj temperaturen till 200°C och låt stå där 20 minuter. Förbered under tiden de tillbehör du vill ha som t.ex. kokt ris och grönsaker.",
+      "Ajvarkycklingen är klar. Servera med tillbehören."
+    ],
+    "ingredients": [
+      { "name": "crème fraiche", "amount": "2", "unit": "dl", "mass": "" },
+      { "name": "vispgrädde", "amount": "3", "unit": "dl", "mass": "" },
+      {
+        "name": "mild ajvar relish",
+        "amount": "1.5",
+        "unit": "dl",
+        "mass": "156"
+      },
+      { "name": "honung", "amount": "1", "unit": "tsk", "mass": "" },
+      { "name": "vitlöksklyftor", "amount": "1-2", "unit": "", "mass": "" },
+      { "name": "salt", "amount": "0.75", "unit": "tsk", "mass": "" },
+      { "name": "vitpeppar", "amount": "1", "unit": "krm", "mass": "" }
+    ]
+  }
+]

@@ -4,13 +4,34 @@
 
 #sidebar {
     overflow: hidden;
+    position: fixed;
     z-index: 3;
     /* height: 100%; */
     background-color: #333333;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+}
+
+#sidebar.collapse.show {
+    width: 400px;
+}
+
+#sidebar .sidebar-container {
+    box-sizing: content-box;
+    height: 100%;
+    width: 400px;
+    /* padding-right: 20px; */
+}
+
+#sidebar.collapse.show .sidebar-container {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 417px !important;
 }
 
 #sidebar .list-group {
-    min-width: 400px;
+    width: 400px;
     background-color: #333333;
     min-height: 100vh;
     min-height: -webkit-fill-available;
@@ -18,7 +39,7 @@
 
 @media (max-width: 991px) {
     #sidebar .list-group {
-        min-width: 300px;
+        /* width: 300px; */
     }
 }
 
@@ -36,9 +57,13 @@
     white-space: nowrap;
 }
 
+#sidebar a.list-group-item:hover {
+    filter: brightness(90%);
+}
+
 /* highlight active menu */
 #sidebar .list-group-item:not(.collapsed) {
-    background-color: #222222;
+    background-color: #282828;
 }
 
 /* closed state */
@@ -52,7 +77,7 @@
 
 /* open state */
 #sidebar .list-group .list-group-item[aria-expanded="true"] {
-    background-color: #222222;
+    background-color: #282828;
 }
 
 #sidebar .list-group .list-group-item[aria-expanded="true"]::after {
@@ -97,7 +122,7 @@
     height: 100%;
     -webkit-transition-timing-function: ease-out;
             transition-timing-function: ease-out;
-    /* transition-duration: 2500ms; */
+    /* transition-duration: 3500ms; */
 }
 
 nav {
@@ -124,7 +149,7 @@ nav {
     width: inherit !important;
 }
 .recipe-container {
-    position: absolute;
+    /* position: absolute; */
     left: 0;
     padding-left: 0px;
     /* margin-left: -8px;     */
@@ -144,7 +169,7 @@ nav {
 }
 
 .solid-background {
-    background-color: rgb(255, 219, 191);
+    background-color: #ffffff;
     /* padding: 0 15px; */
 }
 
@@ -152,10 +177,10 @@ nav {
     /* padding: 0 15px; */
     background-color: rgb(255, 243, 232);
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffdbbf+0,fff3e8+35 */
-    background: #ffdbbf; /* Old browsers */
-    background:    -moz-linear-gradient(top, #ffdbbf 0%, #fff3e8 35%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, #ffdbbf 0%,#fff3e8 35%); /* Chrome10-25,Safari5.1-6 */
-    background:         linear-gradient(to bottom, #ffdbbf 0%,#fff3e8 35%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background: #ffffff; /* Old browsers */
+    background:    -moz-linear-gradient(top, #ffffff 0%, #ffffff 35%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #ffffff 0%,#ffffff 35%); /* Chrome10-25,Safari5.1-6 */
+    background:         linear-gradient(to bottom, #ffffff 0%,#ffffff 35%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffdbbf', endColorstr='#fff3e8',GradientType=0 ); /* IE6-9 */
 }
 
@@ -178,6 +203,7 @@ nav {
 }
 
 .instructions-icons {
+    display: inline-block;
     margin-right: 15px;
     border: 2px solid #000000;
     padding: 3px 15px;
@@ -224,12 +250,13 @@ nav {
     margin-top: 0.6em;
 }
 
-.no-blue, .no-blue a {
+.no-blue, .no-blue * {
     text-decoration: none;
     color: initial !important;
 }
 
 .no-blue:hover, .no-blue a:hover {
+    text-decoration: none;
     color: #454545 !important;
 }
 
@@ -262,6 +289,7 @@ textarea#instructions {
 
 #sidebar .list-group .collapse .list-group-item, #sidebar .list-group .collapsing .list-group-item {
     padding-left: 20px;
+    width: 100%;
 }
 
 #sidebar .list-group .collapse > .collapse .list-group-item, #sidebar .list-group .collapse > .collapsing .list-group-item {
@@ -269,7 +297,7 @@ textarea#instructions {
 }
 
 .btn-add-recipe {
-    width: 17%;
+    /* width: 17%; */
     cursor: pointer;
 }
 
@@ -344,4 +372,60 @@ section.form-group, .form-section {
 .sidebar-header {
     background-color: transparent !important;
     font-size: 1.2rem;
+}
+
+#sidebar .sidebar-header:hover {
+    filter: none;
+}
+
+.dropdown-item {
+    background-color: initial;
+}
+
+.color-inherit, .color-inherit a {
+    color: inherit !important;
+}
+
+#sidebar .color-inherit:hover {
+    color: inherit !important;
+    filter: brightness(90%) !important;
+}
+
+#sidebar label {
+    white-space: normal;
+}
+
+.page-header {
+    min-height: 225px;
+}
+
+.page-background {
+    background-image: linear-gradient(to bottom, #efefef80, #efefef), url(/imgs/mariana-medvedeva-379662-unsplash.jpg);
+    min-height: 250px;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: rgba(0,0,0,.65);
+}
+
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+    color: rgba(0,0,0,.75);
+}
+
+.ajax-file-upload-error {
+    text-align: center;
+}
+
+.fileuploader-container{
+    width: 400px;
+}
+
+body {
+    background-color: #efefef;
 }
