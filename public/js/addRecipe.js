@@ -22,7 +22,7 @@ let secondaryIngArr = [];
 let imageFile;
 
 // Lägg till hela receptet
-$(document).on('click keypress', '.btn-add-recipe', function(e) {
+$(document).on('click keypress', '.btn-add-recipe', async function(e) {
     if(e.keyCode == 32 || e.which == 1){
       e.preventDefault;
     }
