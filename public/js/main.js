@@ -43,6 +43,12 @@ $.getJSON('/json/naringsinnehall.json', function(data) {
   } catch (e) {}
 })
 
+$('#form-search').submit(function(e){
+  e.preventDefault()
+  window.location.pathname = '/search/' + $('#form-search input').val()
+  return false
+})
+
 function formatUrl(url) {
   return url
     .toLowerCase()
