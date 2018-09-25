@@ -386,7 +386,7 @@ section.form-group, .form-section {
 }
 
 .page-background {
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgb(255, 255, 255)),url(/imgs/mariana-medvedeva-379662-unsplash.jpg);
+    background-image: linear-gradient(to bottom, #efefef80, #efefef), url(/imgs/mariana-medvedeva-379662-unsplash.jpg);
     min-height: 250px;
     width: 100%;
     position: absolute;
@@ -410,4 +410,8 @@ section.form-group, .form-section {
 
 .fileuploader-container{
     width: 400px;
+}
+
+body {
+    background-color: #efefef;
 }
