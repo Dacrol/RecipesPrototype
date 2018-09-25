@@ -293,6 +293,7 @@ $(document).on('click', '.btn-sub-ingredient', function(e){
 
 $(document).ready(function()
 {
+  let dude = "Asd asd"
 	$("#fileuploader").uploadFile({
     multiple: false,
   autoSubmit: false,
@@ -308,7 +309,12 @@ onSelect:function(files)
 {
     imageFile = files[0]
     console.log(files[0])
-    return true //to allow file submission.
-}
+    return true //to allow file submiss ion.
+},
+  dragDropStr: "<span>Eller drag och släpp din bild här</span>",
+  uploadStr: "Välj bild",
+  showPreview: true,
+  maxFileCountErrorStr: "<span> kan ej laddas upp. Max tillåtna bilder är: </span>"
+
 	});
 });
