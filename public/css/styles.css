@@ -273,12 +273,17 @@ textarea#instructions {
     cursor: pointer;
 }
 
-.added-ingredient {
-    list-style-type: circle;
+.reference-error {
+    color: rgb(209, 0, 0);
+}
+
+.align-icon {
+    margin-top: 33px;
+    background-color: green;
 }
 
 section.form-group, .form-section {
-    padding: 5px;
+    padding: 15px;
     border: 1px solid #969696;
     border-radius: 10px;
 }

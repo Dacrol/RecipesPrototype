@@ -1,16 +1,13 @@
 // kvar att fixa
-// lägg in spärr på andra referens innan man lagt till första (felmeddelande)
 // validering av andra referensens inmatning
-// +knapparna måste gå att använda från tangentbord
 // fler taggar?
 // rating, hur ska det funka?
 // möjlighet att lägga till bild, vet ej hur
 // måste gå att refaktorera en hel del
 // bilden måste vara tabindexerad (som 1?!)
 // skicka info till databasen
-// förtydliga ingrediens och instruktions +:et ?
 // ta bort ingredientNames och ingredients från andra referensens arrayer vid borttagning av ingrediens
-// css
+// css glöm inte lägg till knapp inte responsiv
 
 let ingArr = [];
 let ingredientNames = [];
@@ -21,8 +18,13 @@ let instArr = [];
 let secondaryIngArr = [];
 
 // Lägg till hela receptet
-$(document).on('click', '.btn-add-recipe', function() {
-
+$(document).on('click keypress', '.btn-add-recipe', function(e) {
+    if(e.keyCode == 32 || e.which == 1){
+      e.preventDefault;
+    }
+    else {
+      return;
+    }
     let newRecipeObj = {};
 
     let dishTitle = $('#title').val();
@@ -115,7 +117,17 @@ function emptyForm() {
 }
 
 // Visa/dölj ny inmatning för ingrediensmängder
-$(document).on('click', '.btn-add-ingredient-info', function () {
+$(document).on('click keypress', '.btn-add-ingredient-info', function (e) {
+  if(ingArr.length == 0) {
+    $('.reference-error').removeClass('d-none');
+    return;
+  }
+  if(e.keyCode == 32 || e.which == 1){
+    e.preventDefault;
+  }
+  else {
+    return;
+  }
   $('.added-ingredient-info').toggleClass('d-none');
   $('.btn-add-ingredient-info').toggleClass('fa-plus');
   $('.btn-add-ingredient-info').toggleClass('fa-minus');
@@ -124,31 +136,39 @@ $(document).on('click', '.btn-add-ingredient-info', function () {
 })
   
 // Lägg till ny instruktion
-$(document).on(' click', '.btn-add-instruction', function () {
-  if ($('.add-instruction').val()) {
-    $('.added-instructions').append(`
-    <p class="btn-sub-instruction mt-2 ml-3 instruction-item" data-text="${$('.add-instruction').val()}"><i class="fas fa-minus" data-text="${$('.add-instruction').val()}" role="button"></i> ${$('.add-instruction').val()}</p>
-  `)
-  instArr.push($('.add-instruction').val());
+$(document).on('click keypress', '.btn-add-instruction', function (e) {
+  if(e.keyCode == 32 || e.which == 1){
+    e.preventDefault;
+    if ($('.add-instruction').val()) {
+      $('.added-instructions').append(`
+      <p class="btn-sub-instruction mt-2 ml-3 instruction-item" data-text="${$('.add-instruction').val()}"><i class="fas fa-minus" data-text="${$('.add-instruction').val()}" role="button"></i> ${$('.add-instruction').val()}</p>
+    `)
+    instArr.push($('.add-instruction').val());
+    }
+    else {
+      $('#instruction').val('');
+      $('#instruction').attr('placeholder', 'Fyll i minst 1 tecken');
+      $('#instruction').addClass('bg-danger');
+      return;
+    }
+    $('.add-instruction').val('');
+    $('.add-instruction').removeClass('bg-danger');
   }
   else {
-    $('#instruction').val('');
-    $('#instruction').attr('placeholder', 'Fyll i minst 1 tecken');
-    $('#instruction').addClass('bg-danger');
     return;
   }
-  $('.add-instruction').val('');
-  $('.add-instruction').removeClass('bg-danger');
+  
   
 })
 
 // Lägg till ingredienser
-$(document).on('click, keypress', '.btn-add-ingredient', function (e) {
-  /*if(e.keyCode == 32){
+$(document).on('click keypress', '.btn-add-ingredient', function (e) {
+  if(e.keyCode == 32){
+    e.preventDefault;
     formCheck();
-  }*/
+  }
   // keycode släpper igenom en tom unitselektion?
-  if(!formCheck() || !e.keyCode == 32){
+  if(!formCheck()){
     return;
   }
   let ingText = (`${$('.typeahead-ingredients').val()} ${$('.add-volume').val()} ${$('#add-unit').val()}/${$('.add-weight').val()}g`)
@@ -167,6 +187,7 @@ $(document).on('click, keypress', '.btn-add-ingredient', function (e) {
   ingredients.push(newIngredient);
   $('.typeahead-ingredients, .add-volume, .add-weight').val('')
   $('#add-unit').val("unit");
+  $('.reference-error').addClass('d-none');
 })
 
 // Kontrollera inmatning av ingredienser
@@ -192,7 +213,7 @@ function formCheck(){
 
   // Kontroll av enhet
   let unitCheck = $('#add-unit').val();
-  if(unitCheck == 'enhet'){
+  if(unitCheck == 'unit'){
     $('#add-unit').addClass('bg-danger');
     return false;
   }
