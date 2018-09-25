@@ -2,6 +2,9 @@ let dishName = location.pathname;
 let selectedDish;
 let livsmedel;
 let livsmedelsNamn = 'Lasagne';
+let selectedNumberOfPortions;
+let defaultSelectedNumberOfPortions;
+
 
 dishName = dishName
   .substr(dishName.lastIndexOf('/') + 1)
@@ -19,13 +22,16 @@ if (window.location.pathname.startsWith('/recipe')) {
   renderDish()
 }
 
-console.log(dishName)
+
 
 async function renderDish() {
   selectedDish = (await db
     .collection('Recipes')
     .doc(formatUrl(dishName))
     .get()).data()
+
+    defaultSelectedNumberOfPortions = selectedDish.portions;
+    selectedNumberOfPortions = defaultSelectedNumberOfPortions; 
 
   $('#recipe-details')
     .append(`<section class="d-flex flex-column justify-content-start align-items-stretch w-maxlg-100" alt="">
@@ -34,7 +40,6 @@ async function renderDish() {
       }" alt="bild på maträtten ${selectedDish.dish}">
         <div class="solid-background">
           <select class="custom-select my-3" id="portion-size">
-            <option selected>Antal portioner</option>
             <option value="1">1 portion</option>
             <option value="2">2 portioner</option>
             <option value="3">3 portioner</option>
@@ -79,14 +84,15 @@ async function renderDish() {
           <ol class="instruction-list mr-3">
           ${renderInstructions()}
           </ol>
-        <h4 class="mt-4 ml-3 mb-3">Näringsinnehåll</h4>
+        <h4 class="mt-4 ml-3 mb-3">Näringsinnehåll/100g</h4>
         <div class="d-flex flex-wrap nutrition-table ml-4 mb-5">
            
         </div>
       </div>
     </div>
     `)
-    $('#ingredient-list').append(renderIngridients());
+    $('#portion-size').val(defaultSelectedNumberOfPortions);
+    $('#ingredient-list').append(renderIngredients());
 
 
     let img = $('section img').get(0);
@@ -122,18 +128,28 @@ function renderInstructions() {
   return html
 }
 
-function renderIngridients() {
+function renderIngredients() {
   let html = $(`<div id="cartform" class="form-check">`);
 
-  // selectedDish.ingredients.forEach(ingredient => {
-  //   html += `<li>${ingredient.amount} ${ingredient.unit} ${ingredient.name}</li>`
-  // })
-
+  console.log('selectedNumberOfPortions', selectedNumberOfPortions);
   selectedDish.ingredients.forEach(ingredient => {
-    let newelement = $(`<li><input class="form-check-input" type="checkbox" value="${ingredient.name}" id="${ingredient.name}">${ingredient.amount} ${ingredient.unit} ${ingredient.name}</li>`
-    )
+    ingredientamount = ingredient.amount / defaultSelectedNumberOfPortions;
+    // console.log('ingredientamount', ingredientamount)
+    ingredientamount = ingredientamount * selectedNumberOfPortions;
+    console.log('ingredientamount', ingredientamount)
+    let newelement
+
+    if (!ingredientamount) {
+    newelement = $(`<li><input class="form-check-input" type="checkbox" value="${ingredient.name}" id="${ingredient.name}">${ingredient.name}</li>`)
     newelement.children('input').data('ingredient', ingredient);
     html.append(newelement);
+    }
+    else {
+    newelement = $(`<li><input class="form-check-input" type="checkbox" value="${ingredient.name}" id="${ingredient.name}">${ingredientamount} ${ingredient.unit} ${ingredient.name}</li>`)
+    
+    newelement.children('input').data('ingredient', ingredient);
+    html.append(newelement);
+    }
   });
   html.append(`</div><div class="form-group row"><div class="col-sm-10"><button id="addtocart" type="submit" class="btn border-primary mt-2">Handla valda</button></div></div></form>`);
   return html;
@@ -184,11 +200,16 @@ $(document).on('click', '#addtocart', function (e) {
   window.location.href = '/shoppinglist';
 })
 
+$(document).on('change', '#portion-size', function() {
+  selectedNumberOfPortions = document.getElementById('portion-size').value;
+  let newHtml = renderIngredients();
+  $('#ingredient-list').empty();
+  $('#ingredient-list').append(newHtml);
+})
+
 function submitForm() {
   localStorage.setItem('shoppinglist', JSON.stringify($('#cartform input:checked').map((index, element) => $(element).data('ingredient')).get()));
 }
-
-
 
 
 renderNutrition(livsmedelsNamn);
@@ -199,7 +220,7 @@ async function renderNutrition(livsmedelsNamn) {
       .doc(livsmedelsNamn)
       .get()).data();
     
-    //   console.log(livsmedel);
+    // console.log(livsmedel);
     // console.log('Fett', livsmedel['Fett (g)']);
     // console.log('Salt', livsmedel['Salt (g)']);
     // console.log('Protein', livsmedel['Protein (g)'])
@@ -212,9 +233,9 @@ async function renderNutrition(livsmedelsNamn) {
     <div class="pr-2">Fleromättat fett<span class="float-right">15g</span></div> 
     <div class="pr-2">Salt <span class="float-right">${livsmedel['Salt (g)']} g</span></div>  
     `);
-    console.log('html', html)
     return html;
 }
+
 
 // förkortningar att filtrera/söka på om vi använder oss utav livsmedel.json istället
 // Kolh
