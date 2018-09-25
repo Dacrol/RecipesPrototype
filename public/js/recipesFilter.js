@@ -50,12 +50,12 @@ class RecipesFilter {
         recipe.dish
       )}">
   <div id="${recipe.dish}" class="card h-100 mb-4 shadow-sm" >
-    <div class="card-body d-flex flex-column justify-content-end" style="background-image: linear-gradient(to bottom, #ffffff00, #ffffff0a, #ffffffa3, #efefefd1, #efefefe3), url(${recipe.image});">
+    <div class="card-body d-flex flex-column justify-content-end" style="background-image: linear-gradient(to bottom, #00000000, #0000000a, #00000082, #000000c2, #000000e0), url(${recipe.image});">
       <div class="filler"></div>
       <h5 class="card-text">${recipe.dish}</h5>
       <p class="card-text">${recipe.summary}</p>
       <div class="d-flex justify-content-between align-items-center">
-        <i class="far fa-clock fa-1point5"></i>
+        <i class="text-muted far fa-clock fa-1point5"></i>
         <small class="text-muted">${recipe.time}</small>
       </div>
     </div>
