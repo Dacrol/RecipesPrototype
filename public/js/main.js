@@ -33,6 +33,7 @@ $.getJSON('/json/naringsinnehall.json', function(data) {
     return item['Livsmedelsnamn']
   })
   try {
+    // @ts-ignore
     $.typeahead({
       input: '.typeahead-ingredients',
       order: 'desc',

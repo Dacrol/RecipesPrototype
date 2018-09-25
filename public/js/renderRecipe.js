@@ -86,7 +86,32 @@ async function renderDish() {
       </div>
     </div>
     `)
-  $('#ingredient-list').append(renderIngridients());
+    $('#ingredient-list').append(renderIngridients());
+
+
+    let img = $('section img').get(0);
+    img.addEventListener('load', function() {
+      const vibrant = new Vibrant(img);
+      const swatches = vibrant.swatches()
+      console.log(swatches)
+      if (swatches.LightVibrant) {
+        $('.gradient-background').css({background: `linear-gradient(to bottom, ${swatches.LightVibrant.getHex()}32, #ffffff00`})
+        $('.solid-background').css({backgroundColor: `${swatches.LightVibrant.getHex()}32`})
+      }
+      else if (swatches.Muted) {
+        $('.gradient-background').css({background: `linear-gradient(to bottom, ${swatches.Muted.getHex()}32, #ffffff00`})
+        $('.solid-background').css({backgroundColor: `${swatches.Muted.getHex()}32`})
+      }
+      /*
+       * Results into:
+       * Vibrant #7a4426
+       * Muted #7b9eae
+       * DarkVibrant #348945
+       * DarkMuted #141414
+       * LightVibrant #f3ccb4
+       */
+  });
+
 }
 
 function renderInstructions() {
