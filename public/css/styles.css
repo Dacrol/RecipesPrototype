@@ -440,3 +440,13 @@ body {
 .ajax-upload-dragdrop {
     color: initial;
 }
+
+#recipe-list .card {
+    min-height: 350px;
+    text-shadow: #00000030 1px 1px 0px;
+}
+
+#recipe-list .card-body {
+    background-position: center;
+    background-size: cover;
+}
