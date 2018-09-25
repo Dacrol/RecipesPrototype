@@ -1,13 +1,16 @@
 // kvar att fixa
-// validering av andra referensens inmatning
-// fler taggar?
-// rating, hur ska det funka?
-// möjlighet att lägga till bild, vet ej hur
-// måste gå att refaktorera en hel del
-// bilden måste vara tabindexerad (som 1?!)
+
 // skicka info till databasen
 // ta bort ingredientNames och ingredients från andra referensens arrayer vid borttagning av ingrediens
 // css glöm inte lägg till knapp inte responsiv
+
+// fler taggar, vilka?
+// rating, hur ska det funka?
+
+// möjlighet att lägga till bild, vet ej hur
+// bilden måste vara tabindexerad (som 1?!)
+
+// måste gå att refaktorera en hel del
 
 let ingArr = [];
 let ingredientNames = [];
@@ -48,7 +51,8 @@ $(document).on('click keypress', '.btn-add-recipe', function(e) {
 
     newRecipeObj.difficulty = $('#difficulty').val();
     
-    newRecipeObj.portions = $('#portion-size').val();
+    let portionSize = $('#portion-size').val()
+    newRecipeObj.portions = portionSize;
   
     newRecipeObj.time = $('#cooking-time').val() + " min";
 
@@ -91,6 +95,17 @@ $(document).on('click keypress', '.btn-add-recipe', function(e) {
 
     newRecipeObj.secondaryIngredientNames = secondaryIngredientNames;
     newRecipeObj.secondaryIngredients = secondaryIngredients;
+
+    if(secondaryIngredientNames.length > 0){
+      let selectedPortionSize = $('#secondary-portion-size option:selected').data('text');
+      if(selectedPortionSize == 'default' || selectedPortionSize == newRecipeObj.portions){
+        $('.select-error').removeClass('d-none');
+        return;
+      }
+      else{
+        newRecipeObj.secondPortionSize = selectedPortionSize;
+      }
+    }
 
     console.log(newRecipeObj);
     emptyForm();
@@ -231,7 +246,11 @@ function formCheck(){
 }
 
 // lägg till en andra ingrediensreferens
-$(document).on('click', '.secondary-btn-add-ingredient', function () {
+$(document).on('click keypress', '.secondary-btn-add-ingredient', function (e) {
+  if(e.keyCode == 32 || e.which == 1){
+    e.preventDefault;
+    secondaryFormCheck();
+  }
   if(!secondaryFormCheck()){
     return;
   }
@@ -255,31 +274,65 @@ $(document).on('click', '.secondary-btn-add-ingredient', function () {
 })
 
 function secondaryFormCheck(){
+  // Kontroll av ingredienslängd
+  let ingredientCheck = $('.secondary-typeahead-ingredients').val();
+  if(ingredientCheck.length < 2){
+    $('.secondary-typeahead-ingredients').val('');
+    $('.secondary-typeahead-ingredients').attr('placeholder', 'Fyll i minst 2 bokstäver');
+    $('.secondary-typeahead-ingredients').addClass('bg-danger');
+    return false;
+  }
+
+  // Kontroll av antal
+  let volumeCheck = $('.secondary-add-volume').val();
+    if(volumeCheck.length < 1){
+      $('.secondary-add-volume').val('');
+      $('.secondary-add-volume').attr('placeholder', 'Fyll i minst 1 siffra');
+      $('.secondary-add-volume').addClass('bg-danger');
+      return false;
+  } 
+
+  // Kontroll av enhet
+  let unitCheck = $('#secondary-add-unit').val();
+  if(unitCheck == 'unit'){
+    $('#secondary-add-unit').addClass('bg-danger');
+    return false;
+  }
+
+  // Kontroll av vikt
+  let weightCheck = $('.secondary-add-weight').val();
+    if(weightCheck.length < 1){
+      $('.secondary-add-weight').val('');
+      $('.secondary-add-weight').addClass('darkFont');
+      $('.secondary-add-weight').attr('placeholder', 'Fyll i minst 1 siffra');
+      $('.secondary-add-weight').addClass('bg-danger');
+      return false;
+  } 
   return true;
 }
 // slut andra inmatning
 
 // Ta bort felmeddelande från inmatning
-$('.typeahead-ingredients, #title, #summary, #instruction').focus(function(){
-  $('.typeahead-ingredients, #title, #summary, #instruction').removeClass('bg-danger');
-  $('.typeahead-ingredients').attr('placeholder', 'Ingrediens');
+$('.typeahead-ingredients, .secondary-typeahead-ingredients, #title, #summary, #instruction').focus(function(){
+  $('.typeahead-ingredients, .secondary-typeahead-ingredients, #title, #summary, #instruction').removeClass('bg-danger');
+  $('.typeahead-ingredients, .secondary-typeahead-ingredients').attr('placeholder', 'Ingrediens');
   $('#title').attr('placeholder', " T.ex. 'Pad Thai'");
   $('#summary').attr('placeholder', "T.ex. 'En fräsch och kryddig kycklingrätt med smak av lime, vitlök och ostronsås.'");
   $('#instruction').attr('placeholder', "T.ex. 'Skär kamelen i bitar innan du steker den i rikligt med smör'")
 });
 
-$('.add-volume').focus(function(){
-  $('.add-volume').removeClass('bg-danger');
-  $('.add-volume').attr('placeholder', ' Antal');
+$('.add-volume, .secondary-add-volume').focus(function(){
+  $('.add-volume, .secondary-add-volume').removeClass('bg-danger');
+  $('.add-volume, .secondary-add-volume').attr('placeholder', ' Antal');
 });
 
-$('.add-weight').focus(function(){
-  $('.add-weight').removeClass('bg-danger');
-  $('.add-weight').attr('placeholder', ' Vikt i g');
+$('.add-weight, .secondary-add-weight').focus(function(){
+  $('.add-weight, .secondary-add-weight').removeClass('bg-danger');
+  $('.add-weight, .secondary-add-weight').attr('placeholder', ' Vikt i g');
 });
 
-$('#add-unit').focus(function(){
-  $('#add-unit').removeClass('bg-danger');
+$('#add-unit, #secondary-add-unit').focus(function(){
+  $('#add-unit, #secondary-add-unit').removeClass('bg-danger');
 })
 
 // Ta bort från instruktions-lista
@@ -294,14 +347,25 @@ $(document).on('click', '.btn-sub-instruction', function(e){
 })
 
 // Ta bort från ingrediens-lista
-$(document).on('click', '.btn-sub-ingredient', function(e){
-  let delInstruction = $(e.target).data('text');
-  for(let i = 0; i < ingArr.length; i++){
-    if(ingArr[i] == delInstruction){
-      ingArr.splice(i, 1);
-      ingredients.splice(i, 1);
-      ingredientNames.splice(i, 1);
+$(document).on('click keypress', '.btn-sub-ingredient', function(e){
+  console.log(e.target);
+  if(e.keyCode == 32 || e.which == 1){
+    e.preventDefault;
+    let delInstruction = $(e.target).data('text');
+    for(let i = 0; i < ingArr.length; i++){
+      if(ingArr[i] == delInstruction){
+        ingArr.splice(i, 1);
+        ingredients.splice(i, 1);
+        ingredientNames.splice(i, 1);
+      }
     }
   }
+  else {
+    return;
+  }
   $(this).remove();
+})
+
+$('#secondary-portion-size').on('change', function(){
+  $('.select-error').addClass('d-none');
 })

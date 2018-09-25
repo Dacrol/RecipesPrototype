@@ -273,8 +273,16 @@ textarea#instructions {
     cursor: pointer;
 }
 
+.adding-text {
+    font-family: cursive;
+}
+
 .reference-error {
     color: rgb(209, 0, 0);
+}
+
+.select-error {
+    color: rgb(2099, 0, 0);
 }
 
 .align-icon {
@@ -286,6 +294,7 @@ section.form-group, .form-section {
     padding: 15px;
     border: 1px solid #969696;
     border-radius: 10px;
+    background-color: rgb(173, 173, 231);
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
