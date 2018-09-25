@@ -1,13 +1,15 @@
 // kvar att fixa
-// referens till annan ingrediensmängd är inte inlagt alls
+// lägg in spärr på andra referens innan man lagt till första (felmeddelande)
+// validering av andra referensens inmatning
+// +knapparna måste gå att använda från tangentbord
 // fler taggar?
 // rating, hur ska det funka?
 // möjlighet att lägga till bild, vet ej hur
 // måste gå att refaktorera en hel del
-// knappar måste vara tabindexerade
+// bilden måste vara tabindexerad (som 1?!)
 // skicka info till databasen
 // förtydliga ingrediens och instruktions +:et ?
-// ta bort ingredientNames och ingredients från arrayer vid borttagning av ingrediens
+// ta bort ingredientNames och ingredients från andra referensens arrayer vid borttagning av ingrediens
 // css
 
 let ingArr = [];
@@ -83,8 +85,10 @@ $(document).on('click', '.btn-add-recipe', function() {
     }
 
     newRecipeObj.ingredientNames = ingredientNames;
-
     newRecipeObj.ingredients = ingredients;
+
+    newRecipeObj.secondaryIngredientNames = secondaryIngredientNames;
+    newRecipeObj.secondaryIngredients = secondaryIngredients;
 
     console.log(newRecipeObj);
     emptyForm();
@@ -139,8 +143,12 @@ $(document).on(' click', '.btn-add-instruction', function () {
 })
 
 // Lägg till ingredienser
-$(document).on('click', '.btn-add-ingredient', function () {
-  if(!formCheck()){
+$(document).on('click, keypress', '.btn-add-ingredient', function (e) {
+  /*if(e.keyCode == 32){
+    formCheck();
+  }*/
+  // keycode släpper igenom en tom unitselektion?
+  if(!formCheck() || !e.keyCode == 32){
     return;
   }
   let ingText = (`${$('.typeahead-ingredients').val()} ${$('.add-volume').val()} ${$('#add-unit').val()}/${$('.add-weight').val()}g`)
@@ -148,6 +156,7 @@ $(document).on('click', '.btn-add-ingredient', function () {
     <p class="btn-sub-ingredient mt-2 ml-3 ingredient-item" data-text="${ingText}"><i class="fas fa-minus" role="button" data-text="${ingText}"></i> ${ingText}</p>
   `)
   ingArr.push(ingText);
+
   ingredientNames.push($('.typeahead-ingredients').val());
 
   let amount = $('.add-volume').val();
@@ -200,6 +209,7 @@ function formCheck(){
   return true;
 }
 
+// lägg till en andra ingrediensreferens
 $(document).on('click', '.secondary-btn-add-ingredient', function () {
   if(!secondaryFormCheck()){
     return;
@@ -209,6 +219,16 @@ $(document).on('click', '.secondary-btn-add-ingredient', function () {
     <p class="btn-sub-ingredient mt-2 ingredient-item" data-text="${ingText}"><i class="fas fa-minus" role="button" data-text="${ingText}"></i> ${ingText}</p>
   `)
   secondaryIngArr.push(ingText);
+
+  secondaryIngredientNames.push($('.secondary-typeahead-ingredients').val());
+
+  let amount = $('.secondary-add-volume').val();
+  let mass = $('.secondary-add-weight').val();
+  let name = $('.secondary-typeahead-ingredients').val();
+  let unit = $('#secondary-add-unit').val();
+  let secondaryNewIngredient = {amount:amount, mass:mass, name:name, unit:unit};
+  secondaryIngredients.push(secondaryNewIngredient);
+
   $('.secondary-typeahead-ingredients, .secondary-add-volume, .secondary-add-weight').val('')
   $('#secondary-add-unit').val("unit");
 })
@@ -258,6 +278,8 @@ $(document).on('click', '.btn-sub-ingredient', function(e){
   for(let i = 0; i < ingArr.length; i++){
     if(ingArr[i] == delInstruction){
       ingArr.splice(i, 1);
+      ingredients.splice(i, 1);
+      ingredientNames.splice(i, 1);
     }
   }
   $(this).remove();
