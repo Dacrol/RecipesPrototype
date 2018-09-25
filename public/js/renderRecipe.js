@@ -130,13 +130,10 @@ function renderInstructions() {
 
 function renderIngredients() {
   let html = $(`<div id="cartform" class="form-check">`);
-
-  console.log('selectedNumberOfPortions', selectedNumberOfPortions);
+  
   selectedDish.ingredients.forEach(ingredient => {
     ingredientamount = ingredient.amount / defaultSelectedNumberOfPortions;
-    // console.log('ingredientamount', ingredientamount)
     ingredientamount = ingredientamount * selectedNumberOfPortions;
-    console.log('ingredientamount', ingredientamount)
     let newelement
 
     if (!ingredientamount) {
@@ -180,35 +177,32 @@ function renderIngredientList() {
       html += `${ingredient.name}`
     } else
       html += `${ingredient.amount} ${ingredient.unit} ${ingredient.name}`
-  })
+  });
   html += '<i class="fas fa-print" onclick="window.print();return false;"></i>'
   return html
-}
+};
 
 $(document).on('click', '.shopping-list', function (e) {
-  e.preventDefault()
-  // let html = renderIngredientList()
-
+  e.preventDefault();
   if (selectedNumberOfPortions === defaultSelectedNumberOfPortions) {
     localStorage.setItem('shoppinglist', JSON.stringify(selectedDish.ingredients));
-    console.log('HEj');
   }
-  else {    
+  else {
     localStorage.setItem('shoppinglist', JSON.stringify(selectedDish.ingredients.map(ingredient => {
       let ingredientamount = ingredient.amount / defaultSelectedNumberOfPortions;
-      // console.log('ingredientamount', ingredientamount)
       ingredientamount = ingredientamount * selectedNumberOfPortions;
-      console.log(selectedNumberOfPortions);
       ingredient.amount = ingredientamount;
       return ingredient;
-    } )))
-
-  // localStorage.setItem('shoppinglist', JSON.stringify(selectedDish.ingredients));
+    })));
+  };
+  window.location.href = '/shoppinglist'
 }
-window.location.href = '/shoppinglist'
-}
- )
+);
 
+$(document).on('click', '.instructions-icons', function (e) {
+  e.preventDefault
+  printData();
+})
 
 $(document).on('click', '#addtocart', function (e) {
   e.preventDefault
@@ -221,7 +215,6 @@ $(document).on('change', '#portion-size', function () {
   let newHtml = renderIngredients();
   $('#ingredient-list').empty();
   $('#ingredient-list').append(newHtml);
-  console.log()
 })
 
 function submitForm() {
@@ -229,12 +222,10 @@ function submitForm() {
     localStorage.setItem('shoppinglist', JSON.stringify($('#cartform input:checked').map((index, element) => $(element).data('ingredient')).get()));
   }
   else {
-    
+
     localStorage.setItem('shoppinglist', JSON.stringify($('#cartform input:checked').map((index, element) => $(element).data('ingredient')).get().map(ingredient => {
       let ingredientamount = ingredient.amount / defaultSelectedNumberOfPortions;
-      // console.log('ingredientamount', ingredientamount)
       ingredientamount = ingredientamount * selectedNumberOfPortions;
-      console.log(selectedNumberOfPortions)
       ingredient.amount = ingredientamount
       return ingredient
     }
