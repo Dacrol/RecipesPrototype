@@ -354,7 +354,6 @@ $(document).on('click', '.btn-sub-instruction', function(e){
 
 // Ta bort från ingrediens-lista
 $(document).on('click keypress', '.btn-sub-ingredient', function(e){
-  console.log(e.target);
   if(e.keyCode == 32 || e.which == 1){
     e.preventDefault;
     let delInstruction = $(e.target).data('text');
@@ -363,6 +362,13 @@ $(document).on('click keypress', '.btn-sub-ingredient', function(e){
         ingArr.splice(i, 1);
         ingredients.splice(i, 1);
         ingredientNames.splice(i, 1);
+      }
+    }
+    for(let i = 0; i < secondaryIngArr.length; i++){
+      if(secondaryIngArr[i] == delInstruction){
+        secondaryIngArr.splice(i, 1);
+        secondaryIngredients.splice(i, 1);
+        secondaryIngredientNames.splice(i, 1);
       }
     }
   }
@@ -378,7 +384,6 @@ $('#secondary-portion-size').on('change', function(){
 
 $(document).ready(function()
 {
-  let dude = "Asd asd"
 	$("#fileuploader").uploadFile({
     multiple: false,
   autoSubmit: false,
