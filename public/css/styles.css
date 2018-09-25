@@ -442,8 +442,8 @@ body {
 }
 
 #recipe-list .card {
-    min-height: 350px;
-    text-shadow: #00000030 1px 1px 0px;
+    min-height: 325px;
+    text-shadow: #efefefcc 0px 0px 10px;
 }
 
 #recipe-list .card-body {
