@@ -74,7 +74,7 @@ async function renderDish() {
       selectedDish.time
       }</span><span class="instructions-icons"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star icon-muted"></i> ${
       selectedDish.difficulty
-      }</span><span class="instructions-icons btn-print"><i class="fas fa-print"></i> Skriv ut</span>
+      }</span><span id="printrecipe" class="instructions-icons btn-print"><i class="fas fa-print"></i> Skriv ut</span>
     <a class="no-blue" href="/shoppinglist"><span class="instructions-icons shopping-list"><i class="fas fa-clipboard-list"></i> Handla allt</span></span></a>
       </div>
     </div>
@@ -130,13 +130,10 @@ function renderInstructions() {
 
 function renderIngredients() {
   let html = $(`<div id="cartform" class="form-check">`);
-
-  console.log('selectedNumberOfPortions', selectedNumberOfPortions);
+  
   selectedDish.ingredients.forEach(ingredient => {
     ingredientamount = ingredient.amount / defaultSelectedNumberOfPortions;
-    // console.log('ingredientamount', ingredientamount)
     ingredientamount = ingredientamount * selectedNumberOfPortions;
-    console.log('ingredientamount', ingredientamount)
     let newelement
 
     if (!ingredientamount) {
@@ -174,24 +171,37 @@ function convertIngredientString(ingredient) {
 }
 
 function renderIngredientList() {
-  let html = ''
-
+  let html = '';
   selectedDish.ingredients.forEach(ingredient => {
     if (ingredient.amount == '' || ingredient.amount == null) {
       html += `${ingredient.name}`
     } else
       html += `${ingredient.amount} ${ingredient.unit} ${ingredient.name}`
-  })
-
+  });
   html += '<i class="fas fa-print" onclick="window.print();return false;"></i>'
   return html
-}
+};
 
 $(document).on('click', '.shopping-list', function (e) {
-  e.preventDefault
-  let html = renderIngredientList()
-  localStorage.setItem('shoppinglist', JSON.stringify(selectedDish.ingredients));
+  e.preventDefault();
+  if (selectedNumberOfPortions === defaultSelectedNumberOfPortions) {
+    localStorage.setItem('shoppinglist', JSON.stringify(selectedDish.ingredients));
+  }
+  else {
+    localStorage.setItem('shoppinglist', JSON.stringify(selectedDish.ingredients.map(ingredient => {
+      let ingredientamount = ingredient.amount / defaultSelectedNumberOfPortions;
+      ingredientamount = ingredientamount * selectedNumberOfPortions;
+      ingredient.amount = ingredientamount;
+      return ingredient;
+    })));
+  };
   window.location.href = '/shoppinglist'
+}
+);
+
+$(document).on('click', '#printrecipe', function (e) {
+  e.preventDefault
+  printData();
 })
 
 $(document).on('click', '#addtocart', function (e) {
@@ -205,28 +215,23 @@ $(document).on('change', '#portion-size', function () {
   let newHtml = renderIngredients();
   $('#ingredient-list').empty();
   $('#ingredient-list').append(newHtml);
-  console.log()
 })
 
 function submitForm() {
-
   if (selectedNumberOfPortions === defaultSelectedNumberOfPortions) {
     localStorage.setItem('shoppinglist', JSON.stringify($('#cartform input:checked').map((index, element) => $(element).data('ingredient')).get()));
   }
   else {
-    
+
     localStorage.setItem('shoppinglist', JSON.stringify($('#cartform input:checked').map((index, element) => $(element).data('ingredient')).get().map(ingredient => {
       let ingredientamount = ingredient.amount / defaultSelectedNumberOfPortions;
-      // console.log('ingredientamount', ingredientamount)
       ingredientamount = ingredientamount * selectedNumberOfPortions;
-      console.log(selectedNumberOfPortions)
       ingredient.amount = ingredientamount
       return ingredient
     }
     )));
   }
 }
-
 
 renderNutrition(livsmedelsNamn);
 
