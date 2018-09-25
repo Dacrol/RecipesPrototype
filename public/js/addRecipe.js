@@ -19,9 +19,10 @@ let secondaryIngredientNames = [];
 let secondaryIngredients = [];
 let instArr = [];
 let secondaryIngArr = [];
+let imageFile;
 
 // Lägg till hela receptet
-$(document).on('click', '.btn-add-recipe', function() {
+$(document).on('click', '.btn-add-recipe', async function() {
 
     let newRecipeObj = {};
 
@@ -39,10 +40,15 @@ $(document).on('click', '.btn-add-recipe', function() {
     let searchTags = $(".checkboxes input:checkbox:checked").map(function(){
       return $(this).val();
     }).get();
+
+    let uploadedImage = await firebase.storage().ref().child('images/' + imageFile.name).put(imageFile)
+
     newRecipeObj.tags = searchTags;
 
     // att göra - lägga in bild
-    newRecipeObj.image = "/imgs/veg-lasagne.jpg"
+    newRecipeObj.image = await uploadedImage.ref.getDownloadURL();
+
+    console.log(newRecipeObj, uploadedImage, imageFile)
 
     newRecipeObj.difficulty = $('#difficulty').val();
     
@@ -284,3 +290,25 @@ $(document).on('click', '.btn-sub-ingredient', function(e){
   }
   $(this).remove();
 })
+
+$(document).ready(function()
+{
+	$("#fileuploader").uploadFile({
+    multiple: false,
+  autoSubmit: false,
+  maxFileCount: 1,
+  onSubmit:function(files)
+{
+  // console.log(files)
+  return false
+    //files : List of files to be uploaded
+    //return flase;   to stop upload
+},
+onSelect:function(files)
+{
+    imageFile = files[0]
+    console.log(files[0])
+    return true //to allow file submission.
+}
+	});
+});
