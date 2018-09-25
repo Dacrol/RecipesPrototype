@@ -443,10 +443,14 @@ body {
 
 #recipe-list .card {
     min-height: 325px;
-    text-shadow: #efefefcc 0px 0px 10px;
+    text-shadow: #efefefda 0px 0px 8px;
 }
 
 #recipe-list .card-body {
     background-position: center;
     background-size: cover;
+}
+
+.filler {
+    min-height: 140px;
 }
