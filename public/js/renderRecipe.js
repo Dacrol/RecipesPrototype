@@ -98,12 +98,17 @@ async function renderDish() {
 
     let img = $('section img').get(0);
     img.addEventListener('load', function() {
-      var vibrant = new Vibrant(img);
-      var swatches = vibrant.swatches()
-      for (var swatch in swatches)
-          if (swatches.hasOwnProperty(swatch) && swatches[swatch])
-              console.log(swatch, swatches[swatch].getHex())
-  
+      const vibrant = new Vibrant(img);
+      const swatches = vibrant.swatches()
+      console.log(swatches)
+      if (swatches.LightVibrant) {
+        $('.gradient-background').css({background: `linear-gradient(to bottom, ${swatches.LightVibrant.getHex()}32, #ffffff00`})
+        $('.solid-background').css({backgroundColor: `${swatches.LightVibrant.getHex()}32`})
+      }
+      else if (swatches.Muted) {
+        $('.gradient-background').css({background: `linear-gradient(to bottom, ${swatches.Muted.getHex()}32, #ffffff00`})
+        $('.solid-background').css({backgroundColor: `${swatches.Muted.getHex()}32`})
+      }
       /*
        * Results into:
        * Vibrant #7a4426

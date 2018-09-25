@@ -169,7 +169,7 @@ nav {
 }
 
 .solid-background {
-    background-color: rgb(255, 219, 191);
+    background-color: #ffffff;
     /* padding: 0 15px; */
 }
 
@@ -177,10 +177,10 @@ nav {
     /* padding: 0 15px; */
     background-color: rgb(255, 243, 232);
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffdbbf+0,fff3e8+35 */
-    background: #ffdbbf; /* Old browsers */
-    background:    -moz-linear-gradient(top, #ffdbbf 0%, #fff3e8 35%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, #ffdbbf 0%,#fff3e8 35%); /* Chrome10-25,Safari5.1-6 */
-    background:         linear-gradient(to bottom, #ffdbbf 0%,#fff3e8 35%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background: #ffffff; /* Old browsers */
+    background:    -moz-linear-gradient(top, #ffffff 0%, #ffffff 35%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #ffffff 0%,#ffffff 35%); /* Chrome10-25,Safari5.1-6 */
+    background:         linear-gradient(to bottom, #ffffff 0%,#ffffff 35%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffdbbf', endColorstr='#fff3e8',GradientType=0 ); /* IE6-9 */
 }
 
