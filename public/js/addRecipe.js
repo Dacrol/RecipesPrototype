@@ -417,7 +417,7 @@ onSelect:function(files)
     console.log(files[0])
     return true //to allow file submiss ion.
 },
-  dragDropStr: "<span>Eller drag och släpp din bild här</span>",
+  dragDropStr: "<span>Eller dra och släpp din bild här</span>",
   uploadStr: "Välj bild",
   showPreview: true,
   maxFileCountErrorStr: "<span> kan ej laddas upp. Max tillåtna bilder är: </span>"
