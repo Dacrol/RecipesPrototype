@@ -387,11 +387,19 @@ section.form-group, .form-section {
 
 .page-background {
     background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgb(255, 255, 255)),url(/imgs/mariana-medvedeva-379662-unsplash.jpg);
-    min-height: 225px;
+    min-height: 250px;
     width: 100%;
     position: absolute;
     z-index: -1;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: rgba(0,0,0,.65);
+}
+
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+    color: rgba(0,0,0,.75);
 }
