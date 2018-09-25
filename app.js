@@ -17,6 +17,14 @@ app.get('/', function(req, res) {
   res.render('home', { layout: 'main-sidebar' })
 })
 
+app.get('/search/:id', function(req, res) {
+  res.render('home', { layout: 'main-sidebar' })
+})
+
+app.get('/search', function(req, res) {
+  res.render('home', { layout: 'main-sidebar' })
+})
+
 app.get('/recipe', function(req, res) {
   res.render('recipe')
 })
