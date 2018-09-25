@@ -39,7 +39,7 @@
 
 @media (max-width: 991px) {
     #sidebar .list-group {
-        width: 300px;
+        /* width: 300px; */
     }
 }
 
