@@ -1,5 +1,5 @@
 // kvar att fixa
-// referens till annans ingrediensmängd är inte inlagt alls
+// referens till annan ingrediensmängd är inte inlagt alls
 // fler taggar?
 // rating, hur ska det funka?
 // möjlighet att lägga till bild, vet ej hur
@@ -7,10 +7,14 @@
 // knappar måste vara tabindexerade
 // skicka info till databasen
 // förtydliga ingrediens och instruktions +:et ?
+// ta bort ingredientNames och ingredients från arrayer vid borttagning av ingrediens
 // css
 
 let ingArr = [];
+let ingredientNames = [];
+let ingredients = [];
 let instArr = [];
+let secondaryIngArr = [];
 
 // Lägg till hela receptet
 $(document).on('click', '.btn-add-recipe', function() {
@@ -76,6 +80,10 @@ $(document).on('click', '.btn-add-recipe', function() {
       return;
     }
 
+    newRecipeObj.ingredientNames = ingredientNames;
+
+    newRecipeObj.ingredients = ingredients;
+
     console.log(newRecipeObj);
     emptyForm();
   });
@@ -136,6 +144,14 @@ $(document).on('click', '.btn-add-ingredient', function () {
     <p class="btn-sub-ingredient mt-2 ml-3 ingredient-item" data-text="${ingText}"><i class="fas fa-minus" role="button" data-text="${ingText}"></i> ${ingText}</p>
   `)
   ingArr.push(ingText);
+  ingredientNames.push($('.typeahead-ingredients').val());
+
+  let amount = $('.add-volume').val();
+  let mass = $('.add-weight').val();
+  let name = $('.typeahead-ingredients').val();
+  let unit = $('#add-unit').val();
+  let newIngredient = {amount:amount, mass:mass, name:name, unit:unit};
+  ingredients.push(newIngredient);
   $('.typeahead-ingredients, .add-volume, .add-weight').val('')
   $('#add-unit').val("unit");
 })
@@ -180,6 +196,23 @@ function formCheck(){
   return true;
 }
 
+$(document).on('click', '.secondary-btn-add-ingredient', function () {
+  if(!secondaryFormCheck()){
+    return;
+  }
+  let ingText = (`${$('.secondary-typeahead-ingredients').val()} ${$('.secondary-add-volume').val()} ${$('#secondary-add-unit').val()}/${$('.secondary-add-weight').val()}g`)
+  $('.secondary-added-ingredient').append(`
+    <p class="btn-sub-ingredient mt-2 ingredient-item" data-text="${ingText}"><i class="fas fa-minus" role="button" data-text="${ingText}"></i> ${ingText}</p>
+  `)
+  secondaryIngArr.push(ingText);
+  $('.secondary-typeahead-ingredients, .secondary-add-volume, .secondary-add-weight').val('')
+  $('#secondary-add-unit').val("unit");
+})
+
+function secondaryFormCheck(){
+  return true;
+}
+// slut andra inmatning
 
 // Ta bort felmeddelande från inmatning
 $('.typeahead-ingredients, #title, #summary, #instruction').focus(function(){
