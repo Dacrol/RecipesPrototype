@@ -74,7 +74,7 @@ async function renderDish() {
       selectedDish.time
       }</span><span class="instructions-icons"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star icon-muted"></i> ${
       selectedDish.difficulty
-      }</span><span class="instructions-icons btn-print"><i class="fas fa-print"></i> Skriv ut</span>
+      }</span><span id="printrecipe" class="instructions-icons btn-print"><i class="fas fa-print"></i> Skriv ut</span>
     <a class="no-blue" href="/shoppinglist"><span class="instructions-icons shopping-list"><i class="fas fa-clipboard-list"></i> Handla allt</span></span></a>
       </div>
     </div>
@@ -199,7 +199,7 @@ $(document).on('click', '.shopping-list', function (e) {
 }
 );
 
-$(document).on('click', '.instructions-icons', function (e) {
+$(document).on('click', '#printrecipe', function (e) {
   e.preventDefault
   printData();
 })
