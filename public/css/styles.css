@@ -297,7 +297,7 @@ textarea#instructions {
 }
 
 .btn-add-recipe {
-    width: 17%;
+    /* width: 17%; */
     cursor: pointer;
 }
 
