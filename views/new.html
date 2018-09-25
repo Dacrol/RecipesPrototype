@@ -51,7 +51,7 @@
                 <option value="st">styck</option>
               </select>
               <input class="w-25 add-weight py-1 mr-2" placeholder=" Vikt i g" tabindex="6">
-              <i class="ml-4 fas fa-plus fa-1point5 btn-add-ingredient" role="button" tabindex="7"></i>
+              <i class="ml-2 mt-2 fas fa-plus fa-1point5 btn-add-ingredient" role="button" tabindex="7"><span class="adding-text"> Lägg till ingrediens</span></i>
             </div>
             </div>
             <section class="added-ingredient"></section>
@@ -67,26 +67,28 @@
             <div class="hide-reference mt-2 mb-1 d-none">
               Dölj referens
             </div>
+            <p class="small reference-error d-none">Lägg till en ingrediens först</p>
           </section>
 
           <article class="d-none added-ingredient-info mt-2">
             <section class="form-group">
               <label for="added-portion-size">Välj antal portioner receptet är avsett för</label>
               <select class="custom-select" id="secondary-portion-size" tabindex="9">
-                <option selected>Antal portioner</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
+                <option selected value="default" data-text="default">Antal portioner</option>
+                <option value="1" data-text="1">1</option>
+                <option value="2" data-text="2">2</option>
+                <option value="3" data-text="3">3</option>
+                <option value="4" data-text="4">4</option>
+                <option value="5" data-text="5">5</option>
+                <option value="6" data-text="6">6</option>
+                <option value="7" data-text="7">7</option>
+                <option value="8" data-text="8">8</option>
+                <option value="9" data-text="9">9</option>
+                <option value="10" data-text="10">10</option>
+                <option value="11" data-text="11">11</option>
+                <option value="12" data-text="12">12</option>
               </select>
+              <p class="small ml-2 mt-2 select-error d-none">Ändra portionsstorleken</p>
             </section>
             <section class="form-group mt-2">
               <div class="d-flex justify-content-between align-items-center">
@@ -102,7 +104,7 @@
                 </div>
                 <input class="w-25 secondary-add-volume mr-2 py-1" placeholder=" Antal" tabindex="11">
                 <select class="custom-select w-25 mr-2" id="secondary-add-unit" tabindex="12">
-                  <option selected>enhet</option>
+                  <option selected value="unit">enhet</option>
                   <option value="kdm">kryddmått</option>
                   <option value="tsk">tesked</option>
                   <option value="msk">matsked</option>
@@ -116,7 +118,7 @@
                   <option value="st">styck</option>
                 </select>
                 <input class="w-25 secondary-add-weight py-1 mr-2" placeholder=" Vikt i g" tabindex="13">
-                <i class="ml-4 fas fa-plus fa-1point5 secondary-btn-add-ingredient" role="button" tabindex="14"></i>
+                <i class="ml-2 mt-2 fas fa-plus fa-1point5 secondary-btn-add-ingredient" role="button" tabindex="14"><span class="adding-text"> Lägg till ingrediens</span></i>
               </div>
               </div>
               <section class="secondary-added-ingredient"></section>
@@ -162,7 +164,7 @@
             <section class="form-group mt-2">
               <label for="instruction">Lägg till instruktion:</label>
               <textarea tabindex="19" class="mx-0 add-instruction w-100" id="instruction" rows="2" placeholder="T.ex. 'Skär kamelen i bitar innan du steker den i rikligt med smör'"></textarea>
-              <i class="pl-2 fas fa-plus fa-1point5 btn-add-instruction pull-right mr-2" tabindex="19.5"></i>
+              <i class="pl-2 fas fa-plus fa-1point5 btn-add-instruction" tabindex="19.5"><span class="adding-text"> Lägg till instruktion</span></i>
               <section class="added-instructions mt-4"></section>
             </section>
             <section class="form-group mt-2">
