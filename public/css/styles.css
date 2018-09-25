@@ -442,11 +442,28 @@ body {
 }
 
 #recipe-list .card {
-    min-height: 325px;
-    text-shadow: #efefefcc 0px 0px 10px;
+    min-height: 300px;
+    text-shadow: #000000da 0px 0px 8px;
+}
+
+#recipe-list .card {
+    color: white !important;
+    text-decoration: none;
+}
+
+#recipe-list a:hover {
+    text-decoration: none !important;
 }
 
 #recipe-list .card-body {
     background-position: center;
     background-size: cover;
+}
+
+.filler {
+    min-height: 125px;
+}
+
+#recipe-list .card .text-muted {
+    color: #f3f3f3!important;
 }
