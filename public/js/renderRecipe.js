@@ -30,8 +30,8 @@ async function renderDish() {
     .doc(formatUrl(dishName))
     .get()).data()
 
-    defaultSelectedNumberOfPortions = selectedDish.portions;
-    selectedNumberOfPortions = defaultSelectedNumberOfPortions; 
+  defaultSelectedNumberOfPortions = selectedDish.portions;
+  selectedNumberOfPortions = defaultSelectedNumberOfPortions;
 
   $('#recipe-details')
     .append(`<section class="d-flex flex-column justify-content-start align-items-stretch w-maxlg-100" alt="">
@@ -91,31 +91,31 @@ async function renderDish() {
       </div>
     </div>
     `)
-    $('#portion-size').val(defaultSelectedNumberOfPortions);
-    $('#ingredient-list').append(renderIngredients());
+  $('#portion-size').val(defaultSelectedNumberOfPortions);
+  $('#ingredient-list').append(renderIngredients());
 
 
-    let img = $('section img').get(0);
-    img.addEventListener('load', function() {
-      const vibrant = new Vibrant(img);
-      const swatches = vibrant.swatches()
-      console.log(swatches)
-      if (swatches.LightVibrant) {
-        $('.gradient-background').css({background: `linear-gradient(to bottom, ${swatches.LightVibrant.getHex()}32, #ffffff00`})
-        $('.solid-background').css({backgroundColor: `${swatches.LightVibrant.getHex()}32`})
-      }
-      else if (swatches.Muted) {
-        $('.gradient-background').css({background: `linear-gradient(to bottom, ${swatches.Muted.getHex()}32, #ffffff00`})
-        $('.solid-background').css({backgroundColor: `${swatches.Muted.getHex()}32`})
-      }
-      /*
-       * Results into:
-       * Vibrant #7a4426
-       * Muted #7b9eae
-       * DarkVibrant #348945
-       * DarkMuted #141414
-       * LightVibrant #f3ccb4
-       */
+  let img = $('section img').get(0);
+  img.addEventListener('load', function () {
+    const vibrant = new Vibrant(img);
+    const swatches = vibrant.swatches()
+    // console.log(swatches)
+    if (swatches.LightVibrant) {
+      $('.gradient-background').css({ background: `linear-gradient(to bottom, ${swatches.LightVibrant.getHex()}32, #ffffff00` })
+      $('.solid-background').css({ backgroundColor: `${swatches.LightVibrant.getHex()}32` })
+    }
+    else if (swatches.Muted) {
+      $('.gradient-background').css({ background: `linear-gradient(to bottom, ${swatches.Muted.getHex()}32, #ffffff00` })
+      $('.solid-background').css({ backgroundColor: `${swatches.Muted.getHex()}32` })
+    }
+    /*
+     * Results into:
+     * Vibrant #7a4426
+     * Muted #7b9eae
+     * DarkVibrant #348945
+     * DarkMuted #141414
+     * LightVibrant #f3ccb4
+     */
   });
 
 }
@@ -140,15 +140,15 @@ function renderIngredients() {
     let newelement
 
     if (!ingredientamount) {
-    newelement = $(`<li><input class="form-check-input" type="checkbox" value="${ingredient.name}" id="${ingredient.name}">${ingredient.name}</li>`)
-    newelement.children('input').data('ingredient', ingredient);
-    html.append(newelement);
+      newelement = $(`<li><input class="form-check-input" type="checkbox" value="${ingredient.name}" id="${ingredient.name}">${ingredient.name}</li>`)
+      newelement.children('input').data('ingredient', ingredient);
+      html.append(newelement);
     }
     else {
-    newelement = $(`<li><input class="form-check-input" type="checkbox" value="${ingredient.name}" id="${ingredient.name}">${ingredientamount} ${ingredient.unit} ${ingredient.name}</li>`)
-    
-    newelement.children('input').data('ingredient', ingredient);
-    html.append(newelement);
+      newelement = $(`<li><input class="form-check-input" type="checkbox" value="${ingredient.name}" id="${ingredient.name}">${ingredientamount} ${ingredient.unit} ${ingredient.name}</li>`)
+
+      newelement.children('input').data('ingredient', ingredient);
+      html.append(newelement);
     }
   });
   html.append(`</div><div class="form-group row"><div class="col-sm-10"><button id="addtocart" type="submit" class="btn border-primary mt-2">Handla valda</button></div></div></form>`);
@@ -200,40 +200,56 @@ $(document).on('click', '#addtocart', function (e) {
   window.location.href = '/shoppinglist';
 })
 
-$(document).on('change', '#portion-size', function() {
+$(document).on('change', '#portion-size', function () {
   selectedNumberOfPortions = document.getElementById('portion-size').value;
   let newHtml = renderIngredients();
   $('#ingredient-list').empty();
   $('#ingredient-list').append(newHtml);
+  console.log()
 })
 
 function submitForm() {
-  localStorage.setItem('shoppinglist', JSON.stringify($('#cartform input:checked').map((index, element) => $(element).data('ingredient')).get()));
+
+  if (selectedNumberOfPortions === defaultSelectedNumberOfPortions) {
+    localStorage.setItem('shoppinglist', JSON.stringify($('#cartform input:checked').map((index, element) => $(element).data('ingredient')).get()));
+  }
+  else {
+    
+    localStorage.setItem('shoppinglist', JSON.stringify($('#cartform input:checked').map((index, element) => $(element).data('ingredient')).get().map(ingredient => {
+      let ingredientamount = ingredient.amount / defaultSelectedNumberOfPortions;
+      // console.log('ingredientamount', ingredientamount)
+      ingredientamount = ingredientamount * selectedNumberOfPortions;
+      console.log(selectedNumberOfPortions)
+      ingredient.amount = ingredientamount
+      return ingredient
+    }
+    )));
+  }
 }
 
 
 renderNutrition(livsmedelsNamn);
 
 async function renderNutrition(livsmedelsNamn) {
-      livsmedel = (await db
-      .collection('Näringsinnehåll')
-      .doc(livsmedelsNamn)
-      .get()).data();
-    
-    // console.log(livsmedel);
-    // console.log('Fett', livsmedel['Fett (g)']);
-    // console.log('Salt', livsmedel['Salt (g)']);
-    // console.log('Protein', livsmedel['Protein (g)'])
-    // console.log('Kolhydrater', livsmedel['Kolhydrater (g)'])
+  livsmedel = (await db
+    .collection('Näringsinnehåll')
+    .doc(livsmedelsNamn)
+    .get()).data();
 
-    let html = $('.nutrition-table').append(`<div class="pr-2">Kolhydrater <span class="float-right">${livsmedel['Kolhydrater (g)']} g</span></div> 
+  // console.log(livsmedel);
+  // console.log('Fett', livsmedel['Fett (g)']);
+  // console.log('Salt', livsmedel['Salt (g)']);
+  // console.log('Protein', livsmedel['Protein (g)'])
+  // console.log('Kolhydrater', livsmedel['Kolhydrater (g)'])
+
+  let html = $('.nutrition-table').append(`<div class="pr-2">Kolhydrater <span class="float-right">${livsmedel['Kolhydrater (g)']} g</span></div> 
     <div class="pr-2">Protein <span class="float-right">${livsmedel['Protein (g)']} g</span></div> 
     <div class="pr-2">Mättat fett<span class="float-right">${livsmedel['Fett (g)']} g</span></div> 
     <div class="pr-2">Enkelomättat fett<span class="float-right">15g</span></div> 
     <div class="pr-2">Fleromättat fett<span class="float-right">15g</span></div> 
     <div class="pr-2">Salt <span class="float-right">${livsmedel['Salt (g)']} g</span></div>  
     `);
-    return html;
+  return html;
 }
 
 
