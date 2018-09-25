@@ -318,3 +318,8 @@ onSelect:function(files)
 
 	});
 });
+
+$('#add-unit').on('change', function(e) {
+  if ($(this).val() === 'g' || $(this).val() === 'hg' || $(this).val() === 'kg') $(this).siblings('.add-weight').prop('disabled', true).prop('placeholder', '')
+  else $(this).siblings('.add-weight').prop('disabled', false).prop('placeholder', 'Vikt i g')
+})
