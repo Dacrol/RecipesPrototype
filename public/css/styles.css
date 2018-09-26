@@ -473,3 +473,7 @@ body {
 #recipe-list .card .text-muted {
     color: #f3f3f3!important;
 }
+
+[class^=btn-add-], .btn-add-ingredient-info, .btn-add-instruction, .btn-add-ingredient {
+    cursor: pointer;
+}
