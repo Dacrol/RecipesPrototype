@@ -477,3 +477,7 @@ body {
 [class^=btn-add-], .btn-add-ingredient-info, .btn-add-instruction, .btn-add-ingredient {
     cursor: pointer;
 }
+
+nav.navbar {
+    font-size: 1.2em;
+}
