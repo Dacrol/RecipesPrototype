@@ -142,7 +142,7 @@ function renderIngredients() {
       html.append(newelement);
     }
     else {
-      newelement = $(`<li><input class="form-check-input" type="checkbox" value="${ingredient.name}" id="${ingredient.name}">${ingredientamount} ${ingredient.unit} ${ingredient.name}</li>`)
+      newelement = $(`<li><input class="form-check-input" type="checkbox" value="${ingredient.name}" id="${ingredient.name}">${ingredient.unit === 'st' ? Math.round(ingredientamount) : ingredientamount} ${ingredient.unit} ${ingredient.name}</li>`)
 
       newelement.children('input').data('ingredient', ingredient);
       html.append(newelement);
