@@ -64,7 +64,7 @@ class RecipesFilter {
         recipe.dish
       )}">
   <div id="${recipe.dish}" class="card h-100 mb-4 shadow-sm" >
-    <div class="card-body d-flex flex-column justify-content-end" style="background-image: linear-gradient(to bottom, #00000000, #0000000a, #00000082, #000000c2, #000000e0), url(${
+    <div class="card-body d-flex flex-column justify-content-end" style="background-image: linear-gradient(to bottom, #00000000, #00000000, #0000004f, #000000c2, #000000e0), url(${
       recipe.image
     });">
       <div class="filler"></div>
