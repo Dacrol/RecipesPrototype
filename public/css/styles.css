@@ -301,8 +301,13 @@ textarea#instructions {
     cursor: pointer;
 }
 
+.img-text {
+    color: #000;
+}
+
 .adding-text {
-    font-family: cursive;
+    font-family: roboto;
+    font-size: 0.8em;
 }
 
 .reference-error {
@@ -322,7 +327,8 @@ section.form-group, .form-section {
     padding: 15px;
     border: 1px solid #969696;
     border-radius: 10px;
-    background-color: rgb(173, 173, 231);
+    background-color: rgb(223, 223, 223);
+    font-family: 'Roboto', sans-serif;
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
