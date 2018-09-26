@@ -52,7 +52,7 @@ $(document).on('click keypress', '.btn-add-recipe', async function(e) {
     // att göra - lägga in bild
     newRecipeObj.image = await uploadedImage.ref.getDownloadURL();
 
-    console.log(newRecipeObj, uploadedImage, imageFile)
+    // console.log(newRecipeObj, uploadedImage, imageFile)
 
     newRecipeObj.difficulty = $('#difficulty').val();
     
@@ -112,7 +112,7 @@ $(document).on('click keypress', '.btn-add-recipe', async function(e) {
       }
     }
     db.collection('Recipes')
-      .doc(newRecipeObj.dish.replace(/\//g, ''))
+      .doc(formatUrl(newRecipeObj.dish))
       .set(newRecipeObj)
     console.log(newRecipeObj);
     emptyForm();
@@ -160,7 +160,7 @@ $(document).on('click keypress', '.btn-add-ingredient-info', function (e) {
 // Lägg till ny instruktion
 $(document).on('click keypress', '.btn-add-instruction', function (e) {
   if(e.keyCode == 32 || e.which == 1){
-    e.preventDefault;
+    e.preventDefault();
     if ($('.add-instruction').val()) {
       $('.added-instructions').append(`
       <p class="btn-sub-instruction mt-2 ml-3 instruction-item" data-text="${$('.add-instruction').val()}"><i class="fas fa-minus" data-text="${$('.add-instruction').val()}" role="button"></i> ${$('.add-instruction').val()}</p>
