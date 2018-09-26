@@ -199,7 +199,7 @@ $(document).on('click keypress', '.btn-add-ingredient', function (e) {
   `)
   ingArr.push(ingText);
 
-  ingredientNames.push($('.typeahead-ingredients').val());
+  ingredientNames.push($('.typeahead-ingredients').val().toLowerCase());
 
   let amount = $('.add-volume').val();
   let mass = $('.add-weight').val();
@@ -267,7 +267,7 @@ $(document).on('click keypress', '.secondary-btn-add-ingredient', function (e) {
   `)
   secondaryIngArr.push(ingText);
 
-  secondaryIngredientNames.push($('.secondary-typeahead-ingredients').val());
+  secondaryIngredientNames.push($('.secondary-typeahead-ingredients').val().toLowerCase());
 
   let amount = $('.secondary-add-volume').val();
   let mass = $('.secondary-add-weight').val();
