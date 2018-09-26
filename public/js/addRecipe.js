@@ -434,3 +434,20 @@ $('#add-unit').on('change', function(e) {
   if ($(this).val() === 'g' || $(this).val() === 'hg' || $(this).val() === 'kg') $(this).siblings('.add-weight').prop('disabled', true).prop('placeholder', '')
   else $(this).siblings('.add-weight').prop('disabled', false).prop('placeholder', 'Vikt i g')
 })
+
+$('.add-volume, #add-unit').on('change keyup', function(){
+  if($('.add-volume').val().length > 0){
+    if($('#add-unit').val() == 'g'){
+      $('.add-weight').val($('.add-volume').val());
+    }
+    if($('#add-unit').val() == 'hg'){
+      $('.add-weight').val($('.add-volume').val() * 100);
+    }
+    if($('#add-unit').val() == 'kg'){
+      $('.add-weight').val($('.add-volume').val() * 1000);
+    }
+  }
+  else {
+    $('.add-weight').val('');
+  }
+})
