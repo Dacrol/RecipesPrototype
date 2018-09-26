@@ -1,7 +1,6 @@
 // kvar att fixa
 
 // skicka info till databasen
-// ta bort ingredientNames och ingredients från andra referensens arrayer vid borttagning av ingrediens
 // css glöm inte lägg till knapp inte responsiv
 
 // fler taggar, vilka?
@@ -112,7 +111,9 @@ $(document).on('click keypress', '.btn-add-recipe', async function(e) {
         newRecipeObj.secondPortionSize = selectedPortionSize;
       }
     }
-
+    db.collection('Recipes')
+      .doc(newRecipeObj.dish.replace(/\//g, ''))
+      .set(newRecipeObj)
     console.log(newRecipeObj);
     emptyForm();
   });
@@ -417,8 +418,8 @@ onSelect:function(files)
     console.log(files[0])
     return true //to allow file submiss ion.
 },
-  dragDropStr: "<span>Eller dra och släpp din bild här</span>",
-  uploadStr: "Välj bild",
+  dragDropStr: "<span class='img-text'>Eller drag och släpp din bild här</span>",
+  uploadStr: "<span tabindex='1' class='add-picture'>'Välj bild'</span",
   showPreview: true,
   maxFileCountErrorStr: "<span> kan ej laddas upp. Max tillåtna bilder är: </span>",
   onLoad: function() {
