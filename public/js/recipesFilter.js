@@ -33,11 +33,17 @@ class RecipesFilter {
   }
 
   renderAllRecipes() {
-    db.collection('Recipes')
-      .get()
+    let collection = db.collection('Recipes')
+    
+      collection.get()
       .then(querySnapshot => {
-        Promise.all(querySnapshot.docs.map(doc => doc.data())).then(
-          this.renderRecipes
+        Promise.all(querySnapshot.docs.map(doc => doc.data())).then(recipes => {
+          if (location.pathname.startsWith('/search/')) {
+            this.renderRecipes(recipes.filter(recipe => recipe.dish.toLowerCase().includes(location.pathname.substr(location.pathname.lastIndexOf('/') + 1))))
+          } else {
+          this.renderRecipes(recipes)
+        }
+        }
         )
       })
   }
