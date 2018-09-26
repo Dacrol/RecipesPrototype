@@ -301,8 +301,13 @@ textarea#instructions {
     cursor: pointer;
 }
 
+.img-text {
+    color: #000;
+}
+
 .adding-text {
-    font-family: 'Roboto';
+    font-family: roboto;
+    font-size: 0.8em;
     padding-top: 5px;
 }
 
@@ -324,6 +329,7 @@ section.form-group, .form-section {
     border: 1px solid #969696;
     border-radius: 10px;
     background-color: rgba(160, 177, 222, 0.12);;
+    font-family: 'Roboto', sans-serif;
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
