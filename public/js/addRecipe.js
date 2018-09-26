@@ -421,8 +421,12 @@ onSelect:function(files)
   dragDropStr: "<span class='img-text'>Eller drag och släpp din bild här</span>",
   uploadStr: "<span tabindex='1' class='add-picture'>'Välj bild'</span",
   showPreview: true,
-  maxFileCountErrorStr: "<span> kan ej laddas upp. Max tillåtna bilder är: </span>"
-
+  maxFileCountErrorStr: "<span> kan ej laddas upp. Max tillåtna bilder är: </span>",
+  onLoad: function() {
+    setTimeout(() => {
+      $("[id^=ajax-upload-id]").prop('tabindex', '1')
+    }, 1000);
+  }
 	});
 });
 

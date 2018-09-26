@@ -308,6 +308,7 @@ textarea#instructions {
 .adding-text {
     font-family: roboto;
     font-size: 0.8em;
+    padding-top: 5px;
 }
 
 .reference-error {
@@ -327,7 +328,7 @@ section.form-group, .form-section {
     padding: 15px;
     border: 1px solid #969696;
     border-radius: 10px;
-    background-color: rgb(223, 223, 223);
+    background-color: rgba(160, 177, 222, 0.12);;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -434,4 +435,41 @@ section.form-group, .form-section {
 
 body {
     background-color: #efefef;
+}
+
+#recipe-ingredients {
+    border: solid rgba(0, 0, 0, 0.25) 1px;
+    background: #ffffff40;
+    height: max-content;
+}
+
+.ajax-upload-dragdrop {
+    color: initial;
+}
+
+#recipe-list .card {
+    min-height: 300px;
+    text-shadow: #000000da 0px 0px 8px;
+}
+
+#recipe-list .card {
+    color: white !important;
+    text-decoration: none;
+}
+
+#recipe-list a:hover {
+    text-decoration: none !important;
+}
+
+#recipe-list .card-body {
+    background-position: center;
+    background-size: cover;
+}
+
+.filler {
+    min-height: 125px;
+}
+
+#recipe-list .card .text-muted {
+    color: #f3f3f3!important;
 }
