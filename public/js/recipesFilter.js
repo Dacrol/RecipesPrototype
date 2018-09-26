@@ -34,18 +34,26 @@ class RecipesFilter {
 
   renderAllRecipes() {
     let collection = db.collection('Recipes')
-    
-      collection.get()
-      .then(querySnapshot => {
-        Promise.all(querySnapshot.docs.map(doc => doc.data())).then(recipes => {
-          if (location.pathname.startsWith('/search/')) {
-            this.renderRecipes(recipes.filter(recipe => recipe.dish.toLowerCase().includes(location.pathname.substr(location.pathname.lastIndexOf('/') + 1))))
-          } else {
+
+    collection.get().then(querySnapshot => {
+      Promise.all(querySnapshot.docs.map(doc => doc.data())).then(recipes => {
+        if (location.pathname.startsWith('/search/')) {
+          this.renderRecipes(
+            recipes.filter(recipe =>
+              recipe.dish
+                .toLowerCase()
+                .includes(
+                  location.pathname.substr(
+                    location.pathname.lastIndexOf('/') + 1
+                  )
+                )
+            )
+          )
+        } else {
           this.renderRecipes(recipes)
         }
-        }
-        )
       })
+    })
   }
 
   renderRecipes(recipes) {
@@ -56,7 +64,9 @@ class RecipesFilter {
         recipe.dish
       )}">
   <div id="${recipe.dish}" class="card h-100 mb-4 shadow-sm" >
-    <div class="card-body d-flex flex-column justify-content-end" style="background-image: linear-gradient(to bottom, #00000000, #0000000a, #00000082, #000000c2, #000000e0), url(${recipe.image});">
+    <div class="card-body d-flex flex-column justify-content-end" style="background-image: linear-gradient(to bottom, #00000000, #0000000a, #00000082, #000000c2, #000000e0), url(${
+      recipe.image
+    });">
       <div class="filler"></div>
       <h5 class="card-text">${recipe.dish}</h5>
       <p class="card-text">${recipe.summary}</p>
@@ -67,7 +77,7 @@ class RecipesFilter {
     </div>
   </div>
   </div></a>`)
-  /* <img class="card-img-top recipe-thumbnail" alt="${recipe.dish}" src="${
+      /* <img class="card-img-top recipe-thumbnail" alt="${recipe.dish}" src="${
         recipe.image
       }">    
   */
