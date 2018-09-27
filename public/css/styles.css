@@ -204,6 +204,12 @@ nav {
     font-size: 4em;
 }
 
+@media (max-width: 430px) {
+    .instruction-title {
+        font-size: 2.75em;
+    }
+}
+
 .instruction-summary {
     font-family: 'Roboto', sans-serif;
     font-style: italic;
@@ -438,7 +444,7 @@ section.form-group, .form-section {
 }
 
 .page-background {
-    background: linear-gradient(to bottom, #efefef00, #efefef47, #efefefba, #efefef), linear-gradient(33deg, #efefef47, #00000017, #0000003b), url(/imgs/mnm-all-652563-unsplash.jpg);
+    background: linear-gradient(to bottom, #efefef00, #efefef33, #efefef63, #efefef), linear-gradient(40deg, #efefef80, #00000029, #00000069), url(/imgs/mnm-all-652563-unsplash.jpg);
     min-height: 333px;
     width: 100%;
     position: absolute;
@@ -568,4 +574,8 @@ span.img-text {
 .navbar-dark .navbar-toggler {
     color: rgba(255,255,255,1);
     border-color: rgba(255,255,255,.67);
-  }
+}
+
+.navbar-toggler:focus {
+    outline-color: #efefef;
+}
