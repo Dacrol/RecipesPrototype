@@ -81,8 +81,11 @@ async function renderDish() {
           <ol class="instruction-list mr-3">
           ${renderInstructions()}
           </ol>
-        <h4 class="mt-4 ml-3 mb-3">Näringsinnehåll (per 100g)</h4>
+        <h4 class="mt-4 ml-3 mb-3">Näringsinnehåll (per portion)</h4>
         <div id="nutrition-table" class="d-flex flex-wrap nutrition-table ml-4 mb-5">
+        </div>
+        <div class="ml-3 text-muted">
+          <small>Näringsinnehållet är ungefärligt och beräknat endast utifrån kända ingredienser</small>
         </div>
       </div>
     </div>
