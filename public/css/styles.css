@@ -423,7 +423,7 @@ section.form-group, .form-section {
 
 @media (max-width: 767px) {
     .page-header {
-        min-height: 175px;
+        min-height: 195px;
     }
 }
 
@@ -438,7 +438,7 @@ section.form-group, .form-section {
 
 .page-background {
     background-image: linear-gradient(to bottom, #efefef80, #efefef), url(/imgs/mariana-medvedeva-379662-unsplash.jpg);
-    min-height: 250px;
+    min-height: 300px;
     width: 100%;
     position: absolute;
     z-index: -1;
