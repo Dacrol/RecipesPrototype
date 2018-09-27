@@ -325,6 +325,8 @@ textarea#instructions {
     font-family: roboto;
     font-size: 0.8em;
     padding-top: 5px;
+    padding-bottom: 3px;
+    padding-left: 8px;
 }
 
 .reference-error {
@@ -430,7 +432,7 @@ section.form-group, .form-section {
         width: 120px;
     }
     .page-header {
-        min-height: 133px;
+        min-height: 152px;
     }
 }
 
@@ -458,7 +460,8 @@ section.form-group, .form-section {
 }
 
 .fileuploader-container {
-    width: 400px;
+    padding-top: 15px;
+    /* width: 400px; */
 }
 
 body {
@@ -528,4 +531,18 @@ nav.navbar {
     left: 0;
     padding-left: 15px;
     cursor: pointer;
+}
+
+.ajax-upload-dragdrop {
+    width: initial;
+    display: flex;
+    align-items: center;
+}
+
+.upload-section {
+    min-height: 150px;
+}
+
+span.img-text {
+    padding-bottom: 7px;
 }
