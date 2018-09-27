@@ -151,6 +151,19 @@ recipesFilter.renderAllRecipes()
   </label>
 </div>`)
         })
+        Array.from(existingTypes)
+        .sort()
+        .forEach(type => {
+          $('#type-list').append(`<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" id="${type.replace(
+    /\s/g,
+    ''
+  )}" data-type="${type}">
+  <label class="form-check-label" for="${type.replace(/\s/g, '')}">
+    ${capitalizeFirstLetter(type)}
+  </label>
+</div>`)
+        })
     })
 })()
 
