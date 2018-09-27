@@ -69,7 +69,10 @@ async function renderDish() {
         }</h4>
       <span class="mb-4 text-center"><span class="instructions-icons mb-3"><i class="far fa-clock"></i> ${
           selectedDish.time
-          }</span><span class="instructions-icons"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star icon-muted"></i>
+          }</span><span class="instructions-icons">
+          <i class="far fa-star"></i>
+          <i class="far fa-star ${!(selectedDish.difficulty.toLowerCase().startsWith('m') || selectedDish.difficulty.toLowerCase().startsWith('s')) ? 'icon-muted' : ''}"></i>
+          <i class="far fa-star ${!(selectedDish.difficulty.toLowerCase().startsWith('s')) ? 'icon-muted' : ''}"></i>
           ${
           selectedDish.difficulty
           }</span><span id="printrecipe" class="instructions-icons btn-print"><i class="fas fa-print"></i> Skriv ut</span>
@@ -107,7 +110,7 @@ async function renderDish() {
   $('#ingredient-list').append(renderIngredients())
 
   let img = $('section img').get(0)
-  img.addEventListener('load', function() {
+  img.addEventListener('load', function () {
     try {
       const vibrant = new Vibrant(img)
       const swatches = vibrant.swatches()
@@ -166,7 +169,7 @@ function renderIngredients() {
     if (!ingredientamount) {
       newelement = $(
         `<li><input class="form-check-input" type="checkbox" value="${
-          ingredient.name
+        ingredient.name
         }" id="${ingredient.name}">${ingredient.name}</li>`
       )
       newelement.children('input').data('ingredient', ingredient)
@@ -174,11 +177,11 @@ function renderIngredients() {
     } else {
       newelement = $(
         `<li><input class="form-check-input" type="checkbox" value="${
-          ingredient.name
+        ingredient.name
         }" id="${ingredient.name}">${
-          ingredient.unit === 'st'
-            ? Math.round(ingredientamount)
-            : ingredientamount
+        ingredient.unit === 'st'
+          ? Math.round(ingredientamount)
+          : ingredientamount
         } ${ingredient.unit} ${ingredient.name}</li>`
       )
 
@@ -216,18 +219,7 @@ function convertIngredientString(ingredient) {
   return obj
 }
 
-function renderIngredientList() {
-  let html = ''
-  selectedDish.ingredients.forEach(ingredient => {
-    if (ingredient.amount == '' || ingredient.amount == null) {
-      html += `${ingredient.name}`
-    } else html += `${ingredient.amount} ${ingredient.unit} ${ingredient.name}`
-  })
-  html += '<i class="fas fa-print" onclick="window.print();return false;"></i>'
-  return html
-}
-
-$(document).on('click', '.shopping-list', function(e) {
+$(document).on('click', '.shopping-list', function (e) {
   e.preventDefault()
   if (selectedNumberOfPortions === defaultSelectedNumberOfPortions) {
     localStorage.setItem(
@@ -242,7 +234,7 @@ $(document).on('click', '.shopping-list', function(e) {
           let ingredientamount =
             ingredient.amount / defaultSelectedNumberOfPortions
           ingredientamount = ingredientamount * selectedNumberOfPortions
-          ingredient.amount = ingredientamount
+          ingredient.amount = Math.round(ingredientamount);
           return ingredient
         })
       )
@@ -251,18 +243,18 @@ $(document).on('click', '.shopping-list', function(e) {
   window.location.href = '/shoppinglist'
 })
 
-$(document).on('click', '#printrecipe', function(e) {
+$(document).on('click', '#printrecipe', function (e) {
   e.preventDefault
   window.print()
 })
 
-$(document).on('click', '#addtocart', function(e) {
+$(document).on('click', '#addtocart', function (e) {
   e.preventDefault
   submitForm()
   window.location.href = '/shoppinglist'
 })
 
-$(document).on('change', '#portion-size', function() {
+$(document).on('change', '#portion-size', function () {
   selectedNumberOfPortions = document.getElementById('portion-size').value
   let newHtml = renderIngredients()
   $('#ingredient-list').empty()
