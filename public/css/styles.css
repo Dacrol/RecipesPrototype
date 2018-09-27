@@ -464,7 +464,7 @@ section.form-group, .form-section {
     color: rgba(255, 255, 255, 0.9);
 }
 
-.navbar-dark .navbar-nav .active>.nav-link, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show>.nav-link {
+.navbar-dark .navbar-nav .active > .nav-link, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show > .nav-link {
     color: rgba(255, 255, 255, 0.9);
 }
 
@@ -558,4 +558,8 @@ nav.navbar {
 
 span.img-text {
     padding-bottom: 7px;
+}
+
+.fas.fa-filter {
+    text-shadow: #ffffff24 0px 0px 8px;
 }
