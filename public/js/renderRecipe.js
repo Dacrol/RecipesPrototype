@@ -32,73 +32,75 @@ async function renderDish() {
 
   $('#recipe-details')
     .append(`<section class="d-flex flex-column justify-content-start align-items-stretch w-maxlg-100" id="recipe-ingredients" alt="">
-      <img class="align-self-center w-maxlg-100 solid-background" src="${
-        selectedDish.image
-      }" alt="bild på maträtten ${selectedDish.dish}">
-        <div class="solid-background">
-          <select class="custom-select my-3" id="portion-size">
-            <option value="1">1 portion</option>
-            <option value="2">2 portioner</option>
-            <option value="3">3 portioner</option>
-            <option value="4">4 portioner</option>
-            <option value="5">5 portioner</option>
-            <option value="6">6 portioner</option>
-            <option value="7">7 portioner</option>
-            <option value="8">8 portioner</option>
-            <option value="9">9 portioner</option>
-            <option value="10">10 portioner</option>
-            <option value="11">11 portioner</option>
-            <option value="12">12 portioner</option>
-          </select>
-        </div>
-        <div class="pt-2 gradient-background">
-          <p class="ml-3">Ingredienser:</p>
-          <ul id="ingredient-list" class="ingredient-list">
-          </ul>
-        </div>
-    </section>
-  
-    <div class="d-flex flex-column flex-fill ml-4">
-    <div class="instructions-header-area d-flex mb-3 mx-3">
-      <div class="d-flex flex-column flex-fill">
-        <h1 class="mb-2 mt-3 instruction-title text-center">${
-          selectedDish.dish
-        }</h1>
-        <h4 class="instruction-summary mb-4 text-center">${
-          selectedDish.summary
-        }</h4>
-        <span class="mb-4 text-center"><span class="instructions-icons mb-3"><i class="far fa-clock"></i> ${
-          selectedDish.time
-        }</span><span class="instructions-icons"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star icon-muted"></i> ${
-    selectedDish.difficulty
-  }</span><span id="printrecipe" class="instructions-icons btn-print"><i class="fas fa-print"></i> Skriv ut</span>
-    <a class="no-blue" href="/shoppinglist"><span class="instructions-icons shopping-list"><i class="fas fa-clipboard-list"></i> Handla allt</span></span></a>
-      </div>
+  <img class="align-self-center w-maxlg-100 solid-background" src="${
+    selectedDish.image
+  }" alt="bild på maträtten ${selectedDish.dish}">
+  <div class="solid-background">
+    <select class="custom-select my-3" id="portion-size">
+      <option value="1">1 portion</option>
+      <option value="2">2 portioner</option>
+      <option value="3">3 portioner</option>
+      <option value="4">4 portioner</option>
+      <option value="5">5 portioner</option>
+      <option value="6">6 portioner</option>
+      <option value="7">7 portioner</option>
+      <option value="8">8 portioner</option>
+      <option value="9">9 portioner</option>
+      <option value="10">10 portioner</option>
+      <option value="11">11 portioner</option>
+      <option value="12">12 portioner</option>
+    </select>
+  </div>
+  <div class="pt-2 gradient-background">
+    <p class="ml-3">Ingredienser:</p>
+    <ul id="ingredient-list" class="ingredient-list">
+    </ul>
+  </div>
+</section>
+
+<div class="d-flex flex-column flex-fill ml-4">
+  <div class="instructions-header-area d-flex mb-3 mx-3">
+    <div class="d-flex flex-column flex-fill">
+      <h1 class="mb-2 mt-3 instruction-title text-center">${
+        selectedDish.dish
+      }</h1>
+      <h4 class="instruction-summary mb-4 text-center">${
+        selectedDish.summary
+      }</h4>
+      <span class="mb-4 text-center"><span class="instructions-icons mb-3"><i class="far fa-clock"></i> ${
+        selectedDish.time
+      }</span><span class="instructions-icons"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star icon-muted"></i>
+          ${
+            selectedDish.difficulty
+          }</span><span id="printrecipe" class="instructions-icons btn-print"><i class="fas fa-print"></i> Skriv ut</span>
+        <a class="no-blue" href="/shoppinglist"><span class="instructions-icons shopping-list"><i class="fas fa-clipboard-list"></i>
+            Handla allt</span></span></a>
     </div>
-      <div class="instructions-body-area d-flex flex-fill container">
-        <div class="align-self-start d-flex flex-column">
-          <h4 class="mt-3 ml-3 mb-3">Tillagning:</h4>
-          <ol class="instruction-list mr-3">
-          ${renderInstructions()}
-          </ol>
-        <h4 class="mt-4 ml-3 mb-3">Näringsinnehåll (per portion)</h4>
-        <div class="ml-4 mb-2">
+  </div>
+  <div class="instructions-body-area d-flex flex-fill container">
+    <div class="align-self-start d-flex flex-column">
+      <h4 class="mt-3 ml-3 mb-3">Tillagning:</h4>
+      <ol class="instruction-list mr-3">
+        ${renderInstructions()}
+      </ol>
+      <h4 class="mt-4 ml-3 mb-3">Näringsinnehåll (per portion)</h4>
+      <div class="ml-4 mb-2">
         <div id="primary-nutrition-table" class="d-flex flex-wrap nutrition-table ml-4 mb-5">
         </div>
-        <button class="btn btn-outline-dark" type="button" data-toggle="collapse" data-target="#all-nutrition" aria-expanded="false" aria-controls="all-nutrition">
+        <button class="btn btn-outline-dark" type="button" data-toggle="collapse" data-target="#all-nutrition"
+          aria-expanded="false" aria-controls="all-nutrition">
           Visa mer
         </button>
-        </div>
-        <div class="collapse" id="all-nutrition">
+      </div>
+      <div class="collapse" id="all-nutrition">
         <div id="secondary-nutrition-table" class="d-flex flex-wrap nutrition-table ml-4 mb-5">
         </div>
       </div>
-        <div class="ml-3 text-muted">
-          <small>Näringsinnehållet är ungefärligt och beräknat endast utifrån kända ingredienser</small>
-        </div>
+      <div class="ml-3 text-muted">
+        <small>Näringsinnehållet är ungefärligt och beräknat endast utifrån kända ingredienser</small>
       </div>
     </div>
-    `)
+  </div>`)
   $('#portion-size').val(defaultSelectedNumberOfPortions)
   $('#ingredient-list').append(renderIngredients())
 
@@ -243,7 +245,7 @@ $(document).on('click', '.shopping-list', function(e) {
 
 $(document).on('click', '#printrecipe', function(e) {
   e.preventDefault
-  window.print();
+  window.print()
 })
 
 $(document).on('click', '#addtocart', function(e) {
