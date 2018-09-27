@@ -31,7 +31,7 @@ async function renderDish() {
   selectedNumberOfPortions = defaultSelectedNumberOfPortions
 
   $('#recipe-details')
-    .append(`<section class="d-flex flex-column justify-content-start align-items-stretch w-maxlg-100" id="recipe-ingredients" alt="">
+    .append(`<section class="d-flex flex-column justify-content-start align-items-stretch w-maxlg-100" id="recipe-ingredient-list" alt="">
   <img class="align-self-center w-maxlg-100 solid-background" src="${
     selectedDish.image
   }" alt="bild på maträtten ${selectedDish.dish}">
@@ -58,7 +58,7 @@ async function renderDish() {
   </div>
 </section>
 
-<div class="d-flex flex-column flex-fill ml-4">
+<div class="d-flex flex-column flex-fill ml-lg-4">
   <div class="instructions-header-area d-flex mb-3 mx-3">
     <div class="d-flex flex-column flex-fill">
       <h1 class="mb-2 mt-3 instruction-title text-center">${
@@ -77,10 +77,10 @@ async function renderDish() {
             Handla allt</span></span></a>
     </div>
   </div>
-  <div class="instructions-body-area d-flex flex-fill container">
+  <div class="instructions-body-area d-flex flex-fill container px-0 px-lg-2">
     <div class="align-self-start d-flex flex-column">
       <h4 class="mt-3 ml-3 mb-3">Tillagning:</h4>
-      <ol class="instruction-list mr-3">
+      <ol class="instruction-list mr-lg-3">
         ${renderInstructions()}
       </ol>
       <h4 class="mt-4 ml-3 mb-3">Näringsinnehåll (per portion)</h4>
