@@ -201,6 +201,15 @@ $('#sidebar').on('shown.bs.collapse', function() {
   }
 })
 
+// Handle emptying filters
+$('.empty-filter').click(function(e) {
+  $('#sidebar .form-check-input').prop('checked', false)
+  recipesFilter.filterByIngredients = []
+  recipesFilter.filterByTime = []
+  recipesFilter.filterByType = []
+  recipesFilter.renderAllRecipes()
+})
+
 function capitalizeFirstLetter(str) {
   return str.charAt(0).toUpperCase() + str.slice(1)
 }
