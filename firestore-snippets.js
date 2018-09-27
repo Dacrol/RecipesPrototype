@@ -46,3 +46,6 @@ db.collection('Recipes')
   .then(recipes => {
     recipes.forEach(recipe => console.log(recipe.data()))
   })
+  
+// Fixa recept med upperCased namn
+  var recipe = (await db.collection('Recipes').doc('Tagliatelle med fläskytterfilé och svamp').get()).data(); recipe.ingredientNames = recipe.ingredientNames.map(name => name.toLowerCase()); db.collection('Recipes').doc(formatUrl(recipe.dish)).set(recipe)
