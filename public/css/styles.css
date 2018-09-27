@@ -487,7 +487,7 @@ nav.navbar {
 }
 
 .collapser {
-    background-color: rgba(0, 0, 0, 0.08) !important;
+    background-color: rgba(0, 0, 0, 0.04) !important;
     height: 100%;
     /* To make it grow: */
     margin-bottom: -99999px;
@@ -496,5 +496,6 @@ nav.navbar {
 }
 
 .collapser:hover {
-    background-color: rgba(0, 0, 0, 0.14) !important;
+    background-color: rgba(0, 0, 0, 0.08) !important;
+}
 }
