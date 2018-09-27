@@ -24,18 +24,17 @@
 </head>
 
 <body>
-  
-    <div class="page-background"></div>
+
+  <div class="page-background"></div>
   <div class="container-fluid pl-0 ml-0 d-flex flex-column">
 
     <div class="row d-flex flex-nowrap wrapper m-0 p-0">
       <aside class="pl-0 pr-0 collapse width flex-shrink-0 flex-grow-1" id="sidebar">
         <div class="sidebar-container d-flex flex-row-reverse align-items-stretch">
-            <a href="#" data-target="#sidebar" data-toggle="collapse" aria-expanded="true" class="px-0 list-group-item sidebar-header text-center collapser">
-              <i
-                class="fas fa-chevron-left fa-1point5">
-              </i>
-              </a>
+          <a href="#" data-target="#sidebar" data-toggle="collapse" aria-expanded="true" class="px-0 list-group-item sidebar-header text-center collapser">
+            <i class="fas fa-chevron-left fa-1point5">
+            </i>
+          </a>
           <div class="list-group border-0 card text-center text-left">
             <a href="#" class="list-group-item d-inline-block collapsed"><span class="d-inline">Veckans recept</span></a>
             <a href="#" class="list-group-item d-inline-block collapsed"><span class="d-inline">Populära recept</span></a>
@@ -74,47 +73,47 @@
       <div class="px-5 pl-2 pt-2 flex-shrink-1 w-100">
         <div class="container-fluid">
           <div class="page-header">
-          <div class="row">
-            <div class="float-left col-12">
-              <nav class="navbar navbar-expand-md navbar-light">
-                <a class="navbar-brand" href="/"><img class="logo" src="/imgs/logo.png" alt="food fighters logotype"></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-                  aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse text-right text-md-left" id="navbarNavDropdown">
-                  <ul class="navbar-nav mr-md-auto">
-                    {{{navbarContent}}}
-                  </ul>
-                  <div class="nav-item dropdown no-blue">
-                    <a class=" px-0 nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Inköpslista
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                      <a class="dropdown-item" href="#">1 brunt socker</a>
-                      <!-- <a class="dropdown-item" href="#">Another action</a> -->
+            <div class="row">
+              <div class="float-left col-12">
+                <nav class="navbar navbar-expand-md navbar-light">
+                  <a class="navbar-brand" href="/"><img class="logo" src="/imgs/logo.png" alt="food fighters logotype"></a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse text-right text-md-left" id="navbarNavDropdown">
+                    <ul class="navbar-nav mr-md-auto">
+                      {{{navbarContent}}}
+                    </ul>
+                    <div class="nav-item dropdown no-blue">
+                      <a class=" px-0 nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Inköpslista
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">1 brunt socker</a>
+                        <!-- <a class="dropdown-item" href="#">Another action</a> -->
+                      </div>
                     </div>
                   </div>
-                </div>
-              </nav>
+                </nav>
+              </div>
             </div>
-          </div>
-          <div class="d-flex row">
+            <div class="d-flex row">
 
-            <div class="text-center flex-fill px-4">
-              <div class="d-flex justify-content-center">
-                <a href="#" data-target="#sidebar" data-toggle="collapse"><i class="fas fa-filter fa-2x py-2 p-1 mr-4 no-blue"></i></a>
-                <form class="form-inline mt-0 d-flex justify-content-stretch flex-fill flex-nowrap" id="form-search">
-                  <div class="form-row flex-nowrap w-100 d-flex align-items-center">
-                    <input class="form-control mr-2" type="text" placeholder="Vad är du sugen på?" aria-label="Sök">
-                    <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Sök</button>
-                  </div>
-                </form>
+              <div class="text-center flex-fill px-4">
+                <div class="d-flex justify-content-center">
+                  <a href="#" data-target="#sidebar" data-toggle="collapse"><i class="fas fa-filter fa-2x py-2 p-1 mr-4 no-blue"></i></a>
+                  <form class="form-inline mt-0 d-flex justify-content-stretch flex-fill flex-nowrap" id="form-search">
+                    <div class="form-row flex-nowrap w-100 d-flex align-items-center">
+                      <input class="form-control mr-2" type="text" placeholder="Vad är du sugen på?" aria-label="Sök">
+                      <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Sök</button>
+                    </div>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
-        </div>
           {{{body}}}
         </div>
       </div>
