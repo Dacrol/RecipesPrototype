@@ -63,15 +63,15 @@ async function renderDish() {
     <div class="d-flex flex-column flex-fill">
       <h1 class="mb-2 mt-3 instruction-title text-center">${
         selectedDish.dish
-      }</h1>
+        }</h1>
       <h4 class="instruction-summary mb-4 text-center">${
         selectedDish.summary
-      }</h4>
+        }</h4>
       <span class="mb-4 text-center"><span class="instructions-icons mb-3"><i class="far fa-clock"></i> ${
-        selectedDish.time
-      }</span><span class="instructions-icons"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star icon-muted"></i>
+          selectedDish.time
+          }</span><span class="instructions-icons"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star icon-muted"></i>
           ${
-            selectedDish.difficulty
+          selectedDish.difficulty
           }</span><span id="printrecipe" class="instructions-icons btn-print"><i class="fas fa-print"></i> Skriv ut</span>
         <a class="no-blue" href="/shoppinglist"><span class="instructions-icons shopping-list"><i class="fas fa-clipboard-list"></i>
             Handla allt</span></span></a>
@@ -84,8 +84,8 @@ async function renderDish() {
         ${renderInstructions()}
       </ol>
       <h4 class="mt-4 ml-3 mb-3">Näringsinnehåll (per portion)</h4>
-      <div class="ml-4 mb-2">
-        <div id="primary-nutrition-table" class="d-flex flex-wrap nutrition-table ml-4 mb-5">
+      <div class="ml-4 mb-3">
+        <div id="primary-nutrition-table" class="d-flex flex-wrap nutrition-table ml-4 mb-3">
         </div>
         <button class="btn btn-outline-dark" type="button" data-toggle="collapse" data-target="#all-nutrition"
           aria-expanded="false" aria-controls="all-nutrition">
@@ -93,7 +93,9 @@ async function renderDish() {
         </button>
       </div>
       <div class="collapse" id="all-nutrition">
-        <div id="secondary-nutrition-table" class="d-flex flex-wrap nutrition-table ml-4 mb-5">
+        <div class="ml-4 mb-3">
+          <div id="secondary-nutrition-table" class="d-flex flex-wrap nutrition-table ml-4 mb-3">
+          </div>
         </div>
       </div>
       <div class="ml-3 text-muted">
@@ -185,7 +187,13 @@ function renderIngredients() {
     }
   })
   html.append(
-    `</div><div class="form-group row"><div class="col-sm-10"><button id="addtocart" type="submit" class="btn border-primary mt-2">Handla valda</button></div></div></form>`
+    `</div>
+<div class="form-group row" style="margin-top: 0.2rem;">
+  <div class="col-12" style="margin-left: -1.25rem;">
+    <button id="addtocart" type="submit" class="btn border-primary mt-2">Handla valda</button>
+  </div>
+</div>
+</form>`
   )
   return html
 }
