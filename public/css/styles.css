@@ -1,6 +1,7 @@
 .wrapper {
     overflow-y: auto;
     overflow-x: hidden;
+    min-height: 100vh;
 }
 
 #sidebar {
@@ -578,4 +579,11 @@ span.img-text {
 
 .navbar-toggler:focus {
     outline-color: #efefef;
+}
+
+footer.footer {
+    background: linear-gradient(to bottom, #efefef, #dadada3d, #dadada);
+    background-color: #e9e9e9;
+    min-height: 65px;
+    color: #656565;
 }
