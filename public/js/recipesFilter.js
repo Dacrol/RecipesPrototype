@@ -184,6 +184,14 @@ $('#time-list').on('change', '.form-check-input', function(e) {
   recipesFilter.renderFiltered()
 })
 
+$('#type-list').on('change', '.form-check-input', function(e) {
+  e.stopPropagation()
+  recipesFilter.filterByType = $('#type-list input:checked')
+    .map((index, element) => $(element).data('type'))
+    .get()
+  recipesFilter.renderFiltered()
+})
+
 // Make sure scrollbar is hidden even if it's not 17px wide
 $('#sidebar').on('shown.bs.collapse', function() {
   const collapsible = $('.sidebar-container').get(0)
