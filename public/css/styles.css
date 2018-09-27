@@ -437,7 +437,7 @@ section.form-group, .form-section {
 }
 
 .page-background {
-    background: linear-gradient(to bottom, #efefef00, #efefef57, #efefefa8, #efefef), linear-gradient(25deg, #efefef94, #00000000, #00000047), url(/imgs/annie-spratt-44241-unsplash.jpg);
+    background: linear-gradient(to bottom, #efefef00, #efefef47, #efefefba, #efefef), linear-gradient(33deg, #efefef47, #00000017, #0000003b), url(/imgs/mnm-all-652563-unsplash.jpg);
     min-height: 333px;
     width: 100%;
     position: absolute;
