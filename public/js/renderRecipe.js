@@ -18,7 +18,7 @@ if (dishName === 'recipe') {
 }
 
 if (window.location.pathname.startsWith('/recipe')) {
-  renderDish()
+  renderDish().then(renderNutrition)
 }
 
 async function renderDish() {
@@ -128,6 +128,7 @@ async function renderDish() {
      * LightVibrant #f3ccb4
      */
   })
+  return selectedDish
 }
 
 function renderInstructions() {
