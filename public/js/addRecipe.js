@@ -1,7 +1,6 @@
 // kvar att fixa
 
 // skicka info till databasen
-// ta bort ingredientNames och ingredients från andra referensens arrayer vid borttagning av ingrediens
 // css glöm inte lägg till knapp inte responsiv
 
 // fler taggar, vilka?
@@ -53,7 +52,7 @@ $(document).on('click keypress', '.btn-add-recipe', async function(e) {
     // att göra - lägga in bild
     newRecipeObj.image = await uploadedImage.ref.getDownloadURL();
 
-    console.log(newRecipeObj, uploadedImage, imageFile)
+    // console.log(newRecipeObj, uploadedImage, imageFile)
 
     newRecipeObj.difficulty = $('#difficulty').val();
     
@@ -112,7 +111,9 @@ $(document).on('click keypress', '.btn-add-recipe', async function(e) {
         newRecipeObj.secondPortionSize = selectedPortionSize;
       }
     }
-
+    db.collection('Recipes')
+      .doc(formatUrl(newRecipeObj.dish))
+      .set(newRecipeObj)
     console.log(newRecipeObj);
     emptyForm();
   });
@@ -159,7 +160,7 @@ $(document).on('click keypress', '.btn-add-ingredient-info', function (e) {
 // Lägg till ny instruktion
 $(document).on('click keypress', '.btn-add-instruction', function (e) {
   if(e.keyCode == 32 || e.which == 1){
-    e.preventDefault;
+    e.preventDefault();
     if ($('.add-instruction').val()) {
       $('.added-instructions').append(`
       <p class="btn-sub-instruction mt-2 ml-3 instruction-item" data-text="${$('.add-instruction').val()}"><i class="fas fa-minus" data-text="${$('.add-instruction').val()}" role="button"></i> ${$('.add-instruction').val()}</p>
@@ -198,7 +199,7 @@ $(document).on('click keypress', '.btn-add-ingredient', function (e) {
   `)
   ingArr.push(ingText);
 
-  ingredientNames.push($('.typeahead-ingredients').val());
+  ingredientNames.push($('.typeahead-ingredients').val().toLowerCase());
 
   let amount = $('.add-volume').val();
   let mass = $('.add-weight').val();
@@ -266,7 +267,7 @@ $(document).on('click keypress', '.secondary-btn-add-ingredient', function (e) {
   `)
   secondaryIngArr.push(ingText);
 
-  secondaryIngredientNames.push($('.secondary-typeahead-ingredients').val());
+  secondaryIngredientNames.push($('.secondary-typeahead-ingredients').val().toLowerCase());
 
   let amount = $('.secondary-add-volume').val();
   let mass = $('.secondary-add-weight').val();
@@ -417,8 +418,8 @@ onSelect:function(files)
     console.log(files[0])
     return true //to allow file submiss ion.
 },
-  dragDropStr: "<span>Eller dra och släpp din bild här</span>",
-  uploadStr: "Välj bild",
+  dragDropStr: "<span class='img-text'>Eller drag och släpp din bild här</span>",
+  uploadStr: "<span tabindex='1' class='add-picture'>'Välj bild'</span",
   showPreview: true,
   maxFileCountErrorStr: "<span> kan ej laddas upp. Max tillåtna bilder är: </span>",
   onLoad: function() {
@@ -432,4 +433,21 @@ onSelect:function(files)
 $('#add-unit').on('change', function(e) {
   if ($(this).val() === 'g' || $(this).val() === 'hg' || $(this).val() === 'kg') $(this).siblings('.add-weight').prop('disabled', true).prop('placeholder', '')
   else $(this).siblings('.add-weight').prop('disabled', false).prop('placeholder', 'Vikt i g')
+})
+
+$('.add-volume, #add-unit').on('change keyup', function(){
+  if($('.add-volume').val().length > 0){
+    if($('#add-unit').val() == 'g'){
+      $('.add-weight').val($('.add-volume').val());
+    }
+    if($('#add-unit').val() == 'hg'){
+      $('.add-weight').val($('.add-volume').val() * 100);
+    }
+    if($('#add-unit').val() == 'kg'){
+      $('.add-weight').val($('.add-volume').val() * 1000);
+    }
+  }
+  else {
+    $('.add-weight').val('');
+  }
 })

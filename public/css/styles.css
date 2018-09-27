@@ -14,24 +14,24 @@
 }
 
 #sidebar.collapse.show {
-    width: 400px;
+    width: 333px;
 }
 
 #sidebar .sidebar-container {
     box-sizing: content-box;
     height: 100%;
-    width: 400px;
+    width: 333px;
     /* padding-right: 20px; */
 }
 
 #sidebar.collapse.show .sidebar-container {
     overflow-y: scroll;
     overflow-x: hidden;
-    width: 417px !important;
+    width: 350px !important;
 }
 
 #sidebar .list-group {
-    width: 400px;
+    width: 333px;
     background-color: #333333;
     min-height: 100vh;
     min-height: -webkit-fill-available;
@@ -44,7 +44,8 @@
 }
 
 #sidebar i {
-    margin-right: 6px;
+    margin-right: 4px;
+    margin-left: 2px;
 }
 
 #sidebar .list-group-item {
@@ -301,8 +302,13 @@ textarea#instructions {
     cursor: pointer;
 }
 
+.img-text {
+    color: #000000;
+}
+
 .adding-text {
-    font-family: 'Roboto';
+    font-family: roboto;
+    font-size: 0.8em;
     padding-top: 5px;
 }
 
@@ -324,18 +330,22 @@ section.form-group, .form-section {
     border: 1px solid #969696;
     border-radius: 10px;
     background-color: rgba(160, 177, 222, 0.12);;
+    font-family: 'Roboto', sans-serif;
 }
 
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: rgb(63, 63, 63);
     opacity: 1; /* Firefox */
 }
 
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
     color: rgb(63, 63, 63);
 }
 
-::-ms-input-placeholder { /* Microsoft Edge */
+::-ms-input-placeholder {
+    /* Microsoft Edge */
     color: rgb(63, 63, 63);
 }
 
@@ -423,7 +433,7 @@ section.form-group, .form-section {
     text-align: center;
 }
 
-.fileuploader-container{
+.fileuploader-container {
     width: 400px;
 }
 
@@ -432,7 +442,7 @@ body {
 }
 
 #recipe-ingredients {
-    border: solid rgba(0, 0, 0, 0.25) 1px;
+    /* border: solid rgba(0, 0, 0, 0.25) 1px; */
     background: #ffffff40;
     height: max-content;
 }
@@ -466,4 +476,32 @@ body {
 
 #recipe-list .card .text-muted {
     color: #f3f3f3!important;
+}
+
+[class^=btn-add-], .btn-add-ingredient-info, .btn-add-instruction, .btn-add-ingredient {
+    cursor: pointer;
+}
+
+nav.navbar {
+    font-size: 1.2em;
+}
+
+.collapser {
+    background-color: rgba(0, 0, 0, 0.04) !important;
+    height: 100%;
+    /* To make it grow: */
+    margin-bottom: -99999px;
+    padding-bottom: 99999px;
+    overflow: hidden;
+}
+
+.collapser:hover {
+    background-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+.empty-filter {
+    position: absolute;
+    left: 0;
+    padding-left: 15px;
+    cursor: pointer;
 }
