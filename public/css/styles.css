@@ -222,14 +222,20 @@ nav {
 
 .nutrition-table > div {
     flex-basis: 50%;
-    padding-right: 15%!important;
 }
 
 @media (min-width: 1200px) {
-    .nutrition-table > div {
-        padding-right: 20%!important;
+    .nutrition-table div:nth-child(odd) {
+        padding-right: 5%!important;
     }
 }
+
+@media (max-width: 1199px) {
+    .nutrition-table > div {
+        flex-basis: 100%;
+    }
+}
+
 
 .fa-clipboard-list {
     cursor: pointer;
@@ -271,10 +277,6 @@ textarea#instructions {
     }
     .w-maxlg-100 {
         width: 100% !important;
-    }
-    .nutrition-table > div {
-        flex-basis: 100%;
-        /* padding-right: initial !important; */
     }
 }
 
