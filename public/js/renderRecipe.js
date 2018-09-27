@@ -58,7 +58,7 @@ async function renderDish() {
         </div>
     </section>
   
-    <div class="d-flex flex-column flex-fill mx-5">
+    <div class="d-flex flex-column flex-fill ml-4">
     <div class="instructions-header-area d-flex mb-3 mx-3">
       <div class="d-flex flex-column flex-fill">
         <h1 class="mb-2 mt-3 instruction-title text-center">${
@@ -82,8 +82,17 @@ async function renderDish() {
           ${renderInstructions()}
           </ol>
         <h4 class="mt-4 ml-3 mb-3">Näringsinnehåll (per portion)</h4>
-        <div id="nutrition-table" class="d-flex flex-wrap nutrition-table ml-4 mb-5">
+        <div class="ml-4 mb-2">
+        <div id="primary-nutrition-table" class="d-flex flex-wrap nutrition-table ml-4 mb-5">
         </div>
+        <button class="btn btn-outline-dark" type="button" data-toggle="collapse" data-target="#all-nutrition" aria-expanded="false" aria-controls="all-nutrition">
+          Visa mer
+        </button>
+        </div>
+        <div class="collapse" id="all-nutrition">
+        <div id="secondary-nutrition-table" class="d-flex flex-wrap nutrition-table ml-4 mb-5">
+        </div>
+      </div>
         <div class="ml-3 text-muted">
           <small>Näringsinnehållet är ungefärligt och beräknat endast utifrån kända ingredienser</small>
         </div>
