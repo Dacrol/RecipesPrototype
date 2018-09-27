@@ -11,19 +11,27 @@ class RecipesFilter {
       this.filterByIngredients = ingredients
     }
     // console.log(this.filterBy)
-    if ((this.filterByIngredients.length + this.filterByTime.length + this.filterByType.length) > 0) {
+    if (
+      this.filterByIngredients.length +
+        this.filterByTime.length +
+        this.filterByType.length >
+      0
+    ) {
       let collection = db.collection('Recipes')
-      let potentialRecipes = this.filterByIngredients.length > 0 ? collection.where(
-        'ingredientNames',
-        'array-contains',
-        this.filterByIngredients[0]
-      ) : collection
+      let potentialRecipes =
+        this.filterByIngredients.length > 0
+          ? collection.where(
+              'ingredientNames',
+              'array-contains',
+              this.filterByIngredients[0]
+            )
+          : collection
       potentialRecipes.get().then(snapshot => {
         const recipes = snapshot.docs.map(docs => docs.data())
         // console.log(recipes)
         let filteredRecipes = recipes.filter(recipe => {
           return this.filterByIngredients.every(ingredient => {
-              return recipe.ingredientNames.includes(ingredient)
+            return recipe.ingredientNames.includes(ingredient)
           })
         })
         if (this.filterByTime.length > 0) {
@@ -35,7 +43,7 @@ class RecipesFilter {
           filteredRecipes = filteredRecipes.filter(recipe => {
             return this.filterByType.every(tag => {
               return recipe.tags.includes(tag)
-          })
+            })
           })
         }
         // console.log(filteredRecipes)
@@ -130,9 +138,14 @@ recipesFilter.renderAllRecipes()
   </label>
 </div>`)
         })
-        Array.from(existingTimes).sort().forEach(time => {
+      Array.from(existingTimes)
+        .sort()
+        .forEach(time => {
           $('#time-list').append(`<div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" id="${time.replace(/\s/g, '')}" data-time="${time}">
+  <input class="form-check-input" type="checkbox" value="" id="${time.replace(
+    /\s/g,
+    ''
+  )}" data-time="${time}">
   <label class="form-check-label" for="${time.replace(/\s/g, '')}">
     ${time.replace(/min/g, 'minuter')}
   </label>
@@ -153,8 +166,8 @@ $('#ingredients-list').on('change', '.form-check-input', function(e) {
 $('#time-list').on('change', '.form-check-input', function(e) {
   e.stopPropagation()
   recipesFilter.filterByTime = $('#time-list input:checked')
-      .map((index, element) => $(element).data('time'))
-      .get()
+    .map((index, element) => $(element).data('time'))
+    .get()
   recipesFilter.renderFiltered()
 })
 
