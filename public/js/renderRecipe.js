@@ -69,7 +69,10 @@ async function renderDish() {
         }</h4>
       <span class="mb-4 text-center"><span class="instructions-icons mb-3"><i class="far fa-clock"></i> ${
           selectedDish.time
-          }</span><span class="instructions-icons"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star icon-muted"></i>
+          }</span><span class="instructions-icons">
+          <i class="far fa-star"></i>
+          <i class="far fa-star ${!(selectedDish.difficulty.toLowerCase().startsWith('m') || selectedDish.difficulty.toLowerCase().startsWith('s')) ? 'icon-muted' : ''}"></i>
+          <i class="far fa-star ${!(selectedDish.difficulty.toLowerCase().startsWith('s')) ? 'icon-muted' : ''}"></i>
           ${
           selectedDish.difficulty
           }</span><span id="printrecipe" class="instructions-icons btn-print"><i class="fas fa-print"></i> Skriv ut</span>
