@@ -44,7 +44,24 @@ async function renderNutrition(dish) {
 
   Object.entries(nutritionSum).forEach(entry => {
     let [property, value] = entry
-    $('#secondary-nutrition-table').append(`<div class="pr-2">${property} <span class="float-right">${value} g</span></div>`)
+    $('#secondary-nutrition-table').append(`<div class="pr-2">${property} <span class="float-right">${value}</span></div>`)
   })
-  // console.log(nutritionSum)
+
+  $('#primary-nutrition-table')
+    .append(`<div class="pr-2">Kolhydrater <span class="float-right">${
+    nutritionSum['Kolhydrater (g)']
+    } g</span></div>
+<div class="pr-2">Protein <span class="float-right">${
+    nutritionSum['Protein (g)']
+    } g</span></div>
+<div class="pr-2">Mättat fett<span class="float-right">${
+    nutritionSum['Fett (g)']
+    } g</span></div>
+<div class="pr-2">Enkelomättat fett<span class="float-right">${nutritionSum['Summa enkelomättade fettsyror (g)']} g</span></div>
+<div class="pr-2">Fleromättat fett<span class="float-right">${nutritionSum['Summa fleromättade fettsyror (g)']} g</span></div>
+<div class="pr-2">Salt <span class="float-right">${
+    nutritionSum['Salt (g)']
+    } g</span></div>`)
+
+  console.log(nutritionSum)
 }
