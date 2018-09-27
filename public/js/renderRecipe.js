@@ -231,7 +231,7 @@ $(document).on('click', '.shopping-list', function(e) {
 
 $(document).on('click', '#printrecipe', function(e) {
   e.preventDefault
-  printData()
+  window.print();
 })
 
 $(document).on('click', '#addtocart', function(e) {
