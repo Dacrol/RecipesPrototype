@@ -437,8 +437,8 @@ section.form-group, .form-section {
 }
 
 .page-background {
-    background-image: linear-gradient(to bottom, #00000080, #efefef), url(/imgs/annie-spratt-44241-unsplash.jpg);
-    min-height: 300px;
+    background: linear-gradient(to bottom, #efefef00, #efefef57, #efefefa8, #efefef), linear-gradient(25deg, #efefef94, #00000000, #00000047), url(/imgs/annie-spratt-44241-unsplash.jpg);
+    min-height: 333px;
     width: 100%;
     position: absolute;
     z-index: -1;
@@ -563,3 +563,8 @@ span.img-text {
 .fas.fa-filter {
     text-shadow: #ffffff24 0px 0px 8px;
 }
+
+.navbar-dark .navbar-toggler {
+    color: rgba(255,255,255,1);
+    border-color: rgba(255,255,255,.67);
+  }
