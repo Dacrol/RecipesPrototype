@@ -92,9 +92,16 @@ recipesFilter.renderAllRecipes()
     .get()
     .then(recipes => {
       const existingIngredients = new Set()
+      const existingTimes = new Set()
+      const existingTypes = new Set()
       recipes.forEach(recipe => {
-        recipe.data().ingredients.forEach(ingredient => {
-          existingIngredients.add(ingredient.name)
+        const recipeData = recipe.data()
+        recipeData.ingredientNames.forEach(ingredient => {
+          existingIngredients.add(ingredient)
+        })
+        existingTimes.add(recipeData.time)
+        recipeData.tags.forEach(tag => {
+          existingTypes.add(tag)
         })
       })
       Array.from(existingIngredients)
