@@ -1,29 +1,43 @@
 class RecipesFilter {
   constructor() {
-    this.filterBy = []
+    this.filterByIngredients = []
+    this.filterByTime = []
+    this.filterByType = []
   }
 
   renderFiltered(ingredients) {
-    console.log(ingredients)
+    // console.log(ingredients)
     if (Array.isArray(ingredients)) {
-      this.filterBy = ingredients
+      this.filterByIngredients = ingredients
     }
     // console.log(this.filterBy)
-    if (this.filterBy.length > 0) {
+    if ((this.filterByIngredients.length + this.filterByTime.length + this.filterByType.length) > 0) {
       let collection = db.collection('Recipes')
-      let potentialRecipes = collection.where(
+      let potentialRecipes = this.filterByIngredients.length > 0 ? collection.where(
         'ingredientNames',
         'array-contains',
-        this.filterBy[0]
-      )
+        this.filterByIngredients[0]
+      ) : collection
       potentialRecipes.get().then(snapshot => {
         const recipes = snapshot.docs.map(docs => docs.data())
         // console.log(recipes)
-        const filteredRecipes = recipes.filter(recipe => {
-          return this.filterBy.every(ingredient => {
-            return recipe.ingredientNames.includes(ingredient)
+        let filteredRecipes = recipes.filter(recipe => {
+          return this.filterByIngredients.every(ingredient => {
+              return recipe.ingredientNames.includes(ingredient)
           })
         })
+        if (this.filterByTime.length > 0) {
+          filteredRecipes = filteredRecipes.filter(recipe => {
+            return this.filterByTime.includes(recipe.time)
+          })
+        }
+        if (this.filterByType.length > 0) {
+          filteredRecipes = filteredRecipes.filter(recipe => {
+            return this.filterByType.every(tag => {
+              return recipe.tags.includes(tag)
+          })
+          })
+        }
         // console.log(filteredRecipes)
         this.renderRecipes(filteredRecipes)
       })
@@ -134,6 +148,14 @@ $('#ingredients-list').on('change', '.form-check-input', function(e) {
       .map((index, element) => $(element).data('ingredient'))
       .get()
   )
+})
+
+$('#time-list').on('change', '.form-check-input', function(e) {
+  e.stopPropagation()
+  recipesFilter.filterByTime = $('#time-list input:checked')
+      .map((index, element) => $(element).data('time'))
+      .get()
+  recipesFilter.renderFiltered()
 })
 
 // Make sure scrollbar is hidden even if it's not 17px wide
