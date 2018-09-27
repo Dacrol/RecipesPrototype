@@ -31,7 +31,7 @@ async function renderDish() {
   selectedNumberOfPortions = defaultSelectedNumberOfPortions
 
   $('#recipe-details')
-    .append(`<section class="d-flex flex-column justify-content-start align-items-stretch w-maxlg-100" id="recipe-ingredients" alt="">
+    .append(`<section class="d-flex flex-column justify-content-start align-items-stretch w-maxlg-100" id="recipe-ingredient-list" alt="">
   <img class="align-self-center w-maxlg-100 solid-background" src="${
     selectedDish.image
   }" alt="bild på maträtten ${selectedDish.dish}">

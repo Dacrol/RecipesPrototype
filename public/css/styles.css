@@ -481,8 +481,8 @@ body {
     background-color: #efefef;
 }
 
-#recipe-ingredients {
-    /* border: solid rgba(0, 0, 0, 0.25) 1px; */
+#recipe-ingredient-list {
+    border: solid rgba(0, 0, 0, 0.25) 1px;
     background: #ffffff40;
     height: max-content;
 }
