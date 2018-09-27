@@ -41,5 +41,10 @@ async function renderNutrition(dish) {
   Object.keys(nutritionSum).map(key => {
     nutritionSum[key] = Math.round(nutritionSum[key] / dish.portions)
   })
+
+  Object.entries(nutritionSum).forEach(entry => {
+    let [property, value] = entry
+    $('#secondary-nutrition-table').append(`<div class="pr-2">${property} <span class="float-right">${value} g</span></div>`)
+  })
   // console.log(nutritionSum)
 }
