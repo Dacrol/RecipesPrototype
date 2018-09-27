@@ -109,6 +109,14 @@ recipesFilter.renderAllRecipes()
   </label>
 </div>`)
         })
+        Array.from(existingTimes).sort().forEach(time => {
+          $('#time-list').append(`<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" id="${time.replace(/\s/g, '')}" data-time="${time}">
+  <label class="form-check-label" for="${time.replace(/\s/g, '')}">
+    ${time.replace(/min/g, 'minuter')}
+  </label>
+</div>`)
+        })
     })
 })()
 
