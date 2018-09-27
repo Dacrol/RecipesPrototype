@@ -81,9 +81,8 @@ async function renderDish() {
           <ol class="instruction-list mr-3">
           ${renderInstructions()}
           </ol>
-        <h4 class="mt-4 ml-3 mb-3">Näringsinnehåll/100g</h4>
-        <div class="d-flex flex-wrap nutrition-table ml-4 mb-5">
-           
+        <h4 class="mt-4 ml-3 mb-3">Näringsinnehåll (per 100g)</h4>
+        <div id="nutrition-table" class="d-flex flex-wrap nutrition-table ml-4 mb-5">
         </div>
       </div>
     </div>
@@ -275,44 +274,3 @@ function submitForm() {
     )
   }
 }
-
-renderNutrition(livsmedelsNamn)
-
-async function renderNutrition(livsmedelsNamn) {
-  livsmedel = (await db
-    .collection('Näringsinnehåll')
-    .doc(livsmedelsNamn)
-    .get()).data()
-
-  // console.log(livsmedel);
-  // console.log('Fett', livsmedel['Fett (g)']);
-  // console.log('Salt', livsmedel['Salt (g)']);
-  // console.log('Protein', livsmedel['Protein (g)'])
-  // console.log('Kolhydrater', livsmedel['Kolhydrater (g)'])
-
-  let html = $('.nutrition-table')
-    .append(`<div class="pr-2">Kolhydrater <span class="float-right">${
-    livsmedel['Kolhydrater (g)']
-  } g</span></div> 
-    <div class="pr-2">Protein <span class="float-right">${
-      livsmedel['Protein (g)']
-    } g</span></div> 
-    <div class="pr-2">Mättat fett<span class="float-right">${
-      livsmedel['Fett (g)']
-    } g</span></div> 
-    <div class="pr-2">Enkelomättat fett<span class="float-right">15g</span></div> 
-    <div class="pr-2">Fleromättat fett<span class="float-right">15g</span></div> 
-    <div class="pr-2">Salt <span class="float-right">${
-      livsmedel['Salt (g)']
-    } g</span></div>  
-    `)
-  return html
-}
-
-// förkortningar att filtrera/söka på om vi använder oss utav livsmedel.json istället
-// Kolh
-// Prot
-// Mfet
-// Mone
-// Pole
-// NaCl
