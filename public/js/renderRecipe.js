@@ -18,7 +18,7 @@ if (dishName === 'recipe') {
 }
 
 if (window.location.pathname.startsWith('/recipe')) {
-  renderDish()
+  renderDish().then(renderNutrition)
 }
 
 async function renderDish() {
@@ -31,63 +31,78 @@ async function renderDish() {
   selectedNumberOfPortions = defaultSelectedNumberOfPortions
 
   $('#recipe-details')
-    .append(`<section class="d-flex flex-column justify-content-start align-items-stretch w-maxlg-100" id="recipe-ingredients" alt="">
-      <img class="align-self-center w-maxlg-100 solid-background" src="${
-      selectedDish.image
-      }" alt="bild på maträtten ${selectedDish.dish}">
-        <div class="solid-background">
-          <select class="custom-select my-3" id="portion-size">
-            <option value="1">1 portion</option>
-            <option value="2">2 portioner</option>
-            <option value="3">3 portioner</option>
-            <option value="4">4 portioner</option>
-            <option value="5">5 portioner</option>
-            <option value="6">6 portioner</option>
-            <option value="7">7 portioner</option>
-            <option value="8">8 portioner</option>
-            <option value="9">9 portioner</option>
-            <option value="10">10 portioner</option>
-            <option value="11">11 portioner</option>
-            <option value="12">12 portioner</option>
-          </select>
+    .append(`<section class="d-flex flex-column justify-content-start align-items-stretch w-maxlg-100" id="recipe-ingredient-list" alt="">
+  <img class="align-self-center w-maxlg-100 solid-background" src="${
+    selectedDish.image
+  }" alt="bild på maträtten ${selectedDish.dish}">
+  <div class="solid-background">
+    <select class="custom-select my-3" id="portion-size">
+      <option value="1">1 portion</option>
+      <option value="2">2 portioner</option>
+      <option value="3">3 portioner</option>
+      <option value="4">4 portioner</option>
+      <option value="5">5 portioner</option>
+      <option value="6">6 portioner</option>
+      <option value="7">7 portioner</option>
+      <option value="8">8 portioner</option>
+      <option value="9">9 portioner</option>
+      <option value="10">10 portioner</option>
+      <option value="11">11 portioner</option>
+      <option value="12">12 portioner</option>
+    </select>
+  </div>
+  <div class="pt-2 gradient-background">
+    <p class="ml-3">Ingredienser:</p>
+    <ul id="ingredient-list" class="ingredient-list">
+    </ul>
+  </div>
+</section>
+
+<div class="d-flex flex-column flex-fill ml-lg-4">
+  <div class="instructions-header-area d-flex mb-3 mx-3">
+    <div class="d-flex flex-column flex-fill">
+      <h1 class="mb-2 mt-3 instruction-title text-center">${
+        selectedDish.dish
+        }</h1>
+      <h4 class="instruction-summary mb-4 text-center">${
+        selectedDish.summary
+        }</h4>
+      <span class="mb-4 text-center"><span class="instructions-icons mb-3"><i class="far fa-clock"></i> ${
+          selectedDish.time
+          }</span><span class="instructions-icons"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star icon-muted"></i>
+          ${
+          selectedDish.difficulty
+          }</span><span id="printrecipe" class="instructions-icons btn-print"><i class="fas fa-print"></i> Skriv ut</span>
+        <a class="no-blue" href="/shoppinglist"><span class="instructions-icons shopping-list"><i class="fas fa-clipboard-list"></i>
+            Handla allt</span></span></a>
+    </div>
+  </div>
+  <div class="instructions-body-area d-flex flex-fill container px-0 px-lg-2">
+    <div class="align-self-start d-flex flex-column">
+      <h4 class="mt-3 ml-3 mb-3">Tillagning:</h4>
+      <ol class="instruction-list mr-lg-3">
+        ${renderInstructions()}
+      </ol>
+      <h4 class="mt-4 ml-3 mb-3">Näringsinnehåll (per portion)</h4>
+      <div class="ml-4 mb-3">
+        <div id="primary-nutrition-table" class="d-flex flex-wrap nutrition-table ml-4 mb-3">
         </div>
-        <div class="pt-2 gradient-background">
-          <p class="ml-3">Ingredienser:</p>
-          <ul id="ingredient-list" class="ingredient-list">
-          </ul>
+        <button class="btn btn-outline-dark" type="button" data-toggle="collapse" data-target="#all-nutrition"
+          aria-expanded="false" aria-controls="all-nutrition">
+          Visa mer
+        </button>
+      </div>
+      <div class="collapse" id="all-nutrition">
+        <div class="ml-4 mb-3">
+          <div id="secondary-nutrition-table" class="d-flex flex-wrap nutrition-table ml-4 mb-3">
+          </div>
         </div>
-    </section>
-  
-    <div class="d-flex flex-column flex-fill mx-5">
-    <div class="instructions-header-area d-flex mb-3 mx-3">
-      <div class="d-flex flex-column flex-fill">
-        <h1 class="mb-2 mt-3 instruction-title text-center">${
-      selectedDish.dish
-      }</h1>
-        <h4 class="instruction-summary mb-4 text-center">${
-      selectedDish.summary
-      }</h4>
-        <span class="mb-4 text-center"><span class="instructions-icons mb-3"><i class="far fa-clock"></i> ${
-      selectedDish.time
-      }</span><span class="instructions-icons"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star icon-muted"></i> ${
-      selectedDish.difficulty
-      }</span><span id="printrecipe" class="instructions-icons btn-print"><i class="fas fa-print"></i> Skriv ut</span>
-    <a class="no-blue" href="/shoppinglist"><span class="instructions-icons shopping-list"><i class="fas fa-clipboard-list"></i> Handla allt</span></span></a>
+      </div>
+      <div class="ml-3 text-muted">
+        <small>Näringsinnehållet är ungefärligt och beräknat endast utifrån kända ingredienser</small>
       </div>
     </div>
-      <div class="instructions-body-area d-flex flex-fill container">
-        <div class="align-self-start d-flex flex-column">
-          <h4 class="mt-3 ml-3 mb-3">Tillagning:</h4>
-          <ol class="instruction-list mr-3">
-          ${renderInstructions()}
-          </ol>
-        <h4 class="mt-4 ml-3 mb-3">Näringsinnehåll/100g</h4>
-        <div class="d-flex flex-wrap nutrition-table ml-4 mb-5">
-           
-        </div>
-      </div>
-    </div>
-    `)
+  </div>`)
   $('#portion-size').val(defaultSelectedNumberOfPortions)
   $('#ingredient-list').append(renderIngredients())
 
@@ -129,6 +144,7 @@ async function renderDish() {
      * LightVibrant #f3ccb4
      */
   })
+  return selectedDish
 }
 
 function renderInstructions() {
@@ -171,7 +187,13 @@ function renderIngredients() {
     }
   })
   html.append(
-    `</div><div class="form-group row"><div class="col-sm-10"><button id="addtocart" type="submit" class="btn border-primary mt-2">Handla valda</button></div></div></form>`
+    `</div>
+<div class="form-group row" style="margin-top: 0.2rem;">
+  <div class="col-12" style="margin-left: -1.25rem;">
+    <button id="addtocart" type="submit" class="btn border-primary mt-2">Handla valda</button>
+  </div>
+</div>
+</form>`
   )
   return html
 }
@@ -220,7 +242,7 @@ $(document).on('click', '.shopping-list', function (e) {
 
 $(document).on('click', '#printrecipe', function (e) {
   e.preventDefault
-  printData()
+  window.print()
 })
 
 $(document).on('click', '#addtocart', function (e) {
@@ -264,45 +286,3 @@ function submitForm() {
     )
   }
 }
-
-renderNutrition(livsmedelsNamn)
-
-async function renderNutrition(livsmedelsNamn) {
-  livsmedel = (await db
-    .collection('Näringsinnehåll')
-    .doc(livsmedelsNamn)
-    .get()).data()
-
-  // console.log(livsmedel);
-  // console.log('Fett', livsmedel['Fett (g)']);
-  // console.log('Salt', livsmedel['Salt (g)']);
-  // console.log('Protein', livsmedel['Protein (g)'])
-  // console.log('Kolhydrater', livsmedel['Kolhydrater (g)'])
-
-  let html = $('.nutrition-table')
-    .append(`<div class="pr-2">Kolhydrater <span class="float-right">${livsmedel['Kolhydrater (g)']} g</span></div> 
-    <div class="pr-2">Protein <span class="float-right">${livsmedel['Protein (g)']} g</span></div> 
-    <div class="pr-2">Mättat fett<span class="float-right"> ${livsmedel['Summa mättade fettsyror (g)']} g</span></div> 
-    <div class="pr-2">Enkelomättat fett<span class="float-right">${livsmedel['Summa enkelomättade fettsyror (g)']} g</span></div> 
-    <div class="pr-2">Fleromättat fett<span class="float-right">${livsmedel['Summa fleromättade fettsyror (g)']} g</span></div> 
-    <div class="pr-2">Salt <span class="float-right">${livsmedel['Salt (g)']} g</span></div>  
-    `)
-  return html
-}
-
-// function roundIngredientAmount() {
-//   selectedDish.ingredients.forEach(ingredient => {
-//   if (ingredient.unit == 'kdm' || ingredient.unit == 'tsk' ||
-//     ingredient.unit == 'msk' || ingredient.unit == 'ml' ||
-//     ingredient.unit == 'cl' || ingredient.unit == 'g' ||
-//     ingredient.unit == 'hg' || ingredient.unit == 'st'
-//   ) console.log((ingredient.amount / defaultSelectedNumberOfPortions)*selectedNumberOfPortions) } )
-//  }
-
-// förkortningar att filtrera/söka på om vi använder oss utav livsmedel.json istället
-// Kolh
-// Prot
-// Mfet
-// Mone
-// Pole
-// NaCl

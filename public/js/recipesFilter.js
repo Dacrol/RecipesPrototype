@@ -151,7 +151,7 @@ recipesFilter.renderAllRecipes()
   </label>
 </div>`)
         })
-        Array.from(existingTypes)
+      Array.from(existingTypes)
         .sort()
         .forEach(type => {
           $('#type-list').append(`<div class="form-check">
@@ -196,8 +196,11 @@ $('#type-list').on('change', '.form-check-input', function(e) {
 $('#sidebar').on('shown.bs.collapse', function() {
   const collapsible = $('.sidebar-container').get(0)
   if (collapsible.offsetWidth - collapsible.clientWidth !== 17) {
-    collapsible.style.width =
+    let newWidth =
       350 - (collapsible.offsetWidth - collapsible.clientWidth) + 'px'
+    $(collapsible)
+      .parent()
+      .css({ width: newWidth })
   }
 })
 

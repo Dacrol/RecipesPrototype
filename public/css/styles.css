@@ -153,6 +153,7 @@ nav {
     /* position: absolute; */
     left: 0;
     padding-left: 0px;
+    padding-right: 0px;
     /* margin-left: -8px;     */
 }
 
@@ -166,6 +167,18 @@ nav {
     .recipe-container img {
         height: 275px;
         width: 350px;
+    }
+}
+
+@media (max-width: 991px) {
+    .recipe-container img {
+        height: 350px;
+    }
+}
+
+@media (max-width: 575px) {
+    .recipe-container img {
+        height: 225px;
     }
 }
 
@@ -222,14 +235,20 @@ nav {
 
 .nutrition-table > div {
     flex-basis: 50%;
-    padding-right: 15%!important;
 }
 
 @media (min-width: 1200px) {
-    .nutrition-table > div {
-        padding-right: 20%!important;
+    .nutrition-table div:nth-child(odd) {
+        padding-right: 5%!important;
     }
 }
+
+@media (max-width: 1199px) {
+    .nutrition-table > div {
+        flex-basis: 100%;
+    }
+}
+
 
 .fa-clipboard-list {
     cursor: pointer;
@@ -272,10 +291,6 @@ textarea#instructions {
     .w-maxlg-100 {
         width: 100% !important;
     }
-    .nutrition-table > div {
-        flex-basis: 100%;
-        /* padding-right: initial !important; */
-    }
 }
 
 #sidebar .list-group-item:not(.collapsed) {
@@ -310,6 +325,8 @@ textarea#instructions {
     font-family: roboto;
     font-size: 0.8em;
     padding-top: 5px;
+    padding-bottom: 3px;
+    padding-left: 8px;
 }
 
 .reference-error {
@@ -360,12 +377,6 @@ section.form-group, .form-section {
     padding: 4px;
 }
 
-@media (max-width: 450px) {
-    img.logo {
-        width: 120px;
-    }
-}
-
 .navbar-nav > li {
     font-family: 'Viga';
 }
@@ -410,9 +421,24 @@ section.form-group, .form-section {
     min-height: 225px;
 }
 
+@media (max-width: 767px) {
+    .page-header {
+        min-height: 195px;
+    }
+}
+
+@media (max-width: 450px) {
+    img.logo {
+        width: 120px;
+    }
+    .page-header {
+        min-height: 152px;
+    }
+}
+
 .page-background {
-    background-image: linear-gradient(to bottom, #efefef80, #efefef), url(/imgs/mariana-medvedeva-379662-unsplash.jpg);
-    min-height: 250px;
+    background: linear-gradient(to bottom, #efefef00, #efefef47, #efefefba, #efefef), linear-gradient(33deg, #efefef47, #00000017, #0000003b), url(/imgs/mnm-all-652563-unsplash.jpg);
+    min-height: 333px;
     width: 100%;
     position: absolute;
     z-index: -1;
@@ -429,20 +455,34 @@ section.form-group, .form-section {
     color: rgba(0,0,0,.75);
 }
 
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.75);
+    text-shadow: #000000da 0px 0px 8px;
+}
+
+.navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.navbar-dark .navbar-nav .active > .nav-link, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show > .nav-link {
+    color: rgba(255, 255, 255, 0.9);
+}
+
 .ajax-file-upload-error {
     text-align: center;
 }
 
 .fileuploader-container {
-    width: 400px;
+    padding-top: 15px;
+    /* width: 400px; */
 }
 
 body {
     background-color: #efefef;
 }
 
-#recipe-ingredients {
-    /* border: solid rgba(0, 0, 0, 0.25) 1px; */
+#recipe-ingredient-list {
+    border: solid rgba(0, 0, 0, 0.25) 1px;
     background: #ffffff40;
     height: max-content;
 }
@@ -483,7 +523,7 @@ body {
 }
 
 nav.navbar {
-    font-size: 1.2em;
+    font-size: 1.1em;
 }
 
 .collapser {
@@ -505,3 +545,26 @@ nav.navbar {
     padding-left: 15px;
     cursor: pointer;
 }
+
+.ajax-upload-dragdrop {
+    width: initial;
+    display: flex;
+    align-items: center;
+}
+
+.upload-section {
+    min-height: 150px;
+}
+
+span.img-text {
+    padding-bottom: 7px;
+}
+
+.fas.fa-filter {
+    text-shadow: #ffffff24 0px 0px 8px;
+}
+
+.navbar-dark .navbar-toggler {
+    color: rgba(255,255,255,1);
+    border-color: rgba(255,255,255,.67);
+  }
