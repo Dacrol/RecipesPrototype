@@ -33,13 +33,27 @@ class RecipesFilter {
   }
 
   renderAllRecipes() {
-    db.collection('Recipes')
-      .get()
-      .then(querySnapshot => {
-        Promise.all(querySnapshot.docs.map(doc => doc.data())).then(
-          this.renderRecipes
-        )
+    let collection = db.collection('Recipes')
+
+    collection.get().then(querySnapshot => {
+      Promise.all(querySnapshot.docs.map(doc => doc.data())).then(recipes => {
+        if (location.pathname.startsWith('/search/')) {
+          this.renderRecipes(
+            recipes.filter(recipe =>
+              recipe.dish
+                .toLowerCase()
+                .includes(
+                  location.pathname.substr(
+                    location.pathname.lastIndexOf('/') + 1
+                  )
+                )
+            )
+          )
+        } else {
+          this.renderRecipes(recipes)
+        }
       })
+    })
   }
 
   renderRecipes(recipes) {
@@ -49,19 +63,24 @@ class RecipesFilter {
         .append(`<div class="col-12 col-md-6 col-xl-4 mb-5"><a href="/recipe/${formatUrl(
         recipe.dish
       )}">
-  <div id="${recipe.dish}" class="card h-100 mb-4 shadow-sm">
-    <img class="card-img-top recipe-thumbnail" alt="${recipe.dish}" src="${
-        recipe.image
-      }">
-    <div class="card-body d-flex flex-column justify-content-between gradient-background">
+  <div id="${recipe.dish}" class="card h-100 mb-4 shadow-sm" >
+    <div class="card-body d-flex flex-column justify-content-end" style="background-image: linear-gradient(to bottom, #00000000, #00000000, #0000004f, #000000c2, #000000e0), url(${
+      recipe.image
+    });">
+      <div class="filler"></div>
+      <h5 class="card-text">${recipe.dish}</h5>
       <p class="card-text">${recipe.summary}</p>
       <div class="d-flex justify-content-between align-items-center">
-        <i class="far fa-clock fa-1point5"></i>
+        <i class="text-muted far fa-clock fa-1point5"></i>
         <small class="text-muted">${recipe.time}</small>
       </div>
     </div>
   </div>
   </div></a>`)
+      /* <img class="card-img-top recipe-thumbnail" alt="${recipe.dish}" src="${
+        recipe.image
+      }">    
+  */
     })
   }
 }

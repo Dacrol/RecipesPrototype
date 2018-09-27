@@ -297,18 +297,39 @@ textarea#instructions {
 }
 
 .btn-add-recipe {
-    width: 17%;
+    /* width: 17%; */
     cursor: pointer;
 }
 
-.added-ingredient {
-    list-style-type: circle;
+.img-text {
+    color: #000;
+}
+
+.adding-text {
+    font-family: roboto;
+    font-size: 0.8em;
+    padding-top: 5px;
+}
+
+.reference-error {
+    color: rgb(209, 0, 0);
+}
+
+.select-error {
+    color: rgb(2099, 0, 0);
+}
+
+.align-icon {
+    margin-top: 33px;
+    background-color: green;
 }
 
 section.form-group, .form-section {
-    padding: 5px;
+    padding: 15px;
     border: 1px solid #969696;
     border-radius: 10px;
+    background-color: rgba(160, 177, 222, 0.12);;
+    font-family: 'Roboto', sans-serif;
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -379,4 +400,84 @@ section.form-group, .form-section {
 
 #sidebar label {
     white-space: normal;
+}
+
+.page-header {
+    min-height: 225px;
+}
+
+.page-background {
+    background-image: linear-gradient(to bottom, #efefef80, #efefef), url(/imgs/mariana-medvedeva-379662-unsplash.jpg);
+    min-height: 250px;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: rgba(0,0,0,.65);
+}
+
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+    color: rgba(0,0,0,.75);
+}
+
+.ajax-file-upload-error {
+    text-align: center;
+}
+
+.fileuploader-container{
+    width: 400px;
+}
+
+body {
+    background-color: #efefef;
+}
+
+#recipe-ingredients {
+    border: solid rgba(0, 0, 0, 0.25) 1px;
+    background: #ffffff40;
+    height: max-content;
+}
+
+.ajax-upload-dragdrop {
+    color: initial;
+}
+
+#recipe-list .card {
+    min-height: 300px;
+    text-shadow: #000000da 0px 0px 8px;
+}
+
+#recipe-list .card {
+    color: white !important;
+    text-decoration: none;
+}
+
+#recipe-list a:hover {
+    text-decoration: none !important;
+}
+
+#recipe-list .card-body {
+    background-position: center;
+    background-size: cover;
+}
+
+.filler {
+    min-height: 125px;
+}
+
+#recipe-list .card .text-muted {
+    color: #f3f3f3!important;
+}
+
+[class^=btn-add-], .btn-add-ingredient-info, .btn-add-instruction, .btn-add-ingredient {
+    cursor: pointer;
+}
+
+nav.navbar {
+    font-size: 1.2em;
 }
