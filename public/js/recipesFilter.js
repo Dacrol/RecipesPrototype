@@ -197,7 +197,7 @@ $('#sidebar').on('shown.bs.collapse', function() {
   const collapsible = $('.sidebar-container').get(0)
   if (collapsible.offsetWidth - collapsible.clientWidth !== 17) {
     collapsible.style.width =
-      417 - (collapsible.offsetWidth - collapsible.clientWidth) + 'px'
+      350 - (collapsible.offsetWidth - collapsible.clientWidth) + 'px'
   }
 })
 

@@ -14,24 +14,24 @@
 }
 
 #sidebar.collapse.show {
-    width: 400px;
+    width: 333px;
 }
 
 #sidebar .sidebar-container {
     box-sizing: content-box;
     height: 100%;
-    width: 400px;
+    width: 333px;
     /* padding-right: 20px; */
 }
 
 #sidebar.collapse.show .sidebar-container {
     overflow-y: scroll;
     overflow-x: hidden;
-    width: 417px !important;
+    width: 350px !important;
 }
 
 #sidebar .list-group {
-    width: 400px;
+    width: 333px;
     background-color: #333333;
     min-height: 100vh;
     min-height: -webkit-fill-available;
@@ -498,4 +498,10 @@ nav.navbar {
 .collapser:hover {
     background-color: rgba(0, 0, 0, 0.08) !important;
 }
+
+.empty-filter {
+    position: absolute;
+    left: 0;
+    padding-left: 15px;
+    cursor: pointer;
 }
