@@ -46,6 +46,11 @@ class RecipesFilter {
             })
           })
         }
+        if (this.filterByIngredients.length > 0) {
+          filteredRecipes.sort(
+            (a, b) => a.ingredients.length - b.ingredients.length
+          )
+        }
         // console.log(filteredRecipes)
         this.renderRecipes(filteredRecipes)
       })
