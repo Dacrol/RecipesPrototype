@@ -180,7 +180,7 @@ function renderIngredients() {
         ingredient.name
         }" id="${ingredient.name}">${
         ingredient.unit === 'st'
-          ? Math.round(ingredientamount)
+          ? Math.ceil(ingredientamount)
           : ingredientamount
         } ${ingredient.unit} ${ingredient.name}</li>`
       )
@@ -234,7 +234,7 @@ $(document).on('click', '.shopping-list', function (e) {
           let ingredientamount =
             ingredient.amount / defaultSelectedNumberOfPortions
           ingredientamount = ingredientamount * selectedNumberOfPortions
-          ingredient.amount = Math.round(ingredientamount);
+          ingredient.amount = Math.ceil(ingredientamount);
           return ingredient
         })
       )
