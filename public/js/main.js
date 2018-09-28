@@ -35,6 +35,10 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 const googleAuthProvider = new firebase.auth.GoogleAuthProvider()
 
+googleAuthProvider.setCustomParameters({
+  prompt: 'select_account'
+})
+
 $('.login').click(function(e) {
   e.preventDefault()
   firebase.auth().signInWithPopup(googleAuthProvider)
