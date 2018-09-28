@@ -587,3 +587,39 @@ footer.footer {
     min-height: 65px;
     color: #656565;
 }
+
+.uncollapser {
+    z-index: 1;
+    width: 17px;
+    background-color: rgba(0, 0, 0, 0.08) !important;
+    height: 100%;
+    margin-top: 0;
+    /* margin-bottom: -99999px; */
+    /* padding-bottom: 99999px; */
+    overflow: hidden;
+    /* position: absolute; */
+    position: fixed;
+    /* border-radius: 50%; */
+    /* left: -10px; */
+    color: #cccccc !important;
+}
+
+.collapser i{
+    font-size: 1.5rem !important;
+    margin-top: 43vh;
+}
+
+.uncollapser i{
+    color: #4e4e4e !important;
+    font-size: 1.5rem !important;
+    margin-top: -3vh;
+}
+
+.uncollapser:hover{
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.16) !important;
+}
+
+.uncollapser:hover i {
+    /* color: #333333 !important; */
+}
