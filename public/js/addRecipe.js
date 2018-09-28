@@ -127,6 +127,9 @@ $(document).on('click keypress', '.btn-add-recipe', async function(e) {
       .set(newRecipeObj)
     console.log(newRecipeObj);
     emptyForm();
+    setTimeout(() => {
+      location.href = '/recipe/' + formatUrl(newRecipeObj.dish)
+    }, 750);
   });
 
 // Scrolla till fel
