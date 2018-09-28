@@ -46,7 +46,14 @@ $(document).on('click keypress', '.btn-add-recipe', async function(e) {
       return $(this).val();
     }).get();
 
-    let uploadedImage = await firebase.storage().ref().child('images/' + imageFile.name).put(imageFile)
+    try {
+      let uploadedImage = await firebase.storage().ref().child('images/' + imageFile.name).put(imageFile)
+    } catch (error) {
+      $('.pic-error').removeClass('d-none');
+      scrollToError('.fileuploader-container');
+      return;
+    }
+    
 
     newRecipeObj.tags = searchTags;
 
@@ -427,6 +434,7 @@ onSelect:function(files)
 {
     imageFile = files[0]
     console.log(files[0])
+    $('.pic-error').addClass('d-none');
     return true //to allow file submiss ion.
 },
   dragDropStr: "<span class='img-text'>Eller drag och släpp din bild här</span>",
@@ -441,7 +449,7 @@ onSelect:function(files)
   dragdropWidth: false,
   maxFileSize: 1.5 * 1024 * 1024,
   sizeErrorStr: "<span> kan ej laddas upp. Max tillåtna filstorlek är: </span>"
-	});
+  });
 });
 
 $('#add-unit').on('change', function(e) {
