@@ -217,8 +217,8 @@ $(document).on('click keypress', '.btn-add-ingredient', function (e) {
 
   ingredientNames.push($('.typeahead-ingredients').val().toLowerCase());
 
-  let amount = $('.add-volume').val();
-  let mass = $('.add-weight').val();
+  let amount = $('.add-volume').val().replace(/\,/g, '.');
+  let mass = $('.add-weight').val().replace(/\,/g, '.');
   let name = $('.typeahead-ingredients').val();
   let unit = $('#add-unit').val();
   let newIngredient = {amount:amount, mass:mass, name:name, unit:unit};
