@@ -1,23 +1,53 @@
 .wrapper {
     overflow-y: auto;
+    overflow-x: hidden;
+    min-height: 100vh;
 }
 
 #sidebar {
     overflow: hidden;
+    position: fixed;
     z-index: 3;
     /* height: 100%; */
     background-color: #333333;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+}
+
+#sidebar.collapse.show {
+    width: 333px;
+}
+
+#sidebar .sidebar-container {
+    box-sizing: content-box;
+    height: 100%;
+    width: 333px;
+    /* padding-right: 20px; */
+}
+
+#sidebar.collapse.show .sidebar-container {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 352px !important;
 }
 
 #sidebar .list-group {
-    min-width: 400px;
+    width: 333px;
     background-color: #333333;
     min-height: 100vh;
     min-height: -webkit-fill-available;
 }
 
+@media (max-width: 991px) {
+    #sidebar .list-group {
+        /* width: 300px; */
+    }
+}
+
 #sidebar i {
-    margin-right: 6px;
+    margin-right: 4px;
+    margin-left: 2px;
 }
 
 #sidebar .list-group-item {
@@ -30,9 +60,13 @@
     white-space: nowrap;
 }
 
+#sidebar a.list-group-item:hover {
+    filter: brightness(90%);
+}
+
 /* highlight active menu */
 #sidebar .list-group-item:not(.collapsed) {
-    background-color: #222222;
+    background-color: #282828;
 }
 
 /* closed state */
@@ -46,7 +80,7 @@
 
 /* open state */
 #sidebar .list-group .list-group-item[aria-expanded="true"] {
-    background-color: #222222;
+    background-color: #282828;
 }
 
 #sidebar .list-group .list-group-item[aria-expanded="true"]::after {
@@ -91,7 +125,7 @@
     height: 100%;
     -webkit-transition-timing-function: ease-out;
             transition-timing-function: ease-out;
-            /* transition-duration: 2500ms; */
+    /* transition-duration: 3500ms; */
 }
 
 nav {
@@ -118,33 +152,52 @@ nav {
     width: inherit !important;
 }
 .recipe-container {
-    position: absolute;
+    /* position: absolute; */
     left: 0;
     padding-left: 0px;
+    padding-right: 0px;
     /* margin-left: -8px;     */
 }
 
 .recipe-container img {
-  object-fit: cover;
-  height: 300px;
-  width: 300px;
+    object-fit: cover;
+    height: 300px;
+    width: 400px;
+}
+
+@media (max-width: 1301px) {
+    .recipe-container img {
+        height: 275px;
+        width: 350px;
+    }
+}
+
+@media (max-width: 991px) {
+    .recipe-container img {
+        height: 350px;
+    }
+}
+
+@media (max-width: 575px) {
+    .recipe-container img {
+        height: 225px;
+    }
 }
 
 .solid-background {
-    background-color: rgb(255, 219, 191);
+    background-color: #ffffff;
     /* padding: 0 15px; */
-    
 }
 
 .gradient-background {
     /* padding: 0 15px; */
     background-color: rgb(255, 243, 232);
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffdbbf+0,fff3e8+35 */
-background: #ffdbbf; /* Old browsers */
-background: -moz-linear-gradient(top, #ffdbbf 0%, #fff3e8 35%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top, #ffdbbf 0%,#fff3e8 35%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom, #ffdbbf 0%,#fff3e8 35%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffdbbf', endColorstr='#fff3e8',GradientType=0 ); /* IE6-9 */
+    background: #ffffff; /* Old browsers */
+    background:    -moz-linear-gradient(top, #ffffff 0%, #ffffff 35%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #ffffff 0%,#ffffff 35%); /* Chrome10-25,Safari5.1-6 */
+    background:         linear-gradient(to bottom, #ffffff 0%,#ffffff 35%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffdbbf', endColorstr='#fff3e8',GradientType=0 ); /* IE6-9 */
 }
 
 .instruction-title {
@@ -152,12 +205,18 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffdbbf', end
     font-size: 4em;
 }
 
+@media (max-width: 430px) {
+    .instruction-title {
+        font-size: 2.75em;
+    }
+}
+
 .instruction-summary {
     font-family: 'Roboto', sans-serif;
     font-style: italic;
 }
 
-.instruction-list>li {
+.instruction-list > li {
     max-width: 40em;
     margin-bottom: 1em;
     /* font-weight: bold; */
@@ -166,8 +225,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffdbbf', end
 }
 
 .instructions-icons {
+    display: inline-block;
     margin-right: 15px;
-    border: 2px solid #000;
+    border: 2px solid #000000;
     padding: 3px 15px;
     border-radius: 25px;
     margin-bottom: 10px;
@@ -181,10 +241,22 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffdbbf', end
     color: rgba(0, 0, 0, 0.2);
 }
 
-.nutrition-table>div {
+.nutrition-table > div {
     flex-basis: 50%;
-    padding-right: 25%!important;
 }
+
+@media (min-width: 1200px) {
+    .nutrition-table div:nth-child(odd) {
+        padding-right: 5%!important;
+    }
+}
+
+@media (max-width: 1199px) {
+    .nutrition-table > div {
+        flex-basis: 100%;
+    }
+}
+
 
 .fa-clipboard-list {
     cursor: pointer;
@@ -195,23 +267,24 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffdbbf', end
 }
 
 .text-bold {
-    font-weight: bold; 
+    font-weight: bold;
 }
 
 .ingredient-list {
     list-style-type: none;
 }
 
-.ingredient-list>li {
+.ingredient-list > li {
     margin-top: 0.6em;
 }
 
-.no-blue, .no-blue a {
+.no-blue, .no-blue * {
     text-decoration: none;
     color: initial !important;
 }
 
 .no-blue:hover, .no-blue a:hover {
+    text-decoration: none;
     color: #454545 !important;
 }
 
@@ -219,16 +292,12 @@ textarea#instructions {
     min-height: 333px;
 }
 
-@media (max-width: 993px) { 
+@media (max-width: 993px) {
     .instructions-icons {
         display: inline-block;
     }
     .w-maxlg-100 {
         width: 100% !important;
-    }
-    .nutrition-table>div {
-        flex-basis: 100%;
-        /* padding-right: initial !important; */
     }
 }
 
@@ -244,6 +313,7 @@ textarea#instructions {
 
 #sidebar .list-group .collapse .list-group-item, #sidebar .list-group .collapsing .list-group-item {
     padding-left: 20px;
+    width: 100%;
 }
 
 #sidebar .list-group .collapse > .collapse .list-group-item, #sidebar .list-group .collapse > .collapsing .list-group-item {
@@ -251,20 +321,305 @@ textarea#instructions {
 }
 
 .btn-add-recipe {
-    width: 17%;
+    /* width: 17%; */
     cursor: pointer;
 }
 
-.added-ingredient {
-    list-style-type: circle;
+.img-text {
+    color: #000000;
+}
+
+.adding-text {
+    font-family: roboto;
+    font-size: 0.8em;
+    padding-top: 5px;
+    padding-bottom: 3px;
+    padding-left: 8px;
+}
+
+.reference-error {
+    color: rgb(209, 0, 0);
+}
+
+.select-error {
+    color: rgb(2099, 0, 0);
+}
+
+.align-icon {
+    margin-top: 33px;
+    background-color: green;
+}
+
+section.form-group, .form-section {
+    padding: 15px;
+    border: 1px solid #969696;
+    border-radius: 10px;
+    background-color: rgb(230, 232, 237);
+    font-family: 'Roboto', sans-serif;
+}
+
+::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgb(63, 63, 63);
+    opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: rgb(63, 63, 63);
+}
+
+::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: rgb(63, 63, 63);
+}
+
+.bg-danger {
+    background-color: rgb(255, 116, 116)!important;
+}
+
+.fa-minus {
+    color: red;
+    border: 2px solid red;
+    border-radius: 100%;
+    padding: 4px;
+}
+
+.navbar-nav > li {
+    font-family: 'Viga';
+}
+
+#sidebar .list-group-item {
+    border-color: #2c2c2c;
+}
+
+.sidebar-spacer {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    /* background-color: #2c2c2c; */
+}
+
+.sidebar-header {
+    background-color: transparent !important;
+    font-size: 1.2rem;
+}
+
+#sidebar .sidebar-header:hover {
+    filter: none;
+}
+
+.dropdown-item {
+    background-color: initial;
+}
+
+.color-inherit, .color-inherit a {
+    color: inherit !important;
+}
+
+#sidebar .color-inherit:hover {
+    color: inherit !important;
+    filter: brightness(90%) !important;
+}
+
+#sidebar label {
+    white-space: normal;
+}
+
+.page-header {
+    min-height: 225px;
+}
+
+@media (max-width: 767px) {
+    .page-header {
+        min-height: 195px;
+    }
 }
 
 @media (max-width: 450px) {
     img.logo {
         width: 120px;
     }
+    .page-header {
+        min-height: 152px;
+    }
 }
 
-.navbar-nav>li {
-    font-family: 'Viga';
+.page-background {
+    background: linear-gradient(to bottom, #efefef00, #efefef33, #efefef63, #efefef), linear-gradient(40deg, #efefef80, #00000029, #00000069), url(/imgs/mnm-all-652563-unsplash.jpg);
+    min-height: 333px;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: rgba(0,0,0,.65);
+}
+
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+    color: rgba(0,0,0,.75);
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.75);
+    text-shadow: #000000da 0px 0px 8px;
+}
+
+.navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.navbar-dark .navbar-nav .active > .nav-link, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show > .nav-link {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.ajax-file-upload-error {
+    text-align: center;
+}
+
+.fileuploader-container {
+    padding-top: 15px;
+    /* width: 400px; */
+}
+
+body {
+    background-color: #efefef;
+}
+
+#recipe-ingredient-list {
+    border: solid rgba(0, 0, 0, 0.25) 1px;
+    background: #ffffff40;
+    height: max-content;
+}
+
+.ajax-upload-dragdrop {
+    color: initial;
+}
+
+#recipe-list .card {
+    min-height: 300px;
+    text-shadow: #000000da 0px 0px 8px;
+}
+
+#recipe-list .card {
+    color: white !important;
+    text-decoration: none;
+}
+
+#recipe-list a:hover {
+    text-decoration: none !important;
+}
+
+#recipe-list .card-body {
+    background-position: center;
+    background-size: cover;
+}
+
+.filler {
+    min-height: 125px;
+}
+
+#recipe-list .card .text-muted {
+    color: #f3f3f3!important;
+}
+
+[class^=btn-add-], .btn-add-ingredient-info, .btn-add-instruction, .btn-add-ingredient {
+    cursor: pointer;
+}
+
+nav.navbar {
+    font-size: 1.1em;
+}
+
+.collapser {
+    background-color: rgba(0, 0, 0, 0.04) !important;
+    height: 100%;
+    /* To make it grow: */
+    margin-bottom: -99999px;
+    padding-bottom: 99999px;
+    overflow: hidden;
+}
+
+.collapser:hover {
+    background-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+.empty-filter {
+    position: absolute;
+    left: 0;
+    padding-left: 15px;
+    cursor: pointer;
+}
+
+.ajax-upload-dragdrop {
+    width: initial;
+    display: flex;
+    align-items: center;
+}
+
+.upload-section {
+    min-height: 150px;
+}
+
+span.img-text {
+    padding-bottom: 7px;
+}
+
+.fas.fa-filter {
+    text-shadow: #ffffff24 0px 0px 8px;
+}
+
+.navbar-dark .navbar-toggler {
+    color: rgba(255,255,255,1);
+    border-color: rgba(255,255,255,.67);
+}
+
+.navbar-toggler:focus {
+    outline-color: #efefef;
+}
+
+footer.footer {
+    background: linear-gradient(to bottom, #efefef, #dadada3d, #dadada);
+    background-color: #e9e9e9;
+    min-height: 65px;
+    color: #656565;
+}
+
+.uncollapser {
+    z-index: 1;
+    width: 17px;
+    background-color: rgba(0, 0, 0, 0.08) !important;
+    height: 100%;
+    margin-top: 0;
+    /* margin-bottom: -99999px; */
+    /* padding-bottom: 99999px; */
+    overflow: hidden;
+    /* position: absolute; */
+    position: fixed;
+    /* border-radius: 50%; */
+    /* left: -10px; */
+    color: #cccccc !important;
+}
+
+.collapser i{
+    font-size: 1.5rem !important;
+    margin-top: 43vh;
+}
+
+.uncollapser i{
+    color: #4e4e4e !important;
+    font-size: 1.5rem !important;
+    margin-top: -8vh;
+}
+
+.uncollapser:hover{
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.16) !important;
+}
+
+.uncollapser:hover i {
+    /* color: #333333 !important; */
 }

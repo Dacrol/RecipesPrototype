@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+    crossorigin="anonymous">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Viga|Amiri|Khula|Signika" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Francois+One|Permanent+Marker|Black+Ops+One" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-typeahead/2.10.6/jquery.typeahead.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/styles.css">
+  <title>Recipes Search</title>
+  <link rel="icon" type="image/png" href="imgs/favicon.png" />
+</head>
+
+<body>
+
+  <div class="page-background"></div>
+  <div class="container-fluid px-0 mx-0 d-flex flex-column">
+
+    <div class="row d-flex flex-nowrap wrapper m-0 p-0">
+      <a href="#" data-target="#sidebar" data-toggle="collapse" class="uncollapser d-flex flex-column justify-content-center">
+          <i class="fas fa-chevron-right fa-1point5">
+            </i>
+      </a>
+      <aside class="pl-0 pr-0 collapse width flex-shrink-0 flex-grow-1" id="sidebar">
+        <div class="sidebar-container d-flex flex-row-reverse align-items-stretch">
+          <a href="#" data-target="#sidebar" data-toggle="collapse" aria-expanded="true" class="px-0 list-group-item sidebar-header text-center collapser">
+            <i class="fas fa-chevron-left fa-1point5">
+            </i>
+          </a>
+          <div class="list-group border-0 card text-center text-left">
+            <a href="/recipe" class="list-group-item d-inline-block collapsed"><span class="d-inline">Veckans recept</span></a>
+            <a href="/" class="list-group-item d-inline-block collapsed"><span class="d-inline">Populära recept</span></a>
+            <div class="sidebar-spacer"></div>
+            <div class="list-group-item sidebar-header">
+              <span class="empty-filter"><i class="far fa-trash-alt"></i><span class="sr-only">Empty filters</span></span>
+              <span>Filtrera recept</span>
+            </div>
+            <a href="#recipe-time" class="list-group-item d-inline-block collapsed" data-toggle="collapse"
+              aria-expanded="false"><span class="d-inline">Tidsåtgång</span></a>
+            <div class="collapse" id="recipe-time">
+
+              <div class="list-group-item" id="time-list">
+              </div>
+
+            </div>
+            <a href="#recipe-type" class="list-group-item d-inline-block collapsed multi-collapse" data-toggle="collapse"
+              aria-expanded="false"><span class="d-inline">Recepttyp</span></a>
+            <div class="collapse multi-collapse" id="recipe-type">
+
+              <div class="list-group-item" id="type-list">
+
+              </div>
+
+            </div>
+
+            <a href="#recipe-ingredients" class="list-group-item d-inline-block collapsed multi-collapse" data-toggle="collapse"
+              aria-expanded="false"><span class="d-inline">Ingredienser</span></a>
+            <div class="collapse multi-collapse" id="recipe-ingredients">
+
+              <div class="list-group-item" id="ingredients-list">
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+      </aside>
+      <div class="px-2 px-xl-5 mx-xl-2 pl-2 pt-2 flex-shrink-1 w-100">
+        <div class="container-fluid px-0 px-md-1">
+          <div class="page-header pb-2">
+            <div class="row">
+              <div class="float-left col-12">
+                <nav class="navbar navbar-expand-md navbar-dark">
+                  <a class="navbar-brand" href="/"><img class="logo" src="/imgs/logo.png" alt="food fighters logotype"></a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse text-right text-md-left" id="navbarNavDropdown">
+                    <ul class="navbar-nav ml-md-auto">
+                      {{{navbarContent}}}
+                    </ul>
+                    
+                  </div>
+                </nav>
+              </div>
+            </div>
+            <div class="d-flex row">
+
+              <div class="text-center flex-fill px-4 mt-2 mt-md-4 mb-3">
+                <div class="d-flex justify-content-center">
+                  <a href="#" data-target="#sidebar" data-toggle="collapse" class="no-blue d-flex align-items-center">
+                    <i class="fas fa-filter fa-2x mr-4 no-blue"></i>
+                  </a>
+                  <form class="form-inline mt-0 d-flex justify-content-stretch flex-fill flex-nowrap" id="form-search">
+                    <div class="form-row flex-nowrap w-100 d-flex align-items-center">
+                      <input class="form-control mr-2" type="text" placeholder="Vad är du sugen på?" aria-label="Sök">
+                      <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Sök</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          {{{body}}}
+        </div>
+      </div>
+    </div>
+    <footer class="text-center footer d-flex flex-column justify-content-end">
+      <div class="pb-2">&copy; 2018 Food Fighters</div>
+    </footer>
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-typeahead/2.10.6/jquery.typeahead.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.5.0/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyCTDcYADy8nNT5K5VbtYda3ija2JIf3JTQ",
+      authDomain: "food-fighters-europe.firebaseapp.com",
+      databaseURL: "https://food-fighters-europe.firebaseio.com",
+      projectId: "food-fighters-europe",
+      storageBucket: "",
+      messagingSenderId: "127003841487"
+    };
+    firebase.initializeApp(config);
+    firebase.firestore().settings({ timestampsInSnapshots: true });
+  </script>
+
+
+  <!-- applicaiton specific JavaScript -->
+  <script src="/js/main.js"></script>
+  <script src="/js/recipesFilter.js"></script>
+</body>
+
+</html>

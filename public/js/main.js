@@ -1,44 +1,62 @@
-$.getJSON('/json/recipies.json', function (data) {
-  data.forEach(recipe =>
-    $('#recipe-list').append(`<div class="col-12 col-md-6 col-lg-4 mb-5"><a href="recdetails.html">
-    <div id="${recipe.dish}" class="card h-100 mb-4 shadow-sm">
-      <img class="card-img-top recipe-thumbnail" alt="${recipe.dish}" src="${recipe.image}">
-      <div class="card-body d-flex flex-column justify-content-between">
-        <p class="card-text">${recipe.summary}</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <i class="far fa-clock fa-1point5"></i>
-          <small class="text-muted">${recipe.time}</small>
-        </div>
-      </div>
-    </div>
-  </div></a>`)
-  )
+const db = firebase.firestore()
+
+$.getJSON('/json/naringsinnehall.json', function(data) {
+  let livsmedel = data.map(item => {
+    return item['Livsmedelsnamn']
+  })
+  try {
+    // @ts-ignore
+    $.typeahead({
+      input: '.typeahead-ingredients',
+      order: 'desc',
+      source: livsmedel,
+      hint: true
+    })
+  } catch (e) {}
 })
 
-// for new.html
+$('#form-search').submit(function(e) {
+  e.preventDefault()
+  window.location.pathname = '/search/' + $('#form-search input').val()
+  return false
+})
 
-// Lägg till hela receptet
-$(document).on('click', '.btn-add-recipe', function(){
-  $('.add-success').toggleClass('d-none');
-});
-
-// Lägg till ny instruktion
-$(document).on('click', '.btn-add-instruction', function(){
-  if($('.add-instruction').val()){
-  $('.added-instructions').append(`
-    <li class="mt-1">${$('.add-instruction').val()}</li>
-  `);
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    $('.nav-item.login').hide()
+    $('.nav-item.logout').show()
+    $('.nav-item.add-recipe').show()
+  } else {
+    $('.nav-item.login').show()
+    $('.nav-item.logout').hide()
+    $('.nav-item.add-recipe').hide()
   }
-  $('.add-instruction').val('');
-});
+})
 
-$(document).on('click', '.btn-add-ingredient', function(){
-  
-  if(($('.add-ingredient').val()) && ($('.add-volume').val())){
-  $('.added-ingredient').append(`
-    <li class="mt-1">${$('.add-ingredient').val()} ${$('.add-volume').val()}</li>
-  `);
-  $('.add-ingredient, .add-volume').val('');
-  }
-});
+const googleAuthProvider = new firebase.auth.GoogleAuthProvider()
 
+googleAuthProvider.setCustomParameters({
+  prompt: 'select_account'
+})
+
+$('.login').click(function(e) {
+  e.preventDefault()
+  firebase.auth().signInWithPopup(googleAuthProvider)
+})
+
+$('.logout').click(function(e) {
+  e.preventDefault()
+  firebase.auth().signOut()
+})
+
+function formatUrl(url) {
+  return url
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[\s\W-]+/g, '')
+    .replace(/((%C3%B6)|(%C3%A4)|(%C3%A5))/g, '')
+    .replace(/&/g, '-')
+    .replace(/\//g, '')
+    .trim()
+}
