@@ -122,7 +122,7 @@ $(document).on('click keypress', '.btn-add-recipe', async function(e) {
         newRecipeObj.secondPortionSize = selectedPortionSize;
       }
     }
-    db.collection('Recipes')
+    await db.collection('Recipes')
       .doc(formatUrl(newRecipeObj.dish))
       .set(newRecipeObj)
     console.log(newRecipeObj);
