@@ -200,7 +200,7 @@ $('#type-list').on('change', '.form-check-input', function(e) {
 // Make sure scrollbar is hidden even if it's not 17px wide
 $('#sidebar').on('shown.bs.collapse', function() {
   const collapsible = $('.sidebar-container').get(0)
-  if (collapsible.offsetWidth - collapsible.clientWidth !== 17) {
+  if (collapsible.offsetWidth - collapsible.clientWidth !== 19) {
     let newWidth =
       350 - (collapsible.offsetWidth - collapsible.clientWidth) + 'px'
     $(collapsible)
