@@ -35,6 +35,7 @@ $(document).on('click keypress', '.btn-add-recipe', async function(e) {
       $('#title').val('');
       $('#title').attr('placeholder', 'Fyll i minst 2 bokstäver');
       $('#title').addClass('bg-danger');
+      scrollToError($('#title'));
       return;
     }
     else {
@@ -69,6 +70,7 @@ $(document).on('click keypress', '.btn-add-recipe', async function(e) {
       $('#summary').val('');
       $('#summary').attr('placeholder', 'Fyll i minst 2 bokstäver');
       $('#summary').addClass('bg-danger');
+      scrollToError($('#summary'));
       return;
     }
     else {
@@ -84,6 +86,7 @@ $(document).on('click keypress', '.btn-add-recipe', async function(e) {
       $('#instruction').addClass('darkFont');
       $('#instruction').attr('placeholder', 'Fyll i minst 1 instruktion');
       $('#instruction').addClass('bg-danger');
+      scrollToError($('#instruction'));
       return;
     }
 
@@ -117,6 +120,13 @@ $(document).on('click keypress', '.btn-add-recipe', async function(e) {
     console.log(newRecipeObj);
     emptyForm();
   });
+
+// Scrolla till fel
+function scrollToError (sel) {
+    $([document.documentElement, document.body]).animate({
+        scrollTop: $(sel).offset().top
+    }, 1000);
+}
 
 // Töm formulär
 function emptyForm() {
@@ -189,7 +199,6 @@ $(document).on('click keypress', '.btn-add-ingredient', function (e) {
     e.preventDefault;
     formCheck();
   }
-  // keycode släpper igenom en tom unitselektion?
   if(!formCheck()){
     return;
   }
@@ -221,6 +230,8 @@ function formCheck(){
     $('.typeahead-ingredients').val('');
     $('.typeahead-ingredients').attr('placeholder', 'Fyll i minst 2 bokstäver');
     $('.typeahead-ingredients').addClass('bg-danger');
+    scrollToError($('.typeahead-ingredients'))
+    console.log('träff');
     return false;
   }
 
