@@ -438,7 +438,9 @@ onSelect:function(files)
       $("[id^=ajax-upload-id]").prop('tabindex', '1')
     }, 1000);
   },
-  dragdropWidth: false
+  dragdropWidth: false,
+  maxFileSize: 1.5 * 1024 * 1024,
+  sizeErrorStr: "<span> kan ej laddas upp. Max tillåtna filstorlek är: </span>"
 	});
 });
 

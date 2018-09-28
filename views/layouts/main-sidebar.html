@@ -26,7 +26,7 @@
 <body>
 
   <div class="page-background"></div>
-  <div class="container-fluid pl-0 ml-0 d-flex flex-column">
+  <div class="container-fluid px-0 mx-0 d-flex flex-column">
 
     <div class="row d-flex flex-nowrap wrapper m-0 p-0">
       <aside class="pl-0 pr-0 collapse width flex-shrink-0 flex-grow-1" id="sidebar">
@@ -97,7 +97,9 @@
 
               <div class="text-center flex-fill px-4 mt-2 mt-md-4 mb-3">
                 <div class="d-flex justify-content-center">
-                  <a href="#" data-target="#sidebar" data-toggle="collapse"><i class="fas fa-filter fa-2x py-2 p-1 mr-4 no-blue"></i></a>
+                  <a href="#" data-target="#sidebar" data-toggle="collapse" class="no-blue d-flex align-items-center">
+                    <i class="fas fa-filter fa-2x mr-4 no-blue"></i>
+                  </a>
                   <form class="form-inline mt-0 d-flex justify-content-stretch flex-fill flex-nowrap" id="form-search">
                     <div class="form-row flex-nowrap w-100 d-flex align-items-center">
                       <input class="form-control mr-2" type="text" placeholder="Vad är du sugen på?" aria-label="Sök">
@@ -112,6 +114,9 @@
         </div>
       </div>
     </div>
+    <footer class="text-center footer d-flex flex-column justify-content-end">
+      <div class="pb-2">&copy; 2018 Food Fighters</div>
+    </footer>
   </div>
 
   <!-- Optional JavaScript -->
