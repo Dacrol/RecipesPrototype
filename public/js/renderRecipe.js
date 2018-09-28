@@ -170,7 +170,7 @@ function renderIngredients() {
       newelement = $(
         `<li><input class="form-check-input" type="checkbox" value="${
         ingredient.name
-        }" id="${ingredient.name}">${ingredient.name}</li>`
+        }" id="${ingredient.name}"><label for="${ingredient.name}">${ingredient.name}</label></li>`
       )
       newelement.children('input').data('ingredient', ingredient)
       html.append(newelement)
@@ -178,11 +178,11 @@ function renderIngredients() {
       newelement = $(
         `<li><input class="form-check-input" type="checkbox" value="${
         ingredient.name
-        }" id="${ingredient.name}">${
+        }" id="${ingredient.name}"><label for="${ingredient.name}">${
         ingredient.unit === 'st'
           ? Math.ceil(ingredientamount)
           : ingredientamount
-        } ${ingredient.unit} ${ingredient.name}</li>`
+        } ${ingredient.unit} ${ingredient.name}</label></li>`
       )
 
       newelement.children('input').data('ingredient', ingredient)
