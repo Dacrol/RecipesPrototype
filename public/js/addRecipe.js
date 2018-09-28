@@ -46,8 +46,9 @@ $(document).on('click keypress', '.btn-add-recipe', async function(e) {
       return $(this).val();
     }).get();
 
+    let uploadedImage;
     try {
-      let uploadedImage = await firebase.storage().ref().child('images/' + imageFile.name).put(imageFile)
+      uploadedImage = await firebase.storage().ref().child('images/' + imageFile.name).put(imageFile)
     } catch (error) {
       $('.pic-error').removeClass('d-none');
       scrollToError('.fileuploader-container');
